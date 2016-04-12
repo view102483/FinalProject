@@ -14,5 +14,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/detail"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="30dp"
+        android:id="@+id/imageView6" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="上傳"
+        android:id="@+id/button23"
+        android:layout_below="@+id/imageView6"
+        android:layout_centerHorizontal="true"
+        android:onClick="btnShootPhotoPost" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="第二種狀況＿沒有資料"
+        android:id="@+id/button24"
+        android:layout_below="@+id/button23"
+        android:layout_centerHorizontal="true"
+        android:onClick="btnSecondSol" />
 </RelativeLayout>

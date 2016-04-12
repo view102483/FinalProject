@@ -40,7 +40,13 @@
             android:label="評分"></activity>
 
         <activity android:name=".ShootPhotoActivity"
-            android:label="搜尋資訊"></activity>
+            android:label="搜尋餐點"></activity>
+
+        <activity android:name=".ShootPhotoFoodInfActivity"
+            android:label="餐點資訊"></activity>
+
+        <activity android:name=".ShootInsertDataActivity"
+            android:label="協助建檔"></activity>
     </application>
 
 </manifest>

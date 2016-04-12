@@ -79,6 +79,6 @@
         android:text="搜尋"
         android:id="@+id/button5"
         android:layout_gravity="center_horizontal"
-        android:onClick="btnShootPhoto" />
+        android:onClick="btnShootSearch" />
 
 </LinearLayout>

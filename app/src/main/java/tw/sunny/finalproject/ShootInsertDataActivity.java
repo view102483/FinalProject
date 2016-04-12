@@ -9,15 +9,15 @@ import android.view.View;
 /**
  * Created by lixinting on 2016/4/12.
  */
-public class ShootRating extends AppCompatActivity {
+public class ShootInsertDataActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.shoot_photo_post_rating);
+        setContentView(R.layout.shoot_photo_insertdata);
     }
-    public void btnHome(View view){
+    public void btnShootPhotoPostInInsert(View view){
         Intent intent = new Intent();
-        intent.setClass(this, MainActivity.class);
+        intent.setClass(this, ShootPostActivity.class);
         startActivity(intent);
         finish();
     }
