@@ -44,6 +44,7 @@
         android:layout_height="wrap_content"
         android:text="拍照"
         android:id="@+id/button14"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:onClick="btnShootPhoto" />
 
 </LinearLayout>

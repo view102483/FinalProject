@@ -28,12 +28,19 @@
             android:label="主畫面"></activity>
 
         <activity android:name=".ShootActivity"
-            android:label="拍照主畫面"></activity>
+            android:label="拍照上傳"></activity>
 
         <activity android:name=".ShootCodeActivity"
-            android:label="拍照資訊"></activity>
+            android:label="Barcode or QRcode資訊"></activity>
 
+        <activity android:name=".ShootPostActivity"
+            android:label="拍照上傳"></activity>
 
+        <activity android:name=".ShootRating"
+            android:label="評分"></activity>
+
+        <activity android:name=".ShootPhotoActivity"
+            android:label="搜尋資訊"></activity>
     </application>
 
 </manifest>

@@ -20,4 +20,9 @@ public class ShootActivity extends AppCompatActivity{
         intent.setClass(this, ShootCodeActivity.class);
         startActivity(intent);
     }
+    public void btnShootPhoto(View view){
+        Intent intent = new Intent();
+        intent.setClass(this, ShootPhotoActivity.class);
+        startActivity(intent);
+    }
 }

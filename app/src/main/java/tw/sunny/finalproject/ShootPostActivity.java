@@ -9,15 +9,15 @@ import android.view.View;
 /**
  * Created by lixinting on 2016/4/12.
  */
-public class ShootCodeActivity extends AppCompatActivity {
+public class ShootPostActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.shoot_code_infor);
+        setContentView(R.layout.shoot_post);
     }
-    public void btnShootInfoNext(View view){
+    public void btnShootPhotoPost(View view){
         Intent intent = new Intent();
-        intent.setClass(this, ShootPostActivity.class);
+        intent.setClass(this, ShootRating.class);
         startActivity(intent);
     }
 }

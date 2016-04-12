@@ -97,6 +97,7 @@
         android:layout_height="wrap_content"
         android:text="發佈"
         android:id="@+id/button17"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:onClick="btnShootPhotoPost" />
 
 </LinearLayout>
