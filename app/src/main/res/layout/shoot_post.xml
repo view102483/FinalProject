@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="164dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView5"
+            android:src="@drawable/post"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="描述："
+            android:id="@+id/textView27"
+            android:layout_above="@+id/imageView5"
+            android:layout_toEndOf="@+id/imageView5" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:id="@+id/editText13"
+            android:layout_below="@+id/textView27"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/imageView5"
+            android:text="（敘述食物、餐點之類的）" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="定位："
+        android:id="@+id/textView28"
+        android:layout_marginRight="30dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPostalAddress"
+        android:ems="10"
+        android:id="@+id/editText14"
+        android:text="餐廳" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="分享至"
+        android:id="@+id/textView29" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.67"
+        android:weightSum="1">
+
+        <ImageButton
+            android:layout_width="113dp"
+            android:layout_height="111dp"
+            android:id="@+id/imageButton"
+            android:src="@drawable/icon_fb"
+            android:layout_gravity="center_vertical" />
+
+        <ImageButton
+            android:layout_width="113dp"
+            android:layout_height="111dp"
+            android:id="@+id/imageButton2"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/twitter_icon2" />
+
+        <ImageButton
+            android:layout_width="113dp"
+            android:layout_height="111dp"
+            android:id="@+id/imageButton3"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/icon_ig" />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="發佈"
+        android:id="@+id/button17"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>

@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/activity_vertical_margin"
+    android:layout_marginBottom="@dimen/activity_vertical_margin"
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/register_row_margin_top">
+                <TextView
+                    android:layout_width="@dimen/register_title_width"
+                    android:layout_height="wrap_content"
+                    android:text="帳號: "
+                    android:textSize="@dimen/register_title_size"
+                    android:textAlignment="textEnd"/>
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="12"
+                    android:inputType="textPersonName"
+                    android:id="@+id/editAccount"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/register_row_margin_top">
+                <TextView
+                    android:layout_width="@dimen/register_title_width"
+                    android:layout_height="wrap_content"
+                    android:text="密碼: "
+                    android:textSize="@dimen/register_title_size"
+                    android:textAlignment="textEnd"/>
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="12"
+                    android:inputType="textPassword"
+                    android:id="@+id/editPassword"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/register_row_margin_top">
+                <TextView
+                    android:layout_width="@dimen/register_title_width"
+                    android:layout_height="wrap_content"
+                    android:text="確認密碼: "
+                    android:textSize="@dimen/register_title_size"
+                    android:textAlignment="textEnd"/>
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="12"
+                    android:inputType="textPassword"
+                    android:id="@+id/editConfirmPassword"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/register_row_margin_top">
+                <TextView
+                    android:layout_width="@dimen/register_title_width"
+                    android:layout_height="wrap_content"
+                    android:text="姓名: "
+                    android:textSize="@dimen/register_title_size"
+                    android:textAlignment="textEnd"/>
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="12"
+                    android:inputType="textPersonName"
+                    android:id="@+id/editName"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/register_row_margin_top">
+                <TextView
+                    android:layout_width="@dimen/register_title_width"
+                    android:layout_height="wrap_content"
+                    android:text="生日: "
+                    android:textSize="@dimen/register_title_size"
+                    android:textAlignment="textEnd"/>
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:hint="(請選擇生日)"
+                    android:id="@+id/editBirthDate"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="選擇"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/register_row_margin_top">
+                <TextView
+                    android:layout_width="@dimen/register_title_width"
+                    android:layout_height="wrap_content"
+                    android:text="身高(m): "
+                    android:textSize="@dimen/register_title_size"
+                    android:textAlignment="textEnd"/>
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="12"
+                    android:inputType="textPersonName"
+                    android:id="@+id/editHeight"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/register_row_margin_top">
+                <TextView
+                    android:layout_width="@dimen/register_title_width"
+                    android:layout_height="wrap_content"
+                    android:text="體重(kg): "
+                    android:textSize="@dimen/register_title_size"
+                    android:textAlignment="textEnd"/>
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="12"
+                    android:inputType="textPersonName"
+                    android:id="@+id/editWeight"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/register_row_margin_top">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="客製化選項(可填可不填): "
+                    android:textSize="@dimen/register_title_size"
+                    android:textAlignment="textEnd"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/register_row_margin_top">
+                <TextView
+                    android:layout_width="@dimen/register_title_width"
+                    android:layout_height="wrap_content"
+                    android:text="疾病: "
+                    android:textSize="@dimen/register_title_size"
+                    android:textAlignment="textEnd"/>
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="糖尿病"
+                    android:id="@+id/checkbox_Dm"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/register_row_margin_top">
+                <TextView
+                    android:layout_width="@dimen/register_title_width"
+                    android:layout_height="wrap_content"
+                    android:text="特別控制: "
+                    android:textSize="@dimen/register_title_size"
+                    android:textAlignment="textEnd"/>
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="熱量（卡路里）"
+                    android:id="@+id/checkBox_cal"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true" />
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="12"
+                    android:inputType="text|number"
+                    android:id="@+id/editCal"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/register_row_margin_top">
+                <TextView
+                    android:layout_width="@dimen/register_title_width"
+                    android:layout_height="wrap_content"
+                    android:text=" "
+                    android:textSize="@dimen/register_title_size"
+                    android:textAlignment="textEnd"/>
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="糖（g）"
+                    android:id="@+id/checkBox_sugar"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true" />
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="12"
+                    android:inputType="text|number"
+                    android:id="@+id/editSugar"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/register_row_margin_top">
+                <TextView
+                    android:layout_width="@dimen/register_title_width"
+                    android:layout_height="wrap_content"
+                    android:text=" "
+                    android:textSize="@dimen/register_title_size"
+                    android:textAlignment="textEnd"/>
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="鈉（mg）"
+                    android:id="@+id/checkBox_Nacl"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true" />
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="12"
+                    android:inputType="text|number"
+                    android:id="@+id/editNacl"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/register_row_margin_top">
+                <TextView
+                    android:layout_width="@dimen/register_title_width"
+                    android:layout_height="wrap_content"
+                    android:text=" "
+                    android:textSize="@dimen/register_title_size"
+                    android:textAlignment="textEnd"/>
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="蛋白質（g）"
+                    android:id="@+id/checkBox_protein"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true" />
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="12"
+                    android:inputType="text|number"
+                    android:id="@+id/editProtein" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/register_row_margin_top">
+                <TextView
+                    android:layout_width="@dimen/register_title_width"
+                    android:layout_height="wrap_content"
+                    android:text=" "
+                    android:textSize="@dimen/register_title_size"
+                    android:textAlignment="textEnd"/>
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="脂肪/飽和脂肪（g）"
+                    android:id="@+id/checkBox_fat"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true" />
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="12"
+                    android:inputType="text|number"
+                    android:id="@+id/editFat" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/register_row_margin_top">
+                <TextView
+                    android:layout_width="@dimen/register_title_width"
+                    android:layout_height="wrap_content"
+                    android:text=" "
+                    android:textSize="@dimen/register_title_size"
+                    android:textAlignment="textEnd"/>
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="碳水化合物（g）"
+                    android:id="@+id/checkBox_CO"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true" />
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="12"
+                    android:inputType="text|number"
+                    android:id="@+id/editCO" />
+            </LinearLayout>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="註冊"/>
+            <TextView
+                android:layout_width="@dimen/register_title_width"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text=" "
+                android:textSize="@dimen/register_title_size"
+                />
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</RelativeLayout>

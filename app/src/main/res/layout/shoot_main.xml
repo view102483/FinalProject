@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="拍照上傳"
+        android:id="@+id/textView20"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp" />
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:id="@+id/imageView3"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/page_banner"
+        android:layout_weight="0.18"
+        android:layout_marginTop="30dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="拍QRcode 或 Barcode"
+        android:id="@+id/button13"
+        android:layout_gravity="center_horizontal"
+        android:onClick="btnShootCode" />
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:id="@+id/imageView4"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/images"
+        android:layout_marginTop="40dp"
+        android:layout_weight="0.18" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="拍照"
+        android:id="@+id/button14"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>
