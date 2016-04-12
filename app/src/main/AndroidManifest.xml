@@ -47,6 +47,15 @@
 
         <activity android:name=".ShootInsertDataActivity"
             android:label="協助建檔"></activity>
+
+        <activity android:name=".SettingMainActivity"
+            android:label="設定"></activity>
+
+        <activity android:name=".SearchingActivity"
+            android:label="搜尋"></activity>
+
+        <activity android:name=".SearchingPhotoActivity"
+            android:label="照片"></activity>
     </application>
 
 </manifest>

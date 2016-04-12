@@ -20,5 +20,15 @@ public class MainActivity extends AppCompatActivity {
         intent.setClass(MainActivity.this, ShootActivity.class);
         startActivity(intent);
     }
+    public void btnSetting(View view){
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this, SettingMainActivity.class);
+        startActivity(intent);
+    }
+    public void btnSearching(View view){
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this, SearchingActivity.class);
+        startActivity(intent);
+    }
 
 }

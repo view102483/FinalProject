@@ -45,7 +45,8 @@
         android:text="搜尋"
         android:id="@+id/button10"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="15dp" />
+        android:layout_marginTop="15dp"
+        android:onClick="btnSearching" />
 
     <Button
         android:layout_width="wrap_content"
@@ -53,7 +54,8 @@
         android:text="設定"
         android:id="@+id/button11"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="15dp" />
+        android:layout_marginTop="15dp"
+        android:onClick="btnSetting" />
 
     <Button
         android:layout_width="wrap_content"
