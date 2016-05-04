@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -18,9 +19,9 @@ public class LocationRestaurantActivity extends AppCompatActivity {
         setContentView(R.layout.location_gps_common);
 
         ((ListView)findViewById(R.id.listView)).setAdapter(new ArrayAdapter<String>(this, R.layout.listitem_location_gps_restaurant, R.id.title, new String[] {"餐廳A","餐廳B","餐廳C"}));
-        findViewById(R.id.listView).setOnClickListener(new View.OnClickListener() {
+        ((ListView)findViewById(R.id.listView)).setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 startActivity(new Intent(LocationRestaurantActivity.this, LocationCommonActivity.class));
             }
         });

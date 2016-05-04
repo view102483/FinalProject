@@ -30,5 +30,10 @@ public class MainActivity extends AppCompatActivity {
         intent.setClass(MainActivity.this, SearchingActivity.class);
         startActivity(intent);
     }
+    public void btnLocation(View view){
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this, LocationMainActivity.class);
+        startActivity(intent);
+    }
 
 }

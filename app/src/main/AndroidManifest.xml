@@ -56,6 +56,24 @@
 
         <activity android:name=".SearchingPhotoActivity"
             android:label="照片"></activity>
+
+        <activity android:name=".LocationMainActivity"
+            android:label="定點規劃"></activity>
+
+        <activity android:name=".LocationCommonActivity"
+            android:label="餐廳評論"></activity>
+
+        <activity android:name=".LocationQueryActivity"
+            android:label="選擇地點規劃"></activity>
+
+        <activity android:name=".LocationRestaurantActivity"
+            android:label="附近推薦餐廳列表"></activity>
+
+        <activity android:name=".LocationSuggestActivity"
+            android:label="推薦餐廳列表"></activity>
+
     </application>
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
 
 </manifest>
