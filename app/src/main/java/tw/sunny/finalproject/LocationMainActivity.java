@@ -17,7 +17,7 @@ public class LocationMainActivity extends AppCompatActivity{
     }
 
     public void btnGpsPlan(View v) {
-        startActivity(new Intent(this, LocationRestaurantActivity.class));
+        startActivity(new Intent(this, MapsMainActivity.class));
     }
 
 

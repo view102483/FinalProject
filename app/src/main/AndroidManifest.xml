@@ -2,78 +2,104 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="tw.sunny.finalproject">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality. 
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StartActivity"
+        <activity
+            android:name=".StartActivity"
             android:label="畢專一路發">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity"
-            android:label="@string/text_login"></activity>
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/text_login" />
+        <activity
+            android:name=".ForgetPasswordActivity"
+            android:label="忘記密碼" />
+        <activity
+            android:name=".RegisterActivity"
+            android:label="註冊" />
+        <activity
+            android:name=".MainActivity"
+            android:label="主畫面" />
+        <activity
+            android:name=".ShootActivity"
+            android:label="拍照上傳" />
+        <activity
+            android:name=".ShootCodeActivity"
+            android:label="Barcode or QRcode資訊" />
+        <activity
+            android:name=".ShootPostActivity"
+            android:label="拍照上傳" />
+        <activity
+            android:name=".ShootRating"
+            android:label="評分" />
+        <activity
+            android:name=".ShootPhotoActivity"
+            android:label="搜尋餐點" />
+        <activity
+            android:name=".ShootPhotoFoodInfActivity"
+            android:label="餐點資訊" />
+        <activity
+            android:name=".ShootInsertDataActivity"
+            android:label="協助建檔" />
+        <activity
+            android:name=".SettingMainActivity"
+            android:label="設定" />
+        <activity
+            android:name=".SearchingActivity"
+            android:label="搜尋" />
+        <activity
+            android:name=".SearchingPhotoActivity"
+            android:label="照片" />
+        <activity
+            android:name=".LocationMainActivity"
+            android:label="定點規劃" />
+        <activity
+            android:name=".LocationCommonActivity"
+            android:label="餐廳評論" />
+        <activity
+            android:name=".LocationQueryActivity"
+            android:label="選擇地點規劃" />
+        <activity
+            android:name=".LocationRestaurantActivity"
+            android:label="附近推薦餐廳列表" />
+        <activity
+            android:name=".LocationSuggestActivity"
+            android:label="推薦餐廳列表" />
 
-        <activity android:name=".ForgetPasswordActivity"
-            android:label="忘記密碼"></activity>
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
 
-        <activity android:name=".RegisterActivity"
-            android:label="註冊"></activity>
-
-        <activity android:name=".MainActivity"
-            android:label="主畫面"></activity>
-
-        <activity android:name=".ShootActivity"
-            android:label="拍照上傳"></activity>
-
-        <activity android:name=".ShootCodeActivity"
-            android:label="Barcode or QRcode資訊"></activity>
-
-        <activity android:name=".ShootPostActivity"
-            android:label="拍照上傳"></activity>
-
-        <activity android:name=".ShootRating"
-            android:label="評分"></activity>
-
-        <activity android:name=".ShootPhotoActivity"
-            android:label="搜尋餐點"></activity>
-
-        <activity android:name=".ShootPhotoFoodInfActivity"
-            android:label="餐點資訊"></activity>
-
-        <activity android:name=".ShootInsertDataActivity"
-            android:label="協助建檔"></activity>
-
-        <activity android:name=".SettingMainActivity"
-            android:label="設定"></activity>
-
-        <activity android:name=".SearchingActivity"
-            android:label="搜尋"></activity>
-
-        <activity android:name=".SearchingPhotoActivity"
-            android:label="照片"></activity>
-
-        <activity android:name=".LocationMainActivity"
-            android:label="定點規劃"></activity>
-
-        <activity android:name=".LocationCommonActivity"
-            android:label="餐廳評論"></activity>
-
-        <activity android:name=".LocationQueryActivity"
-            android:label="選擇地點規劃"></activity>
-
-        <activity android:name=".LocationRestaurantActivity"
-            android:label="附近推薦餐廳列表"></activity>
-
-        <activity android:name=".LocationSuggestActivity"
-            android:label="推薦餐廳列表"></activity>
-
+        <activity
+            android:name=".MapsMainActivity"
+            android:label="@string/title_activity_maps_main"></activity>
     </application>
-
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
 
 </manifest>
