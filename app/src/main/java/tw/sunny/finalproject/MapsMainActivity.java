@@ -3,6 +3,7 @@ package tw.sunny.finalproject;
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
@@ -29,7 +30,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsMainActivity extends FragmentActivity implements OnMapReadyCallback, LocationListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
-
+    private static final String TAG = "Nagi";
     private GoogleMap mMap;
     private Location currentLocation;
     private Marker currentMarker;
@@ -47,20 +48,24 @@ public class MapsMainActivity extends FragmentActivity implements OnMapReadyCall
 
         // 使用動畫的效果移動地圖
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps_main);
+
+        mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        configGoogleApiClient();
+        configLocationRequest();
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        configGoogleApiClient();
-        configLocationRequest();
+
     }
 
     private void configLocationRequest() {
@@ -76,31 +81,44 @@ public class MapsMainActivity extends FragmentActivity implements OnMapReadyCall
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            Log.e(TAG, "No Permission!!");
+            return;
+        }
+        mMap.setMyLocationEnabled(true);
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+//        LatLng sydney = new LatLng(-34, 151);
+//        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LocationManager locationManager = (LocationManager)
+                getSystemService(Context.LOCATION_SERVICE);
+        Criteria criteria = new Criteria();
+
+        Location location = locationManager.getLastKnownLocation(locationManager
+                .getBestProvider(criteria, false));
+
+        onLocationChanged(location);
     }
 
     @Override
     public void onLocationChanged(Location location) {
         // 位置改變
         // Location參數是目前的位置
-        Log.d("MapMain", "onLocationChanged!");
+        Log.d(TAG,  "onLocationChanged!");
         currentLocation = location;
         LatLng latLng = new LatLng(
                 location.getLatitude(), location.getLongitude());
-        Log.i("Nagi", "lat=" + location.getLatitude() + ", lng=" + location.getLongitude());
+        Log.i(TAG, "lat=" + location.getLatitude() + ", lng=" + location.getLongitude());
         // 設定目前位置的標記
 
         if (currentMarker == null) {
-            currentMarker = mMap.addMarker(new MarkerOptions().position(latLng));
+            currentMarker = mMap.addMarker(new MarkerOptions().position(latLng).title("我在這!"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         } else {
             currentMarker.setPosition(latLng);
         }
 
-        // 移動地圖到目前的位置
         moveMap(latLng);
     }
 
@@ -146,9 +164,9 @@ public class MapsMainActivity extends FragmentActivity implements OnMapReadyCall
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
-        Log.d("Nagi"," onConnect");
+        Log.d(TAG," onConnect");
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            Log.e("Nagi", "No Permission");
+            Log.e(TAG, "No Permission");
             return;
         }
         LocationServices.FusedLocationApi.requestLocationUpdates(
@@ -163,7 +181,7 @@ public class MapsMainActivity extends FragmentActivity implements OnMapReadyCall
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
         int errorCode = connectionResult.getErrorCode();
-        Log.e("Nagi", "ErrorConnect: " + connectionResult.getErrorMessage());
+        Log.e(TAG, "ErrorConnect: " + connectionResult.getErrorMessage());
         // 裝置沒有安裝Google Play服務
         if (errorCode == ConnectionResult.SERVICE_MISSING) {
             Toast.makeText(this, "No Play Service",
