@@ -38,6 +38,7 @@ public class MapsMainActivity extends FragmentActivity implements OnMapReadyCall
     private GoogleApiClient googleApiClient;
     private LocationRequest locationRequest;
 
+
     private void moveMap(LatLng place) {
         // 建立地圖攝影機的位置物件
         CameraPosition cameraPosition =
