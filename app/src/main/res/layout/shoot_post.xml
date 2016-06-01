@@ -75,7 +75,8 @@
             android:layout_height="111dp"
             android:id="@+id/imageButton"
             android:src="@drawable/icon_fb"
-            android:layout_gravity="center_vertical" />
+            android:layout_gravity="center_vertical"
+            android:onClick="btnFacebookShare" />
 
         <ImageButton
             android:layout_width="113dp"

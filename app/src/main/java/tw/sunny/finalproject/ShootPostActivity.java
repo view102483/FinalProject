@@ -21,4 +21,8 @@ public class ShootPostActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+    public void btnFacebookShare(View v) {
+
+    }
 }
