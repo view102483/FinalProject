@@ -32,13 +32,24 @@
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="@dimen/btn_margin_bottom">
-            <Button
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="登入"
-                android:id="@+id/button"
-                android:layout_marginRight="20dp"
-                android:onClick="btnLogin" />
+                android:orientation="vertical">
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="登入"
+                    android:id="@+id/button"
+                    android:layout_margin="10dp"
+                    android:onClick="btnLogin" />
+                <com.facebook.login.widget.LoginButton
+                    android:id="@+id/fb_login_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp" />
+            </LinearLayout>
 
             <Button
                 android:layout_width="wrap_content"
