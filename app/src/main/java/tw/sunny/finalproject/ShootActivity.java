@@ -44,7 +44,6 @@ public class ShootActivity extends AppCompatActivity{
         intent.putExtra("SCAN_MODE","SCAN_MODE");
 
         startActivityForResult(intent, QR_REQ);
-
     }
 
     @Override
@@ -60,9 +59,10 @@ public class ShootActivity extends AppCompatActivity{
             }
         } else if(requestCode == CAMERA_REQ) {
             if(resultCode == RESULT_OK) {
-//                Toast.makeText(this, "Data saved: " + data.getData(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "Data saved: " + data.getData(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this, ShootPhotoFoodInfActivity.class);
-//                intent.putExtra("uri", data.getData());
+                Bitmap bmp = (Bitmap)data.getExtras().get("data");
+                intent.putExtra("bmp", bmp);
                 startActivity(intent);
                 finish();
             }
@@ -70,11 +70,12 @@ public class ShootActivity extends AppCompatActivity{
     }
     public void btnShootPhoto(View view){
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        File output = getOutputMediaFile();
-        if(output == null)
-            return;
-        fileUri = Uri.fromFile(output);
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
+//        File output = getOutputMediaFile();
+//        if(output == null)
+//            return;
+//        fileUri = Uri.fromFile(output);
+        //Log.w("Nagi", "sav="+fileUri);
+        //intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
         startActivityForResult(intent, CAMERA_REQ);
     }
     private File getOutputMediaFile(){
@@ -84,7 +85,7 @@ public class ShootActivity extends AppCompatActivity{
         //Log.d("Nagi", "dcim status = " + mediaStorageDir.exists()+", " + mediaStorageDir.getAbsolutePath());
         //mediaStorageDir = new File(mediaStorageDir, "FinalProject");
         //Log.d("Nagi", "dcim.FinalProject status = " + mediaStorageDir.exists()+", " + mediaStorageDir.getAbsolutePath());
-        mediaStorageDir = getCacheDir();
+        mediaStorageDir =getExternalCacheDir();
 //        if(!mediaStorageDir.exists()) {
 //            if(!mediaStorageDir.mkdir()) {
 //                Toast.makeText(this, "mkdir fail", Toast.LENGTH_SHORT).show();
