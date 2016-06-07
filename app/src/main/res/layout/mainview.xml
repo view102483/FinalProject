@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:weightSum="1">
 
     <ImageView
@@ -12,57 +11,124 @@
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.10"
         android:src="@drawable/main"
-        android:layout_marginTop="10dp" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp" />
+    <LinearLayout
+        android:id="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:layout_below="@id/imageView">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="拍照上傳"
+                android:id="@+id/button7"
+                android:layout_gravity="center_horizontal"
+                android:onClick="btnShoot"/>
+        </LinearLayout>
 
-    <Button
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="定點規劃"
+            android:id="@+id/button8"
+            android:layout_gravity="center_horizontal"
+            android:onClick="btnLocation" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="20dp"
+        android:id="@+id/layout2"
+        android:layout_below="@id/layout1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="飲食記錄"
+            android:id="@+id/button9"
+            android:layout_gravity="center_horizontal" />
+        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="搜尋"
+            android:id="@+id/button10"
+            android:layout_gravity="center_horizontal"
+            android:onClick="btnSearching" />
+            </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="20dp"
+        android:layout_below="@id/layout2">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="衛教資訊"
+            android:id="@+id/button11"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp" />
+            </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="設定"
+            android:id="@+id/button12"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:onClick="btnSetting" />
+            </LinearLayout>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/pgbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/CustomProgressBarHorizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true" />
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="拍照上傳"
-        android:id="@+id/button7"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
-        android:onClick="btnShoot" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="定點規劃"
-        android:id="@+id/button8"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="15dp"
-        android:onClick="btnLocation" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="飲食記錄"
-        android:id="@+id/button9"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="15dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="搜尋"
-        android:id="@+id/button10"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="15dp"
-        android:onClick="btnSearching" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="設定"
-        android:id="@+id/button11"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="15dp"
-        android:onClick="btnSetting" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="衛教資訊"
-        android:id="@+id/button12"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="15dp" />
-</LinearLayout>
+        android:text="Today's Energy"
+        android:layout_margin="10dp"
+        android:layout_above="@id/pgbar"/>
+</RelativeLayout>
