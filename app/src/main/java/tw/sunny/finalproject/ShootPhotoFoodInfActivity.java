@@ -19,7 +19,8 @@ public class ShootPhotoFoodInfActivity extends AppCompatActivity {
     public void btnShootPhotoPost(View view){
         Intent intent = new Intent();
         intent.setClass(this, ShootPostActivity.class);
-        intent.putExtra("bmp", intent.getStringExtra("bmp"));
+//        intent.putExtra("bmp", this.getIntent().getParcelableExtra("bmp"));
+        intent.putExtra("bmp", this.getIntent().getStringExtra("bmp"));
         startActivity(intent);
     }
     public void btnSecondSol(View view){

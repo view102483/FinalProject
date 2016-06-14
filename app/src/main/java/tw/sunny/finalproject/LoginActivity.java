@@ -17,7 +17,7 @@ import com.facebook.login.widget.LoginButton;
 /**
  * Created by lixinting on 2016/3/29.
  */
-public class LoginActivity extends AppCompatActivity {
+public class    LoginActivity extends AppCompatActivity {
 
     LoginButton btnFbLogin;
     CallbackManager callbackManager;
@@ -31,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
         callbackManager = CallbackManager.Factory.create();
         setContentView(R.layout.login);
         btnFbLogin = (LoginButton)findViewById(R.id.fb_login_button);
+
         btnFbLogin.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {

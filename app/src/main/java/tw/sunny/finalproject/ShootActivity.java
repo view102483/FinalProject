@@ -1,5 +1,7 @@
 package tw.sunny.finalproject;
 
+import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Path;
@@ -15,6 +17,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -59,46 +62,23 @@ public class ShootActivity extends AppCompatActivity{
             }
         } else if(requestCode == CAMERA_REQ) {
             if(resultCode == RESULT_OK) {
-                //Toast.makeText(this, "Data saved: " + data.getData(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this, ShootPhotoFoodInfActivity.class);
-                Bitmap bmp = (Bitmap)data.getExtras().get("data");
-                intent.putExtra("bmp", bmp);
-                startActivity(intent);
-                finish();
+//                Bitmap bmp = (Bitmap)data.getExtras().get("data");
+                    intent.putExtra("bmp", fileUri.toString());
+                    startActivity(intent);
+                    finish();
+
             }
         }
     }
+
     public void btnShootPhoto(View view){
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//        File output = getOutputMediaFile();
-//        if(output == null)
-//            return;
-//        fileUri = Uri.fromFile(output);
-        //Log.w("Nagi", "sav="+fileUri);
-        //intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
+        Long timestamp = System.currentTimeMillis()/1000;
+        File photo = new File(getExternalCacheDir(), timestamp.toString() + ".jpg");
+        fileUri = Uri.fromFile(photo);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
         startActivityForResult(intent, CAMERA_REQ);
-    }
-    private File getOutputMediaFile(){
-        File mediaStorageDir = null;
-        //Log.d("Nagi", "readonly = " + Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED_READ_ONLY));
-        //mediaStorageDir = Environment.getExternalStorageDirectory();
-        //Log.d("Nagi", "dcim status = " + mediaStorageDir.exists()+", " + mediaStorageDir.getAbsolutePath());
-        //mediaStorageDir = new File(mediaStorageDir, "FinalProject");
-        //Log.d("Nagi", "dcim.FinalProject status = " + mediaStorageDir.exists()+", " + mediaStorageDir.getAbsolutePath());
-        mediaStorageDir =getExternalCacheDir();
-//        if(!mediaStorageDir.exists()) {
-//            if(!mediaStorageDir.mkdir()) {
-//                Toast.makeText(this, "mkdir fail", Toast.LENGTH_SHORT).show();
-//                return null;
-//            }
-//        }
-        // Create a media file name
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        File mediaFile;
-        mediaFile = new File(mediaStorageDir.getPath() + File.separator +
-                    "IMG_"+ timeStamp + ".jpg");
-
-        return mediaFile;
     }
 
 }

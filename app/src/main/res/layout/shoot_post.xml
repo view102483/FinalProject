@@ -10,10 +10,11 @@
         android:layout_height="164dp">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:id="@+id/imageView5"
             android:src="@drawable/post"
+            android:scaleType="fitXY"
             android:layout_centerVertical="true"
             android:layout_alignParentStart="true" />
 
@@ -83,14 +84,16 @@
             android:layout_height="111dp"
             android:id="@+id/imageButton2"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/twitter_icon2" />
+            android:src="@drawable/twitter_icon2"
+            android:onClick="btnTwitterShare"/>
 
         <ImageButton
             android:layout_width="113dp"
             android:layout_height="111dp"
             android:id="@+id/imageButton3"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/icon_ig" />
+            android:src="@drawable/icon_ig"
+            android:onClick="btnInstagramShare"/>
 
     </LinearLayout>
 

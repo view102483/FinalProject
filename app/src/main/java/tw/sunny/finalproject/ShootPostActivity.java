@@ -3,20 +3,27 @@ package tw.sunny.finalproject;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.share.ShareApi;
 import com.facebook.share.Sharer;
 import com.facebook.share.model.SharePhoto;
 import com.facebook.share.model.SharePhotoContent;
 import com.facebook.share.widget.ShareDialog;
+
+import java.io.IOException;
 
 /**
  * Created by lixinting on 2016/4/12.
@@ -24,13 +31,16 @@ import com.facebook.share.widget.ShareDialog;
 public class ShootPostActivity extends AppCompatActivity {
     private ShareDialog shareDialog;
     private CallbackManager callbackManager;
-
+    Bitmap image;
+    Uri imageUri;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.shoot_post);
+        FacebookSdk.sdkInitialize(getApplicationContext());
         shareDialog = new ShareDialog(this);
         callbackManager = CallbackManager.Factory.create();
+
         shareDialog.registerCallback(callbackManager, new FacebookCallback<Sharer.Result>() {
             @Override
             public void onSuccess(Sharer.Result result) {
@@ -47,6 +57,15 @@ public class ShootPostActivity extends AppCompatActivity {
                 Toast.makeText(ShootPostActivity.this, "on error!", Toast.LENGTH_LONG).show();
             }
         });
+        String path = getIntent().getStringExtra("bmp");
+        imageUri = Uri.parse(path);
+        try {
+            image = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
+            ((ImageView)findViewById(R.id.imageView5)).setImageBitmap(image);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
     public void btnShootPhotoPost(View view){
 //        Intent intent = new Intent();
@@ -61,18 +80,36 @@ public class ShootPostActivity extends AppCompatActivity {
     }
 
     public void btnFacebookShare(View v) {
-        Log.i("Nagi", "start facebook share");
-        Bitmap image = (Bitmap) getIntent().getExtras().get("bmp");
         SharePhoto photo = new SharePhoto.Builder()
                 .setBitmap(image)
                 .build();
         SharePhotoContent content = new SharePhotoContent.Builder()
                 .addPhoto(photo)
                 .build();
+
         if (ShareDialog.canShow(SharePhotoContent.class)) {
             shareDialog.show(content);
         } else {
             Toast.makeText(this, "some thing wrong", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void btnTwitterShare(View v) {
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_TEXT, "This is a share message");
+        intent.putExtra(Intent.EXTRA_STREAM, imageUri);
+        intent.setType("image/jpeg");
+        intent.setPackage("com.twitter.android");
+        startActivity(intent);
+    }
+
+    public void btnInstagramShare(View v) {
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_STREAM, imageUri);
+        intent.setPackage("com.instagram.android");
+        intent.setType("image/jpeg");
+        startActivity(intent);
     }
 }
