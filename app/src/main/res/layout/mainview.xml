@@ -2,15 +2,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:background="#feffd6">
 
     <ImageView
         android:layout_width="338dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
+        android:layout_height="180dp"
+        android:id="@+id/logo"
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.10"
-        android:src="@drawable/main"
+        android:src="@drawable/logo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp" />
     <LinearLayout
@@ -19,103 +20,79 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_margin="20dp"
-        android:layout_below="@id/imageView">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center">
-            <Button
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+
+        android:layout_below="@id/logo">
+
+            <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="拍照上傳"
+                android:layout_height="100dp"
+                android:src="@drawable/shoot"
                 android:id="@+id/button7"
+                android:layout_weight="1"
                 android:layout_gravity="center_horizontal"
                 android:onClick="btnShoot"/>
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center">
-
-        <Button
+        <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="定點規劃"
+            android:layout_height="100dp"
+            android:layout_weight="1"
             android:id="@+id/button8"
+            android:src="@drawable/gps"
             android:layout_gravity="center_horizontal"
             android:onClick="btnLocation" />
         </LinearLayout>
-    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_margin="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:id="@+id/layout2"
         android:layout_below="@id/layout1">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center">
-        <Button
+
+        <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="飲食記錄"
+            android:layout_height="100dp"
+            android:src="@drawable/record"
+            android:layout_weight="1"
             android:id="@+id/button9"
             android:layout_gravity="center_horizontal" />
-        </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center">
-        <Button
+
+        <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="搜尋"
+            android:layout_height="100dp"
+            android:src="@drawable/search"
+            android:layout_weight="1"
             android:id="@+id/button10"
             android:layout_gravity="center_horizontal"
             android:onClick="btnSearching" />
-            </LinearLayout>
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_margin="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_below="@id/layout2">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center">
-        <Button
+        <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="衛教資訊"
+            android:layout_height="100dp"
+            android:src="@drawable/infor"
+            android:layout_weight="1"
             android:id="@+id/button11"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp" />
-            </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center">
-        <Button
+            android:layout_gravity="center_horizontal" />
+
+        <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="設定"
+            android:layout_height="100dp"
+            android:src="@drawable/setting"
+            android:layout_weight="1"
             android:id="@+id/button12"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
-            android:onClick="btnSetting" />
-            </LinearLayout>
+            android:onClick="btnSearching" />
     </LinearLayout>
 
     <ProgressBar

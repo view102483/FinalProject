@@ -10,7 +10,9 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        android:theme="@style/Theme.AppCompat.Light"
+        android:banner.color='#81D8D0'>
+
         <activity
             android:name=".StartActivity"
             android:label="畢專一路發">
