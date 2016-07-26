@@ -53,12 +53,7 @@
                 android:id="@+id/button3"
                 android:layout_margin="5dp"
                 android:onClick="btnLogin" />
-            <!--<com.facebook.login.widget.LoginButton-->
-                <!--android:id="@+id/fb_login_button"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_gravity="center_horizontal"-->
-                <!--android:layout_margin="10dp" />-->
+
 
             <Button
                 android:layout_width="wrap_content"

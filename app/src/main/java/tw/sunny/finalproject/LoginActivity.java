@@ -30,7 +30,7 @@ public class    LoginActivity extends AppCompatActivity {
         FacebookSdk.sdkInitialize(getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
         setContentView(R.layout.login);
-        btnFbLogin = (LoginButton)findViewById(R.id.fb_login_button);
+        btnFbLogin = (LoginButton)findViewById(R.id.button3);
 
         btnFbLogin.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
