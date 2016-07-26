@@ -3,17 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
-    android:background="#feffd6">
+    android:background="#feffd6"
+    >
 
     <ImageView
         android:layout_width="338dp"
-        android:layout_height="180dp"
+        android:layout_height="200dp"
         android:id="@+id/logo"
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.10"
-        android:src="@drawable/logo"
+        android:src="@drawable/logo_small"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="15dp" />
     <LinearLayout
         android:id="@+id/layout1"
         android:layout_width="match_parent"
@@ -22,13 +23,13 @@
         android:gravity="center"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-
+        android:layout_marginBottom="-10dp"
         android:layout_below="@id/logo">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
-                android:src="@drawable/shoot"
+                android:src="@drawable/photo"
                 android:id="@+id/button7"
                 android:layout_weight="1"
                 android:layout_gravity="center_horizontal"
@@ -37,11 +38,10 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="100dp"
+            android:src="@drawable/record"
             android:layout_weight="1"
             android:id="@+id/button8"
-            android:src="@drawable/gps"
-            android:layout_gravity="center_horizontal"
-            android:onClick="btnLocation" />
+            android:layout_gravity="center_horizontal" />
         </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -49,13 +49,15 @@
         android:orientation="horizontal"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:layout_marginTop="-10dp"
+        android:layout_marginBottom="-10dp"
         android:id="@+id/layout2"
         android:layout_below="@id/layout1">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:src="@drawable/record"
+            android:src="@drawable/conversation"
             android:layout_weight="1"
             android:id="@+id/button9"
             android:layout_gravity="center_horizontal" />
@@ -76,11 +78,12 @@
         android:orientation="horizontal"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:layout_marginTop="-10dp"
         android:layout_below="@id/layout2">
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:src="@drawable/infor"
+            android:src="@drawable/information"
             android:layout_weight="1"
             android:id="@+id/button11"
             android:layout_gravity="center_horizontal" />
@@ -88,7 +91,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:src="@drawable/setting"
+            android:src="@drawable/set"
             android:layout_weight="1"
             android:id="@+id/button12"
             android:layout_gravity="center_horizontal"

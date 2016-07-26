@@ -7,37 +7,44 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#feffd6"
     tools:context=".StartActivity">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="註冊"
-        android:id="@+id/btnRegister"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
-        android:onClick="btnRegister" />
 
-    <Button
+
+
+    <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="登入"
-        android:id="@+id/btnSignin"
-        android:layout_above="@id/btnRegister"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
-        android:onClick="btnSignin" />
+        android:layout_height="50dp"
+        android:src="@drawable/registered"
+        android:id="@+id/buttonRes"
+        android:layout_marginTop="10dp"
+        android:onClick=""
+        android:layout_below="@id/buttonSign"
+        android:layout_margin="10dp"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:src="@drawable/sign"
+        android:id="@+id/buttonSign"
+        android:layout_marginTop="10dp"
+        android:onClick=""
+        android:layout_below="@id/imageView"
+        android:layout_margin="10dp"
+         />
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="320dp"
         android:id="@+id/imageView"
-        android:src="@drawable/icon_pencilandpaper"
+        android:src="@drawable/logo_small"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+
+
         />
 
 </RelativeLayout>
