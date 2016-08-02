@@ -28,7 +28,7 @@
         android:src="@drawable/sign"
         android:id="@+id/buttonSign"
         android:layout_marginTop="10dp"
-        android:onClick=""
+        android:onClick="btnSignin"
         android:layout_below="@id/imageView"
         android:layout_margin="10dp"
         />
@@ -39,7 +39,7 @@
         android:src="@drawable/registered"
         android:id="@+id/buttonRes"
         android:layout_marginTop="10dp"
-        android:onClick=""
+        android:onClick="btnRegister"
         android:layout_below="@id/buttonSign"
         android:layout_margin="10dp"
         />
