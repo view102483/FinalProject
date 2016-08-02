@@ -13,6 +13,10 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.facebook.AccessToken;
+import com.facebook.AccessTokenTracker;
+import com.facebook.AccessTokenSource;
+
 
 /**
  * Created by lixinting on 2016/3/29.
@@ -25,6 +29,7 @@ public class    LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         sp = getSharedPreferences("facebook", MODE_PRIVATE);
         FacebookSdk.sdkInitialize(getApplicationContext());
@@ -49,6 +54,7 @@ public class    LoginActivity extends AppCompatActivity {
                 Toast.makeText(LoginActivity.this, "some thing error!!", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
     public void btnForgotPassword(View v) {
