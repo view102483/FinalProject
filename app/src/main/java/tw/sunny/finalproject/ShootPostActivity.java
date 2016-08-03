@@ -1,6 +1,7 @@
 package tw.sunny.finalproject;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -33,14 +35,17 @@ public class ShootPostActivity extends AppCompatActivity {
     private CallbackManager callbackManager;
     Bitmap image;
     Uri imageUri;
+    private SharedPreferences sp;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        sp = getSharedPreferences("facebook", MODE_PRIVATE);
         setContentView(R.layout.shoot_post);
         FacebookSdk.sdkInitialize(getApplicationContext());
         shareDialog = new ShareDialog(this);
         callbackManager = CallbackManager.Factory.create();
-
+/*
         shareDialog.registerCallback(callbackManager, new FacebookCallback<Sharer.Result>() {
             @Override
             public void onSuccess(Sharer.Result result) {
@@ -56,7 +61,7 @@ public class ShootPostActivity extends AppCompatActivity {
             public void onError(FacebookException error) {
                 Toast.makeText(ShootPostActivity.this, "on error!", Toast.LENGTH_LONG).show();
             }
-        });
+        });*/
         String path = getIntent().getStringExtra("bmp");
         imageUri = Uri.parse(path);
         try {
@@ -87,11 +92,28 @@ public class ShootPostActivity extends AppCompatActivity {
                 .addPhoto(photo)
                 .build();
 
+        ShareApi.share(content, new FacebookCallback<Sharer.Result>() {
+            @Override
+            public void onSuccess(Sharer.Result result) {
+                Toast.makeText(ShootPostActivity.this, "分享成功！", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancel() {
+
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                Toast.makeText(ShootPostActivity.this, "分享失敗：" + error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        /*
         if (ShareDialog.canShow(SharePhotoContent.class)) {
             shareDialog.show(content);
         } else {
             Toast.makeText(this, "some thing wrong", Toast.LENGTH_SHORT).show();
-        }
+        }*/
     }
 
     public void btnTwitterShare(View v) {
@@ -111,5 +133,11 @@ public class ShootPostActivity extends AppCompatActivity {
         intent.setPackage("com.instagram.android");
         intent.setType("image/jpeg");
         startActivity(intent);
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int responseCode, Intent data)
+    {
+        super.onActivityResult(requestCode, responseCode, data);
+        callbackManager.onActivityResult(requestCode, responseCode, data);
     }
 }

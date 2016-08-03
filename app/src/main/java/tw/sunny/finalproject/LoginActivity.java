@@ -21,7 +21,7 @@ import com.facebook.AccessTokenSource;
 /**
  * Created by lixinting on 2016/3/29.
  */
-public class    LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     LoginButton btnFbLogin;
     CallbackManager callbackManager;
@@ -36,12 +36,13 @@ public class    LoginActivity extends AppCompatActivity {
         callbackManager = CallbackManager.Factory.create();
         setContentView(R.layout.login);
         btnFbLogin = (LoginButton)findViewById(R.id.login_button);
-
+        btnFbLogin.setPublishPermissions("publish_actions");
         btnFbLogin.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 Toast.makeText(LoginActivity.this, "token=" + loginResult.getAccessToken().getToken(), Toast.LENGTH_SHORT).show();
-                sp.edit().putString("fb_token", loginResult.getAccessToken().getToken()).commit();
+                //sp.edit().putString("fb_token", loginResult.getAccessToken().getToken()).apply();
+                AccessToken.setCurrentAccessToken(loginResult.getAccessToken());
             }
 
             @Override
@@ -55,6 +56,12 @@ public class    LoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
     public void btnForgotPassword(View v) {
