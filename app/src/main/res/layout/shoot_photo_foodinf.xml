@@ -2,36 +2,72 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingBottom="15dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="15dp"
+    android:background="#feffd6">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="大麥"
+        android:text="品名："
+        android:layout_margin="20dp"
+        android:layout_alignParentLeft="true"
         android:textAppearance="?android:textAppearanceLarge"
         android:layout_centerHorizontal="true"/>
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/detail"
-        android:layout_marginTop="30dp"
-        android:id="@+id/imageView6" />
 
-    <Button
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="上傳"
-        android:id="@+id/button23"
-        android:layout_below="@+id/imageView6"
-        android:layout_centerHorizontal="true"
-        android:onClick="btnShootPhotoPost" />
+        android:text="食物"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:layout_centerHorizontal="true"/>
 
-    <Button
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="第二種狀況＿沒有資料"
-        android:id="@+id/button24"
-        android:layout_below="@+id/button23"
-        android:layout_centerHorizontal="true"
-        android:onClick="btnSecondSol" />
+        android:layout_marginTop="80dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/detail"
+            android:layout_marginTop="30dp"
+            android:id="@+id/imageView6" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        >
+
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/home"
+            android:id="@+id/home"
+            android:layout_alignParentLeft="true"
+            android:onClick="btnHome"/>
+
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:text="發佈"
+            android:src="@drawable/next"
+            android:id="@+id/button17"
+            android:layout_alignParentRight="true"
+            android:onClick="btnShootPhotoPost" />
+
+    </RelativeLayout>
+
+
+
 </RelativeLayout>
