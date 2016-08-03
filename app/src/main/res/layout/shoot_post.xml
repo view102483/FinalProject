@@ -44,7 +44,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.2"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="10dp"
         android:background="#ffdf77">
 
         <TextView
@@ -59,12 +59,18 @@
              />
 
         <EditText
-            android:layout_width="match_parent"
+            android:layout_width="200dp"
             android:layout_height="match_parent"
             android:inputType="textPostalAddress"
             android:ems="20"
             android:id="@+id/editText14"
             android:text="餐廳" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:src="@drawable/navigation"/>
     </LinearLayout>
 
 
@@ -120,12 +126,33 @@
 
     </LinearLayout>
 
-    <Button
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="發佈"
-        android:id="@+id/button17"
-        android:layout_gravity="center_horizontal"
-        android:onClick="btnShootPhotoPost" />
+        android:layout_weight="0.2"
+        >
+
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/home"
+                android:id="@+id/home"
+                android:layout_alignParentLeft="true"
+                android:onClick="btnHome"/>
+
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="發佈"
+                android:src="@drawable/next"
+                android:id="@+id/button17"
+                android:layout_alignParentRight="true"
+                android:onClick="btnShootPhotoPost" />
+
+    </RelativeLayout>
+
+
 
 </LinearLayout>
