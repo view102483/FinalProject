@@ -14,8 +14,10 @@ public class SettingEditMemActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.setting);
+        setContentView(R.layout.setting_editmember);
+
     }
+
 
     public void btnHome(View view){
         Intent intent = new Intent();

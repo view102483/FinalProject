@@ -22,4 +22,11 @@ public class SettingMainActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+    public void btnSettingToSettingEditMem(View view){
+        Intent intent = new Intent();
+        intent.setClass(SettingMainActivity.this, SettingEditMemActivity.class);
+        startActivity(intent);
+
+    }
+
 }
