@@ -80,7 +80,8 @@
         <activity
             android:name=".LocationSuggestActivity"
             android:label="推薦餐廳列表" />
-
+        <activity android:name=".SettingEditMemActivity"
+            android:label="設定個人頁面"/>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
