@@ -7,9 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 /**
- * Created by lixinting on 2016/4/12.
+ * Created by lixinting on 2016/8/5.
  */
-public class SettingMainActivity extends AppCompatActivity {
+
+public class SettingEditMemActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,3 +24,5 @@ public class SettingMainActivity extends AppCompatActivity {
         finish();
     }
 }
+
+

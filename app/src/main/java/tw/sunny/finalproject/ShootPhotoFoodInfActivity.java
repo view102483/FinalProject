@@ -30,4 +30,11 @@ public class ShootPhotoFoodInfActivity extends AppCompatActivity {
         intent.setClass(this, ShootInsertDataActivity.class);
         startActivity(intent);
     }
+
+    public void btnHome(View view){
+        Intent intent = new Intent();
+        intent.setClass(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }

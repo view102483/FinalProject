@@ -26,12 +26,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void btnSetting(View view){
-//        Intent intent = new Intent();
-//        intent.setClass(MainActivity.this, SettingMainActivity.class);
-//        startActivity(intent);
-        progressBar.incrementProgressBy(1);
-        if(progressBar.getProgress() == progressBar.getMax())
-            progressBar.setProgress(0);
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this, SettingMainActivity.class);
+        startActivity(intent);
+//        progressBar.incrementProgressBy(1);
+//        if(progressBar.getProgress() == progressBar.getMax())
+//            progressBar.setProgress(0);
     }
     public void btnSearching(View view){
         Intent intent = new Intent();

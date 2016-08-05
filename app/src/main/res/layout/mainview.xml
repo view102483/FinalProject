@@ -95,7 +95,7 @@
             android:layout_weight="1"
             android:id="@+id/button12"
             android:layout_gravity="center_horizontal"
-            android:onClick="btnSearching" />
+            android:onClick="btnSetting" />
     </LinearLayout>
 
     <ProgressBar

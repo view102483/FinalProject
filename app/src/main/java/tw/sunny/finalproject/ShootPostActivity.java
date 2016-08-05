@@ -140,4 +140,11 @@ public class ShootPostActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, responseCode, data);
         callbackManager.onActivityResult(requestCode, responseCode, data);
     }
+
+    public void btnHome(View view){
+        Intent intent = new Intent();
+        intent.setClass(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }
