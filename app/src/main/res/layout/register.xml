@@ -28,7 +28,8 @@
                     android:layout_height="wrap_content"
                     android:text="帳號: "
                     android:textSize="@dimen/register_title_size"
-                    android:textAlignment="textEnd"/>
+                    android:textAlignment="textEnd"
+                    android:onClick="GenderClick" />
                 <EditText
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"

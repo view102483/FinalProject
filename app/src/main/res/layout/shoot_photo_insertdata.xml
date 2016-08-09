@@ -1,22 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="15dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="15dp"
+    android:background="#feffd6">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="如有知道本餐點之任何營養資訊，請不吝提供，讓更多人可以知道喔！"
+        android:text="品名："
         android:id="@+id/textView8"
         android:layout_gravity="center_horizontal" />
 
-    <ImageView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView7"
-        android:layout_gravity="center_horizontal"
-        android:src="@drawable/detail" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginBottom="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="食物"
+        android:id="@+id/foodname"
+        android:layout_gravity="center_horizontal" />
+
+    <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/foodname"
+    >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView7"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/detail" />
+    </LinearLayout>
+
 
     <Button
         android:layout_width="wrap_content"
@@ -25,4 +48,4 @@
         android:id="@+id/button25"
         android:layout_gravity="center_horizontal"
         android:onClick="btnShootPhotoPostInInsert" />
-</LinearLayout>
+</RelativeLayout>

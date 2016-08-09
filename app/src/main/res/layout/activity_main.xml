@@ -42,6 +42,7 @@
         android:onClick="btnRegister"
         android:layout_below="@id/buttonSign"
         android:layout_margin="10dp"
+
         />
 
 </RelativeLayout>
