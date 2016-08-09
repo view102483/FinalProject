@@ -142,7 +142,8 @@
              android:layout_weight="0.2"
              android:layout_marginLeft="10dp"
              android:id="@+id/imagecalender"
-             android:src="@drawable/calendar"/>
+             android:src="@drawable/calendar"
+             android:onClick="datePick"/>
 
      </LinearLayout>
 

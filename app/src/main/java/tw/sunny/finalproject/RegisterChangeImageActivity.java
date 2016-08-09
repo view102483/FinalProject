@@ -8,7 +8,7 @@ import android.widget.ImageView;
 /**
  * Created by lixinting on 2016/8/9.
  */
-public class registerchangeimage extends AppCompatActivity {
+public class RegisterChangeImageActivity extends AppCompatActivity {
 
 
     ImageView boy;
@@ -26,7 +26,7 @@ public class registerchangeimage extends AppCompatActivity {
 
         }
 
-            public void GenderClick(View v) {
+            public void genderClick(View v) {
                 if(v == boy) {
                     boy.setImageResource(R.drawable.boy);
                     girl.setImageResource(R.drawable.girlnochoice);

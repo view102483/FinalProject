@@ -33,7 +33,7 @@
             android:name=".RegisterActivity"
             android:label="註冊" />
         <activity
-            android:name=".registerchangeimage"
+            android:name=".RegisterChangeImageActivity"
             android:label="註冊02" />
         <activity
             android:name=".MainActivity"

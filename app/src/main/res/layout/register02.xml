@@ -13,6 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:id="@+id/layoutsex"
         android:layout_marginTop="30dp"
         android:weightSum="1">
 
@@ -29,23 +30,74 @@
             android:layout_height="100dp"
             android:layout_marginLeft="20dp"
             android:id="@+id/imageView_boy"
-            android:src="@drawable/boynochoice"
-            android:onClick="GenderClick"/>
+            android:src="@drawable/boy"
+            android:onClick="genderClick"/>
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginLeft="20dp"
             android:id="@+id/imageView_gril"
-            android:onClick="GenderClick"
+            android:onClick="genderClick"
             android:src="@drawable/girlnochoice"/>
 
     </LinearLayout>
+
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="身高："
-        android:layout_below="@id/textsex"/>
+        android:id="@+id/textheight"
+        android:layout_below="@id/layoutsex"
+        android:textSize="30dp"
+        android:layout_marginTop="10dp" />
 
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="350dp"
+        android:src="@drawable/heightandweight"
+        android:layout_toRightOf="@id/textheight"
+        android:layout_alignTop="@id/textheight"
+        android:id="@+id/img"
+        />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:id="@+id/editHeight"
+        android:hint="m"
+        android:layout_toRightOf="@id/img"
+        android:layout_alignTop="@id/textheight"
+        android:gravity="center"
+        android:background="@drawable/edittextstyle"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="體重："
+        android:id="@+id/textweight"
+        android:layout_toLeftOf="@id/img"
+        android:layout_alignBottom="@id/img"
+        android:paddingBottom="100dp"
+        android:textSize="30dp"
+        android:layout_marginBottom="30dp" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:id="@+id/editWeight"
+        android:hint="kg"
+        android:layout_toRightOf="@id/img"
+        android:layout_alignTop="@id/textweight"
+        android:gravity="center"
+        android:background="@drawable/edittextstyle"/>
 
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:src="@drawable/nextstep"
+        android:id="@+id/button17"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:onClick="btnRegister" />
 </RelativeLayout>
