@@ -35,9 +35,9 @@ public class RegisterActivity extends AppCompatActivity {
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
 
                 EditText.setText(year + "/"
-                        + monthOfYear + "/" + dayOfMonth);
+                        + (monthOfYear+1) + "/" + dayOfMonth);
             }
-        },1980,01,01);
+        },1980,0,01);
 
         mDatePickerDialog.show();
     }

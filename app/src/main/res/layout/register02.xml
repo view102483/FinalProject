@@ -67,6 +67,7 @@
         android:ems="10"
         android:id="@+id/editHeight"
         android:hint="m"
+        android:inputType="number"
         android:layout_toRightOf="@id/img"
         android:layout_alignTop="@id/textheight"
         android:gravity="center"
@@ -90,6 +91,7 @@
         android:layout_toRightOf="@id/img"
         android:layout_alignTop="@id/textweight"
         android:gravity="center"
+        android:inputType="number"
         android:background="@drawable/edittextstyle"/>
 
     <ImageView
