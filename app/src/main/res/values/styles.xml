@@ -13,7 +13,13 @@
         <item name="android:maxHeight">40dip</item>
     </style>
 
-
+    <style name="dmTitle">
+        <item name="android:textAlignment">textEnd</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+<style name="dmTableRow">
+    <item name="android:layout_margin">10dp</item>
+</style>
 
 
 </resources>

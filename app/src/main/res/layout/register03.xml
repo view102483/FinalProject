@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/textsport"
             android:layout_gravity="center_vertical"
-            android:text="性別："
+            android:text="運動量："
             android:textSize="30dp"
             />
 
@@ -32,6 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:id="@+id/layoutsportImage"
         android:layout_below="@id/layoutsport"
         android:layout_marginTop="30dp"
         android:weightSum="1">
@@ -39,26 +40,89 @@
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginLeft="20dp"
             android:id="@+id/imageView_sportlight"
-            android:src="@drawable/boy"
+            android:src="@drawable/mild"
             android:onClick="genderClick"/>
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="10dp"
             android:id="@+id/imageView_sportmid"
             android:onClick="genderClick"
-            android:src="@drawable/girlnochoice"/>
+            android:src="@drawable/moderatenochoice"/>
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="10dp"
             android:id="@+id/imageView_sportheavy"
             android:onClick="genderClick"
-            android:src="@drawable/girlnochoice"/>
-
-
+            android:src="@drawable/severenochoice"/>
     </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textsportdes"
+        android:layout_below="@id/layoutsportImage"
+        android:layout_centerInParent="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="輕度：長時間坐著(學生、上班族)"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/layoutcaltext"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/textsportdes"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textcal"
+            android:layout_gravity="center_vertical"
+            android:text="熱量："
+            android:textSize="30dp"
+            />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:ems="50"
+            android:id="@+id/editcal"
+            android:background="@drawable/edittextstyle"
+            android:inputType="number"
+            android:gravity="center"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/layoutcaltext">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editPassword"
+            android:gravity="center"
+            android:text="糖尿病："
+            android:textSize="30dp"
+            />
+       <RadioGroup
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           />
+    </LinearLayout>
+
+
 
 </RelativeLayout>
