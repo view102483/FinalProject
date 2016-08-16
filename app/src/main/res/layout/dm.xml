@@ -177,11 +177,10 @@
                         android:background="@drawable/edittextstyle"/>
                 </TableRow>
             </TableLayout>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="送出"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:src="@drawable/submit"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

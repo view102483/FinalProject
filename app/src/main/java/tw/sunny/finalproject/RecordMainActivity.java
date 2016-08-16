@@ -21,7 +21,7 @@ public class RecordMainActivity extends AppCompatActivity {
 
     public void btnDmManage(View view){
         Intent intent = new Intent();
-        intent.setClass(this, RecordMainActivity.class);
+        intent.setClass(this, RecordDmManageActivity.class);
         startActivity(intent);
 
 

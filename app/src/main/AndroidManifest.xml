@@ -99,6 +99,10 @@
             android:name=".RecordDmManageActivity"
             android:label="疾病管理"/>
 
+        <activity
+            android:name=".RecordDMBActivity"
+            android:label="血糖紀錄"/>
+
 
 
 

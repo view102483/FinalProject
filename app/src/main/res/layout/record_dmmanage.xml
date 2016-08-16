@@ -14,11 +14,23 @@
         android:layout_height="80dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
+        android:src="@drawable/self"
+        android:id="@+id/imageViewself"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="80dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="15dp"
         android:src="@drawable/records"
         android:id="@+id/imageViewrecords"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="15dp"
-        android:layout_marginTop="80dp"
+        android:onClick="btnDMB"
+
         />
     <ImageView
         android:layout_width="wrap_content"
@@ -31,14 +43,6 @@
         android:layout_gravity="center_horizontal"
         />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="80dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:src="@drawable/self"
-        android:id="@+id/imageViewself"
-        android:layout_gravity="center_horizontal" />
 
     <RelativeLayout
         android:layout_width="match_parent"
