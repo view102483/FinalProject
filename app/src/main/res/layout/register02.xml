@@ -101,5 +101,5 @@
         android:id="@+id/button17"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:onClick="btnRegister" />
+        android:onClick="btnNext" />
 </RelativeLayout>

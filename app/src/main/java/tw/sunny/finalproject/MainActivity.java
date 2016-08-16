@@ -43,4 +43,9 @@ public class MainActivity extends AppCompatActivity {
         intent.setClass(MainActivity.this, LocationMainActivity.class);
         startActivity(intent);
     }
+    public void btnRecord(View view){
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this, RecordMainActivity.class);
+        startActivity(intent);
+    }
 }

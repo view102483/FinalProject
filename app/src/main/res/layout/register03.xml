@@ -34,7 +34,6 @@
         android:orientation="horizontal"
         android:id="@+id/layoutsportImage"
         android:layout_below="@id/layoutsport"
-        android:layout_marginTop="30dp"
         android:weightSum="1">
 
         <ImageView
@@ -42,20 +41,20 @@
             android:layout_height="100dp"
             android:id="@+id/imageView_sportlight"
             android:src="@drawable/mild"
-            android:onClick="genderClick"/>
+            android:onClick="sportClick"/>
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginLeft="10dp"
             android:id="@+id/imageView_sportmid"
-            android:onClick="genderClick"
+            android:onClick="sportClick"
             android:src="@drawable/moderatenochoice"/>
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginLeft="10dp"
             android:id="@+id/imageView_sportheavy"
-            android:onClick="genderClick"
+            android:onClick="sportClick"
             android:src="@drawable/severenochoice"/>
     </LinearLayout>
 
@@ -70,6 +69,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/textsporttw"
             android:text="輕度：長時間坐著(學生、上班族)"/>
     </LinearLayout>
 
@@ -117,11 +117,22 @@
             android:text="糖尿病："
             android:textSize="30dp"
             />
-       <RadioGroup
+       <CheckBox
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
+           android:text="是"
            />
     </LinearLayout>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:id="@+id/btnregister"
+        android:src="@drawable/registered"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        />
+
 
 
 

@@ -1,5 +1,6 @@
 package tw.sunny.finalproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -36,6 +37,12 @@ public class RegisterChangeImageActivity extends AppCompatActivity {
                     boy.setImageResource(R.drawable.boynochoice);
                 }
             }
+
+    public void btnNext(View view){
+        Intent intent = new Intent();
+        intent.setClass(this,RegisterChangeSportActivity.class);
+        startActivity(intent);
+    }
 
 
 

@@ -3,7 +3,10 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="15dp"
+    android:paddingBottom="15dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="15dp"
     android:background="#feffd6">
 
     <ImageView
@@ -11,52 +14,35 @@
         android:layout_height="80dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
-        android:src="@drawable/remind"
-        android:id="@+id/button15"
+        android:src="@drawable/personal"
+        android:id="@+id/imageViewmainpersonal"
         android:layout_gravity="center_horizontal"
-         />
-
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="80dp"
+        />
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="80dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
-        android:src="@drawable/edit"
-        android:id="@+id/button19"
+        android:layout_marginBottom="15dp"
+        android:src="@drawable/manage"
+        android:id="@+id/imageViewmainmanage"
         android:layout_gravity="center_horizontal"
-        android:onClick="btnSettingToSettingEditMem"/>
+        />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="80dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
-        android:src="@drawable/explanation"
-        android:id="@+id/button20"
-        android:layout_gravity="center_horizontal" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="80dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:src="@drawable/reportproblem"
-        android:id="@+id/button21"
-        android:layout_gravity="center_horizontal" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="80dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:id="@+id/button22"
-        android:src="@drawable/signout"
+        android:src="@drawable/diet"
+        android:id="@+id/imageViewmaindiet"
         android:layout_gravity="center_horizontal" />
 
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <ImageView
             android:layout_width="50dp"
@@ -64,8 +50,11 @@
             android:src="@drawable/home"
             android:id="@+id/home"
             android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
             android:onClick="btnHome">
         </ImageView>
-
     </RelativeLayout>
+
+
+
 </LinearLayout>

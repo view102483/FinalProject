@@ -36,6 +36,9 @@
             android:name=".RegisterChangeImageActivity"
             android:label="註冊02" />
         <activity
+            android:name=".RegisterChangeSportActivity"
+            android:label="註冊03" />
+        <activity
             android:name=".MainActivity"
             android:label="主畫面" />
         <activity
@@ -83,8 +86,23 @@
         <activity
             android:name=".LocationSuggestActivity"
             android:label="推薦餐廳列表" />
-        <activity android:name=".SettingEditMemActivity"
+
+        <activity
+            android:name=".SettingEditMemActivity"
             android:label="設定個人頁面"/>
+
+        <activity
+            android:name=".RecordMainActivity"
+            android:label="飲食記錄"/>
+
+        <activity
+            android:name=".RecordDmManageActivity"
+            android:label="疾病管理"/>
+
+
+
+
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />

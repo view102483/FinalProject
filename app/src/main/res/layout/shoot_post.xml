@@ -122,7 +122,7 @@
             android:layout_marginRight="10dp"
             android:id="@+id/imageButton3"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/stwitter"
+            android:src="@drawable/stwitter2"
             android:onClick="btnInstagramShare"/>
 
     </LinearLayout>
