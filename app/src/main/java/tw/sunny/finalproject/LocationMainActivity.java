@@ -24,4 +24,10 @@ public class LocationMainActivity extends AppCompatActivity{
     public void btnUnknownPlan(View v) {
         startActivity(new Intent(this, LocationQueryActivity.class));
     }
+    public void btnHome(View view){
+        Intent intent = new Intent();
+        intent.setClass(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }

@@ -3,16 +3,43 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:nestedScrollingEnabled="false">
-    <Button
+    android:nestedScrollingEnabled="false"
+    android:paddingBottom="15dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="15dp"
+    android:background="#feffd6">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginTop="100dp"
+        android:id="@+id/imageView_know"
+        android:src="@drawable/known"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:id="@+id/imageView_unknow"
+        android:src="@drawable/unknown"/>
+
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="定位Plan"
-        android:onClick="btnGpsPlan" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="未知Plan"
-        android:onClick="btnUnknownPlan" />
+        >
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/home"
+            android:id="@+id/home"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:onClick="btnHome"/>
+
+
+
+    </RelativeLayout>
 
 </LinearLayout>

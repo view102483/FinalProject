@@ -40,18 +40,10 @@
             android:layout_height="50dp"
             android:src="@drawable/home"
             android:id="@+id/home"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
             android:onClick="btnHome"/>
 
 
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:text="發佈"
-            android:src="@drawable/next"
-            android:id="@+id/button17"
-            android:layout_alignParentRight="true"
-            android:onClick="btnShootPhotoPost" />
 
     </RelativeLayout>
 

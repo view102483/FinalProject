@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:nestedScrollingEnabled="false"
+    android:paddingBottom="15dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="15dp"
+    android:background="#feffd6">
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:src="@drawable/standardred"
+        android:id="@+id/image_standard"
+        android:layout_marginTop="10dp"
+        android:onClick="mealClick"/>
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:src="@drawable/breakfastblue"
+        android:id="@+id/image_breakfast"
+        android:layout_toRightOf="@id/image_standard"
+        android:layout_marginTop="10dp"
+        android:onClick="mealClick"/>
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:src="@drawable/lunchblue"
+        android:id="@+id/image_lunch"
+        android:layout_toRightOf="@id/image_breakfast"
+        android:layout_marginTop="10dp"
+        android:onClick="mealClick"/>
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:src="@drawable/dinnerblue"
+        android:id="@+id/image_dinner"
+        android:layout_toRightOf="@id/image_lunch"
+        android:layout_marginTop="10dp"
+        android:onClick="mealClick"/>
+
+    <ImageView
+        android:layout_width="400dp"
+        android:layout_height="240dp"
+        android:src="@drawable/hey"
+        android:id="@+id/image_hey"
+        android:layout_below="@id/image_standard"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="400dp"
+        android:layout_height="240dp"
+        android:id="@+id/edit_hey"
+        android:layout_below="@id/image_standard"
+        android:layout_margin="10dp"/>
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="180dp"
+        android:src="@drawable/femalenutritionist"
+        android:id="@+id/image_femalenutritionist"
+        android:layout_alignParentBottom="true"/>
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/note"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:layout_width="140dp"
+        android:layout_height="160dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/edit_note"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/home"
+        android:id="@+id/home"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:onClick="btnHome"/>
+
+
+
+</RelativeLayout>
