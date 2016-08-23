@@ -28,5 +28,11 @@ public class SettingMainActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+    public void btnSettingToSettingRequest(View view){
+        Intent intent = new Intent();
+        intent.setClass(SettingMainActivity.this, SettingRequestActivity.class);
+        startActivity(intent);
+
+    }
 
 }

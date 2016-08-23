@@ -12,17 +12,19 @@
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
-        android:layout_marginTop="60dp">
+        android:layout_marginTop="100dp">
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
             android:id="@+id/imageView_wait"
             android:src="@drawable/wait"/>
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
             android:id="@+id/imageView_help"
             android:src="@drawable/help"/>
 

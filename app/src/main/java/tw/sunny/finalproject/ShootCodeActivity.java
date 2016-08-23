@@ -24,4 +24,11 @@ public class ShootCodeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void btnHome(View view){
+        Intent intent = new Intent();
+        intent.setClass(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 }

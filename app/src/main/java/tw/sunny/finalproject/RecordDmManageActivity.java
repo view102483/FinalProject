@@ -22,6 +22,20 @@ public class RecordDmManageActivity extends AppCompatActivity {
 
 
     }
+    public void btnDMCheckRegular(View view){
+        Intent intent = new Intent();
+        intent.setClass(this, RecordDMCheckRegularActivity.class);
+        startActivity(intent);
+
+
+    }
+    public void btnDMTable(View view){
+        Intent intent = new Intent();
+        intent.setClass(this, RecordDMCheckRegularActivity.class);
+        startActivity(intent);
+
+
+    }
 
 
 }

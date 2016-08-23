@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="15dp"
@@ -11,41 +12,56 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="品名："
-        android:id="@+id/textView8"
-        android:layout_gravity="center_horizontal" />
+        android:layout_margin="20dp"
+        android:layout_alignParentLeft="true"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:layout_centerHorizontal="true"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_marginBottom="10dp"
-        android:layout_centerHorizontal="true"
+        android:id="@+id/textfood"
         android:text="食物"
-        android:id="@+id/foodname"
-        android:layout_gravity="center_horizontal" />
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:layout_centerHorizontal="true"/>
 
-    <LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_below="@id/foodname"
-    >
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView7"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/detail" />
-    </LinearLayout>
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_below="@id/textfood"
+        android:id="@+id/imageView5"
+        android:src="@drawable/post"
+        android:scaleType="fitXY"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        />
 
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="謝謝您提供的資料！"
-        android:id="@+id/button25"
-        android:layout_gravity="center_horizontal"
-        android:onClick="btnShootPhotoPostInInsert" />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:src="@drawable/select"
+        android:layout_below="@id/imageView5"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"/>
+
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/home"
+        android:id="@+id/home"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:onClick="btnHome"/>
+
+
+
+
+
+
 </RelativeLayout>

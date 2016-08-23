@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="15dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="15dp"
+    android:background="#feffd6"
+    >
+
+
+    <TextView
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:id="@+id/textrequest"
+     android:text="問題敘述"
+     android:layout_margin="20dp"
+     android:textSize="25dp"
+     />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:background="#FFD306"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:id="@+id/editrequest"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:id="@+id/imageView_setting_request"
+            android:src="@drawable/submit"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/home"
+            android:id="@+id/home"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:onClick="btnHome"/>
+    </RelativeLayout>
+
+
+
+</LinearLayout>
