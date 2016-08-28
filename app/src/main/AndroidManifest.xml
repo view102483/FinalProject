@@ -51,9 +51,6 @@
             android:name=".ShootPostActivity"
             android:label="拍照上傳" />
         <activity
-            android:name=".ShootRating"
-            android:label="評分" />
-        <activity
             android:name=".ShootPhotoActivity"
             android:label="搜尋餐點" />
         <activity
