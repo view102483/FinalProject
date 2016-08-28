@@ -14,7 +14,7 @@ public class ShootPhotoFoodInfActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.shoot_photo_foodinf);
+        setContentView(R.layout.shoot_wait);
     }
     public void btnShootPhotoPost(View view){
         Intent intent = new Intent();

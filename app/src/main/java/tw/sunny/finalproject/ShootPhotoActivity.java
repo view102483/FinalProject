@@ -13,7 +13,7 @@ public class ShootPhotoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.shoot_photo_searchinf);
+        setContentView(R.layout.searching_photo);
     }
     public void btnShootSearch(View view){
         Intent intent = new Intent();
