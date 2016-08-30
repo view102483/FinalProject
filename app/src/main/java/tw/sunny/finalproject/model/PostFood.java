@@ -12,7 +12,7 @@ public class PostFood {
     private ImageView photo;
 
 
-    public static PostFood getfakefoodpost(){
+    public static PostFood getFakeFoodPost(){
         PostFood postFood = new PostFood();
 
         postFood.describe = "#20160627 今天第一頓飯";
