@@ -15,16 +15,16 @@
         android:padding="10dp"
         android:divider="@drawable/shape"
         android:showDividers="end|none" >
+
         <TableRow style="@style/dmTableRow">
             <TextView
                 android:layout_width="match_parent"
-
                 android:text="日期："
                 style="@style/dmTitle"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_weight="3"
-                android:layout_height="wrap_content"
+                android:layout_height="20dp"
                 android:background="@drawable/edittextstyle"
                 />
             <ImageView
@@ -57,158 +57,245 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_weight="1"
-                    android:text="餐前血糖"
-                    android:textSize="15dp"/>
+                    android:text="餐前"
+                    android:textSize="15dp"
+                    android:gravity="center"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_weight="1"
-                    android:text="餐後血糖"
-                    android:textSize="15dp"/>
+                    android:text="餐後"
+                    android:textSize="15dp"
+                    android:gravity="center"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_weight="1"
-                    android:text="胰島素劑量"
-                    android:textSize="15dp"/>
+                    android:text="胰島素"
+                    android:textSize="15dp"
+                    android:gravity="center"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_weight="1"
-                    android:text="   血壓   "
-                    android:textSize="15dp"/>
+                    android:text="   血   "
+                    android:textSize="15dp"
+                    android:gravity="center"/>
 
             </TableRow>
+                <TableRow >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:text="      "
+                        android:textSize="15dp"
+                        />
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_weight="1"
+                        android:text="血糖"
+                        android:textSize="15dp"
+                        android:gravity="center"/>
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_weight="1"
+                        android:text="血糖"
+                        android:textSize="15dp"
+                        android:gravity="center"/>
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_weight="1"
+                        android:text="劑量"
+                        android:textSize="15dp"
+                        android:gravity="center"/>
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_weight="1"
+                        android:text="   壓   "
+                        android:textSize="15dp"
+                        android:gravity="center"/>
+
+                </TableRow>
                 <TableRow
-                    android:layout_marginTop="5dp">
+                    android:layout_marginTop="10dp">
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_weight="1"
                         android:text="早餐："
-                        android:textSize="15dp"
+                        android:textSize="20dp"
                         />
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_weight="1"
-                        android:layout_height="wrap_content"
+                        android:layout_height="50dp"
                         android:background="@drawable/edittextstyle"
                     />
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_weight="1"
-                        android:layout_height="wrap_content"
+                        android:layout_height="50dp"
                         android:background="@drawable/edittextstyle"
                         />
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_weight="1"
-                        android:layout_height="wrap_content"
+                        android:layout_height="50dp"
                         android:background="@drawable/edittextstyle"
                         />
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_weight="1"
-                        android:layout_height="wrap_content"
+                        android:layout_height="50dp"
                         android:background="@drawable/edittextstyle"
                         />
                 </TableRow>
 
             <TableRow
-                android:layout_marginTop="5dp">
+                android:layout_marginTop="15dp">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_weight="1"
                     android:text="午餐："
-                    android:textSize="15dp"
+                    android:textSize="20dp"
                     />
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_weight="1"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:background="@drawable/edittextstyle"
                     />
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_weight="1"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:background="@drawable/edittextstyle"
                     />
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_weight="1"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:background="@drawable/edittextstyle"
                     />
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_weight="1"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:background="@drawable/edittextstyle"
                     />
             </TableRow>
 
         <TableRow
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="15dp">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:text="晚餐："
-                android:textSize="15dp"
+                android:textSize="20dp"
                 />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:background="@drawable/edittextstyle"
                 />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:background="@drawable/edittextstyle"
                 />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:background="@drawable/edittextstyle"
                 />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:background="@drawable/edittextstyle"
                 />
         </TableRow>
                 <TableRow
-                    android:layout_marginTop="5dp">
+                    android:layout_marginTop="15dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:text=" "
+                        android:textSize="20dp"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:text="血糖"
+                        android:textSize="15dp"
+                        android:gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:text="胰島素"
+                        android:textSize="15dp"
+                        android:gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:text="血壓"
+                        android:textSize="15dp"
+                        android:gravity="center"
+                        />
+
+                </TableRow>
+                <TableRow
+                    android:layout_marginTop="15dp">
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_weight="1"
                         android:text="睡前："
-                        android:textSize="15dp"
+                        android:textSize="20dp"
                         />
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:hint="血糖"
+                        android:layout_height="50dp"
                         android:background="@drawable/edittextstyle"
                         />
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:hint="胰島素"
+                        android:layout_height="50dp"
                         android:background="@drawable/edittextstyle"
                         />
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:hint="血壓"
+                        android:layout_height="50dp"
                         android:background="@drawable/edittextstyle"
                         />
 
                 </TableRow>
             </TableLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/submit"
+                    android:id="@+id/imageView_record_dm_submit"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"/>
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/imageView_record_dm_change"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/change"/>
+
+
+            </RelativeLayout>
 
         </LinearLayout>
     </ScrollView>
