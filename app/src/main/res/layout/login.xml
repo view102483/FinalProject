@@ -19,7 +19,9 @@
             android:inputType="textPersonName"
             android:ems="12"
             android:id="@+id/editAccount"
+            android:text="view102483@gmail.com"
             android:layout_centerHorizontal="true"
+            android:singleLine="true"
             android:hint="帳號"
             android:layout_below="@id/logo" />
         <EditText
@@ -27,6 +29,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:ems="12"
+            android:singleLine="true"
             android:id="@+id/editPassword"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
