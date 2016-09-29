@@ -99,6 +99,7 @@
             android:background="@drawable/edittextstyle"
             android:inputType="number"
             android:gravity="center"
+            android:onClick=""
             />
     </LinearLayout>
 
@@ -131,6 +132,7 @@
         android:src="@drawable/registered"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
+        android:onClick="btnRegisterClick"
         />
 
 

@@ -70,7 +70,7 @@
          <TextView
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
-             android:id="@+id/editPassword"
+             android:id="@+id/textpass"
              android:gravity="center"
              android:text="密碼："
              android:textSize="30dp"
@@ -79,7 +79,7 @@
              android:layout_width="fill_parent"
              android:layout_height="fill_parent"
              android:ems="50"
-             android:id="@+id/textpass"
+             android:id="@+id/editPassword"
              android:inputType="textPassword"
              android:background="@drawable/edittextstyle"
              android:gravity="center"

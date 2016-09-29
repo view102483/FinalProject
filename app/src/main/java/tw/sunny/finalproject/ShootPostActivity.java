@@ -25,16 +25,23 @@ import com.facebook.share.model.SharePhoto;
 import com.facebook.share.model.SharePhotoContent;
 import com.facebook.share.widget.ShareDialog;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+
+import tw.sunny.finalproject.module.InternetModule;
+import tw.sunny.finalproject.module.InternetTask;
 
 /**
  * Created by lixinting on 2016/4/12.
  */
-public class ShootPostActivity extends AppCompatActivity {
+public class ShootPostActivity extends AppCompatActivity implements InternetModule.InternetCallback {
     private ShareDialog shareDialog;
     private CallbackManager callbackManager;
     Bitmap image;
     Uri imageUri;
+    String path;
     private SharedPreferences sp;
 
     @Override
@@ -62,25 +69,20 @@ public class ShootPostActivity extends AppCompatActivity {
                 Toast.makeText(ShootPostActivity.this, "on error!", Toast.LENGTH_LONG).show();
             }
         });*/
-        String path = getIntent().getStringExtra("bmp");
+        path = getIntent().getStringExtra("bmp");
         imageUri = Uri.parse(path);
         try {
             image = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
-            ((ImageView)findViewById(R.id.imageView5)).setImageBitmap(image);
+            ((ImageView) findViewById(R.id.imageView5)).setImageBitmap(image);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
-    public void btnShootPhotoPost(View view){
-//        Intent intent = new Intent();
-//        intent.setClass(this, ShootRating.class);
-//        startActivity(intent);
-//        finish();
-//        String uri = getIntent().getExtras().get("bmp");
-//        if(uri == null || uri.isEmpty()) {
-//            return;
-//        }
+
+    public void btnShootPhotoPost(View view) {
+
+        new InternetTask(this, "http://120.126.15.112/food/photo.php?act=upload", path).execute();
 
     }
 
@@ -134,17 +136,27 @@ public class ShootPostActivity extends AppCompatActivity {
         intent.setType("image/jpeg");
         startActivity(intent);
     }
+
     @Override
-    protected void onActivityResult(int requestCode, int responseCode, Intent data)
-    {
+    protected void onActivityResult(int requestCode, int responseCode, Intent data) {
         super.onActivityResult(requestCode, responseCode, data);
         callbackManager.onActivityResult(requestCode, responseCode, data);
     }
 
-    public void btnHome(View view){
+    public void btnHome(View view) {
         Intent intent = new Intent();
         intent.setClass(this, MainActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    public void onSuccess(String data) {
+        Toast.makeText(this, "照片上傳成功", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onFail(String msg) {
+        Toast.makeText(this, "上傳失敗:" + msg, Toast.LENGTH_SHORT).show();
     }
 }

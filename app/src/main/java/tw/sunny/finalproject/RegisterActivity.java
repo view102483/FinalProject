@@ -16,19 +16,28 @@ import android.widget.Toast;
 public class RegisterActivity extends AppCompatActivity {
 
     EditText EditText;
+    EditText email;
+    EditText pass;
+    EditText name;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register01);
         EditText = (EditText) findViewById(R.id.editbirthday);
+        email = (EditText) findViewById(R.id.editmail);
+        pass = (EditText) findViewById(R.id.editPassword);
+        name = (EditText) findViewById(R.id.editName);
 
     }
     public void btnRegister(View view){
-        Intent intent = new Intent();
-        intent.setClass(RegisterActivity.this, RegisterChangeImageActivity.class);
-        startActivity(intent);
+
+        dataActivity();
+
     }
+
     public void datePick(View v){
         DatePickerDialog mDatePickerDialog= new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -40,6 +49,19 @@ public class RegisterActivity extends AppCompatActivity {
         },1980,0,01);
 
         mDatePickerDialog.show();
+    }
+    public void dataActivity(){
+        Bundle bundle = new Bundle();
+        bundle.putString("email",email.getText().toString());
+        bundle.putString("pass",pass.getText().toString());
+        bundle.putString("name",name.getText().toString());
+        bundle.putString("birthdat",EditText.getText().toString());
+        Intent intent = new Intent();
+        intent.setClass(RegisterActivity.this, RegisterChangeImageActivity.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
+
+
     }
 
 

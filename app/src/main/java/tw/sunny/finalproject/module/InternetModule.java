@@ -1,8 +1,13 @@
 package tw.sunny.finalproject.module;
 
 
+import android.os.Environment;
+
 import java.io.ByteArrayOutputStream;
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -10,6 +15,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -21,10 +28,89 @@ import java.util.Map;
 public class InternetModule {
     public static final String GET = "GET";
     public static final String POST = "POST";
+    public static final String MEDIA = "Media";
 
 
     public String doHttpPost(String path, Map<String, String> map) throws InternetException {
         return doHttpConnect(path, POST, map);
+    }
+
+    public String doHttpPost(String urlServer, String filePath) throws InternetException {
+        HttpURLConnection connection = null;
+        DataOutputStream outputStream = null;
+        String lineEnd = "\r\n";
+        String twoHyphens = "--";
+        String boundary =  "*****";
+        int bytesRead, bytesAvailable, bufferSize;
+        byte[] buffer;
+        int maxBufferSize = 1*1024*1024;
+        String pathToOurFile = filePath;
+        int serverResponseCode = 0;
+        String serverResponseMessage = "";
+        try
+        {
+            FileInputStream fileInputStream = new FileInputStream(new File(filePath));
+            URL url = new URL(urlServer);
+            connection = (HttpURLConnection) url.openConnection();
+
+            // Allow Inputs &amp; Outputs.
+            connection.setDoInput(true);
+            connection.setDoOutput(true);
+            connection.setUseCaches(false);
+
+            // Set HTTP method to POST.
+            connection.setRequestMethod("POST");
+
+            connection.setRequestProperty("Connection", "Keep-Alive");
+            connection.setRequestProperty("Content-Type", "multipart/form-data;boundary="+boundary);
+//            connection.setRequestProperty("Content-Type", "multipart/form-data");
+
+            outputStream = new DataOutputStream( connection.getOutputStream() );
+            outputStream.writeBytes(twoHyphens + boundary + lineEnd);
+            outputStream.writeBytes("Content-Disposition: form-data; name=\"uploadedfile\";filename=\"" + pathToOurFile +"\"" + lineEnd);
+            outputStream.writeBytes(lineEnd);
+
+            bytesAvailable = fileInputStream.available();
+            bufferSize = Math.min(bytesAvailable, maxBufferSize);
+            buffer = new byte[bufferSize];
+
+            // Read file
+            bytesRead = fileInputStream.read(buffer, 0, bufferSize);
+
+            while (bytesRead > 0)
+            {
+                outputStream.write(buffer, 0, bufferSize);
+                bytesAvailable = fileInputStream.available();
+                bufferSize = Math.min(bytesAvailable, maxBufferSize);
+                bytesRead = fileInputStream.read(buffer, 0, bufferSize);
+            }
+
+            outputStream.writeBytes(lineEnd);
+            outputStream.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd);
+
+            outputStream.flush();
+            outputStream.close();
+            fileInputStream.close();
+
+            // Responses from the server (code and message)
+            serverResponseCode = connection.getResponseCode();
+            serverResponseMessage = convertToString(connection.getInputStream());
+
+
+
+            if(serverResponseCode == 200)
+                return serverResponseMessage;
+
+
+
+        }
+        catch (Exception ex)
+        {
+            //Exception
+            serverResponseCode = 999;
+            serverResponseMessage = "Unhandled Exception";
+        }
+        throw new InternetException(serverResponseCode, serverResponseMessage);
     }
 
     public String doHttpGet(String path) throws InternetException {

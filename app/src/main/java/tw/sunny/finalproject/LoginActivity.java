@@ -92,11 +92,11 @@ public class LoginActivity extends AppCompatActivity implements InternetModule.I
 
     @Override
     public void onSuccess(String data) {
-        Toast.makeText(this, data, Toast.LENGTH_SHORT).show();
-//        Intent intent = new Intent();
-//        intent.setClass(LoginActivity.this, MainActivity.class);
-//        startActivity(intent);
-//        finish();
+//        Toast.makeText(this, data, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent();
+        intent.setClass(LoginActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     @Override
