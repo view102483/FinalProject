@@ -3,4 +3,24 @@
     <string name="text_login">登入</string>
     <string name="title_activity_maps_main">Map</string>
     <string name="facebook_app_id">1733527306889936</string>
+    <string-array name="SpinnerArea">
+        <item>不限區域</item>
+        <item>北部</item>
+        <item>中部</item>
+        <item>南部</item>
+        <item>東部</item>
+        <item>離島</item>
+    </string-array>
+    <string-array name="Spinner">
+        <item>所有結果</item>
+        <item>一字不差</item>
+    </string-array>
+    <string-array name="SpinnerTime">
+        <item>不限時間</item>
+        <item>過去一小時</item>
+        <item>過去一天</item>
+        <item>過去一週</item>
+        <item>過去一月</item>
+    </string-array>
+
 </resources>

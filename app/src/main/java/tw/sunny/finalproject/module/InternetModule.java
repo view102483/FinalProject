@@ -153,7 +153,7 @@ public class InternetModule {
             }
             if (connection.getResponseCode() == 200)
                 return convertToString(connection.getInputStream());
-            throw new InternetException(connection.getResponseCode(), convertToString(connection.getInputStream()));
+            throw new InternetException(connection.getResponseCode(), convertToString(connection.getErrorStream()));
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,5 +1,6 @@
 package tw.sunny.finalproject;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -15,6 +16,9 @@ import com.facebook.FacebookSdk;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.facebook.AccessToken;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,7 +37,8 @@ public class LoginActivity extends AppCompatActivity implements InternetModule.I
     CallbackManager callbackManager;
     SharedPreferences sp;
     EditText account, password;
-
+    ProgressDialog dialog;
+    boolean isBusy = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -79,10 +84,13 @@ public class LoginActivity extends AppCompatActivity implements InternetModule.I
 
     public void btnLogin(View v) {
         // get map data
+        if(isBusy)
+            return;
         Map<String, String> data = new HashMap<>();
         data.put("user", account.getText().toString());
         data.put("pass", password.getText().toString());
-
+        dialog = ProgressDialog.show(this, "讀取中", "正在登入", true);
+        isBusy = true;
         new InternetTask(this, "http://120.126.15.112/food/member.php?act=login", InternetModule.POST, data).execute();
 //        Intent intent = new Intent();
 //        intent.setClass(LoginActivity.this, MainActivity.class);
@@ -93,14 +101,24 @@ public class LoginActivity extends AppCompatActivity implements InternetModule.I
     @Override
     public void onSuccess(String data) {
 //        Toast.makeText(this, data, Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent();
-        intent.setClass(LoginActivity.this, MainActivity.class);
-        startActivity(intent);
-        finish();
+        try {
+            JSONObject login = new JSONObject(data);
+            Intent intent = new Intent();
+            intent.setClass(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        } catch (JSONException e) {
+            onFail("非JSON格式");
+        } finally {
+            dialog.dismiss();
+            isBusy = false;
+        }
     }
 
     @Override
     public void onFail(String msg) {
+        dialog.dismiss();
+        isBusy = false;
         Toast.makeText(this, "Fail:" + msg, Toast.LENGTH_SHORT).show();
     }
 }

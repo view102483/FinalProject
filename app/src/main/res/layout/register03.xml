@@ -29,31 +29,50 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:id="@+id/layoutsportImage"
         android:layout_below="@id/layoutsport"
-        android:weightSum="1">
+        android:weightSum="2">
 
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:id="@+id/imageView_sportlight"
-            android:src="@drawable/mild"
-            android:onClick="sportClick"/>
+            android:id="@+id/sh_light"
+            android:src="@drawable/mildnochoice"
+            android:onClick="sportClick"
+            android:layout_weight="1"
+            />
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginLeft="10dp"
-            android:id="@+id/imageView_sportmid"
+            android:id="@+id/sh_middle"
+            android:onClick="sportClick"
+            android:src="@drawable/walknochoice"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/layoutsportImage2"
+        android:layout_below="@id/layoutsportImage"
+        android:weightSum="2">
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/sh_heavy"
             android:onClick="sportClick"
             android:src="@drawable/moderatenochoice"/>
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginLeft="10dp"
-            android:id="@+id/imageView_sportheavy"
+            android:id="@+id/sh_veryheavy"
             android:onClick="sportClick"
             android:src="@drawable/severenochoice"/>
     </LinearLayout>
@@ -63,7 +82,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textsportdes"
-        android:layout_below="@id/layoutsportImage"
+        android:layout_below="@id/layoutsportImage2"
         android:layout_centerInParent="true">
 
         <TextView

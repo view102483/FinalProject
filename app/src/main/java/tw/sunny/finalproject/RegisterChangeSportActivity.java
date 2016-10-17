@@ -12,17 +12,16 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.xml.datatype.Duration;
-
 /**
  * Created by lixinting on 2016/8/16.
  */
 public class RegisterChangeSportActivity extends AppCompatActivity {
 
 
-    ImageView sportlight;
-    ImageView sportmid;
-    ImageView sportheavy;
+    ImageView sportLight;
+    ImageView sportMid;
+    ImageView sportHeavy;
+    ImageView sportVeryHeavy;
     EditText kcalText;
     TextView tw;
     double sport;
@@ -51,34 +50,45 @@ public class RegisterChangeSportActivity extends AppCompatActivity {
         height = bundle.getString("height");
         weight = bundle.getString("weight");
 
-        sportlight = (ImageView) findViewById(R.id.imageView_sportlight);
-        sportmid = (ImageView) findViewById(R.id.imageView_sportmid);
-        sportheavy = (ImageView) findViewById(R.id.imageView_sportheavy);
+        sportLight = (ImageView) findViewById(R.id.sh_light);
+        sportMid = (ImageView) findViewById(R.id.sh_middle);
+        sportHeavy = (ImageView) findViewById(R.id.sh_heavy);
+        sportVeryHeavy = (ImageView) findViewById(R.id.sh_veryheavy);
         tw = (TextView) findViewById(R.id.textsporttw);
         kcalText = (EditText) findViewById(R.id.editcal);
 
-        sportClick(sportlight);
+        sportClick(sportLight);
     }
 
     public void sportClick(View v) {
-        if (v == sportlight) {
-            sportlight.setImageResource(R.drawable.mild);
-            sportmid.setImageResource(R.drawable.moderatenochoice);
-            sportheavy.setImageResource(R.drawable.severenochoice);
+        if (v == sportLight) {
+            sportLight.setImageResource(R.drawable.mild);
+            sportMid.setImageResource(R.drawable.walknochoice);
+            sportHeavy.setImageResource(R.drawable.moderatenochoice);
+            sportVeryHeavy.setImageResource(R.drawable.severenochoice);
             tw.setText("輕度：長時間坐著(學生、上班族)");
             sport = 1.4;
 
-        } else if (v == sportmid) {
-            sportlight.setImageResource(R.drawable.mildnochoice);
-            sportmid.setImageResource(R.drawable.moderate);
-            sportheavy.setImageResource(R.drawable.severenochoice);
+        } else if (v == sportMid) {
+            sportLight.setImageResource(R.drawable.mildnochoice);
+            sportMid.setImageResource(R.drawable.walk);
+            sportHeavy.setImageResource(R.drawable.moderatenochoice);
+            sportVeryHeavy.setImageResource(R.drawable.severenochoice);
             tw.setText("中度：長時間站立、走動(服務生、專櫃人員)");
             sport = 1.7;
 
+        } else if(v == sportHeavy) {
+            sportLight.setImageResource(R.drawable.mildnochoice);
+            sportMid.setImageResource(R.drawable.walknochoice);
+            sportHeavy.setImageResource(R.drawable.moderate);
+            sportVeryHeavy.setImageResource(R.drawable.severenochoice);
+            tw.setText("尚未設定");
+            sport = 1.7;
         } else {
-            sportlight.setImageResource(R.drawable.mildnochoice);
-            sportmid.setImageResource(R.drawable.moderatenochoice);
-            sportheavy.setImageResource(R.drawable.severe);
+            sportLight.setImageResource(R.drawable.mildnochoice);
+            sportMid.setImageResource(R.drawable.walknochoice);
+            sportHeavy.setImageResource(R.drawable.moderatenochoice);
+            sportVeryHeavy.setImageResource(R.drawable.severe);
             tw.setText("重度：每週固定時間運動，每次長達1小時以上");
             sport = 1.9;
         }

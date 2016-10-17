@@ -58,7 +58,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:src="@drawable/conversation"
+            android:src="@drawable/healthy"
             android:layout_weight="1"
             android:id="@+id/button9"
             android:layout_gravity="center_horizontal" />
@@ -93,11 +93,10 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:src="@drawable/set"
+            android:src="@drawable/conversation"
             android:layout_weight="1"
             android:id="@+id/button12"
-            android:layout_gravity="center_horizontal"
-            android:onClick="btnSetting" />
+            android:layout_gravity="center_horizontal" />
     </LinearLayout>
 
     <ProgressBar
