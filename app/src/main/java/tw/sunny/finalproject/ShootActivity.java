@@ -19,9 +19,6 @@ import java.util.Date;
 
 import tw.sunny.finalproject.module.QRCodeReaderView;
 
-/**
- * Created by lixinting on 2016/4/12.
- */
 public class ShootActivity extends AppCompatActivity implements QRCodeReaderView.OnQRCodeReadListener {
     QRCodeReaderView qr;
     File mCurrentPhoto;
@@ -36,6 +33,7 @@ public class ShootActivity extends AppCompatActivity implements QRCodeReaderView
     }
 
     public void btnCameraOnClick(View v) {
+
 
     }
 

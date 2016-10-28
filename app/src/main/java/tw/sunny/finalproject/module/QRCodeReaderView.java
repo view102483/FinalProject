@@ -72,7 +72,7 @@ public class QRCodeReaderView extends SurfaceView
 
 
     /**
-     * Set the callback to return decoding result
+     * Set the callback to returns decoding result
      *
      * @param onQRCodeReadListener the listener
      */

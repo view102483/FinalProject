@@ -1,49 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="1"
     android:layout_alignParentTop="true">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        >
-        <!--
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:src="@drawable/camera"
-            android:onClick="btnCameraOnClick"
-            android:layout_weight="1"/>
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:src="@drawable/code"
-            android:onClick="btnCodeOnClick"
-            android:layout_weight="1"
-            />
-            -->
-    </LinearLayout>
-
-
-        <tw.sunny.finalproject.module.QRCodeReaderView
+    <tw.sunny.finalproject.module.QRCodeReaderView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/qr"
-            android:layout_weight="1"/>
+            android:id="@+id/qr" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="btnTakePhotoClick"
-            android:text="我要拍照"/>
-    </LinearLayout>
-</LinearLayout>
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/camera"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:stateListAnimator="@drawable/btn_selector"
+        />
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/nocode"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:padding="5dp"
+        android:stateListAnimator="@drawable/btn_selector"/>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/returns"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:padding="5dp"
+        android:stateListAnimator="@drawable/btn_selector"/>
+</RelativeLayout>

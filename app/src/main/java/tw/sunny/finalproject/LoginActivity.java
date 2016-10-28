@@ -23,7 +23,6 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-import tw.sunny.finalproject.model.LoginUser;
 import tw.sunny.finalproject.module.InternetModule;
 import tw.sunny.finalproject.module.InternetTask;
 
