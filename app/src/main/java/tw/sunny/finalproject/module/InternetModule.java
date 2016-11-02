@@ -1,10 +1,7 @@
 package tw.sunny.finalproject.module;
 
 
-import android.os.Environment;
-
 import java.io.ByteArrayOutputStream;
-import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -15,8 +12,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Map;
 
 /**
@@ -45,11 +40,12 @@ public class InternetModule {
         byte[] buffer;
         int maxBufferSize = 1*1024*1024;
         String pathToOurFile = filePath;
+        File file = new File(pathToOurFile);
         int serverResponseCode = 0;
         String serverResponseMessage = "";
         try
         {
-            FileInputStream fileInputStream = new FileInputStream(new File(filePath));
+            FileInputStream fileInputStream = new FileInputStream(file);
             URL url = new URL(urlServer);
             connection = (HttpURLConnection) url.openConnection();
 
@@ -67,7 +63,7 @@ public class InternetModule {
 
             outputStream = new DataOutputStream( connection.getOutputStream() );
             outputStream.writeBytes(twoHyphens + boundary + lineEnd);
-            outputStream.writeBytes("Content-Disposition: form-data; name=\"uploadedfile\";filename=\"" + pathToOurFile +"\"" + lineEnd);
+            outputStream.writeBytes("Content-Disposition: form-data; name=\"uploadedfile\";filename=\"" + file.getName() +"\"" + lineEnd);
             outputStream.writeBytes(lineEnd);
 
             bytesAvailable = fileInputStream.available();

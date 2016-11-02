@@ -9,34 +9,44 @@
     android:paddingTop="15dp"
     android:background="#feffd6">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="品名："
-        android:layout_margin="20dp"
-        android:layout_alignParentLeft="true"
-        android:textAppearance="?android:textAppearanceLarge"
-        android:layout_centerHorizontal="true"/>
+        android:id="@+id/title_layout"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="品名："
+            android:layout_margin="20dp"
+            android:layout_alignParentLeft="true"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:layout_centerHorizontal="true"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textfood"
-        android:text="食物"
-        android:layout_margin="20dp"
-        android:gravity="center"
-        android:textAppearance="?android:textAppearanceLarge"
-        android:layout_centerHorizontal="true"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textfood"
+            android:text="食物"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:background="@drawable/edittextstyle"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:layout_centerHorizontal="true"/>
+    </LinearLayout>
 
     <ImageView
         android:layout_width="300dp"
         android:layout_height="200dp"
-        android:layout_below="@id/textfood"
+        android:layout_below="@id/title_layout"
         android:id="@+id/imageView5"
         android:src="@drawable/post"
         android:scaleType="fitXY"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:onClick="takeFoodInfo"
+        android:stateListAnimator="@drawable/btn_selector"
         />
 
 
@@ -58,8 +68,6 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:onClick="btnHome"/>
-
-
 
 
 

@@ -3,14 +3,13 @@ package tw.sunny.finalproject;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ProgressBar;
 
 /**
  * Created by lixinting on 2016/4/12.
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     ProgressBar progressBar = null;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,17 +24,10 @@ public class MainActivity extends AppCompatActivity {
         intent.setClass(MainActivity.this, ShootActivity.class);
         startActivity(intent);
     }
-    public void btnSetting(View view){
-        Intent intent = new Intent();
-        intent.setClass(MainActivity.this, SettingMainActivity.class);
-        startActivity(intent);
-//        progressBar.incrementProgressBy(1);
-//        if(progressBar.getProgress() == progressBar.getMax())
-//            progressBar.setProgress(0);
-    }
+
     public void btnSearching(View view){
         Intent intent = new Intent();
-        intent.setClass(MainActivity.this, SearchingActivity.class);
+        intent.setClass(MainActivity.this, SearchingMainActivity.class);
         startActivity(intent);
     }
     public void btnLocation(View view){
@@ -46,6 +38,12 @@ public class MainActivity extends AppCompatActivity {
     public void btnRecord(View view){
         Intent intent = new Intent();
         intent.setClass(MainActivity.this, RecordMainActivity.class);
+        startActivity(intent);
+    }
+
+    public void btnMedicalManage(View v) {
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this, RecordDmManageActivity.class);
         startActivity(intent);
     }
 }

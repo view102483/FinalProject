@@ -20,6 +20,28 @@
 <style name="dmTableRow">
     <item name="android:layout_margin">10dp</item>
 </style>
-
-
+    
+    <style name="infoTableRow">
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:layout_marginTop">3dp</item>
+        <item name="android:layout_marginBottom">3dp</item>
+    </style>
+    <style name="detailTableRow">
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:layout_marginTop">1dp</item>
+        <item name="android:layout_marginBottom">1dp</item>
+    </style>
+    <style name="detailTableRowText">
+        <item name="android:gravity">center</item>
+        <item name="android:height">40dp</item>
+        <item name="android:onClick">btnFilterClick</item>
+    </style>
+    <style name="edittext">
+        <item name="android:singleLine">true</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:inputType">numberDecimal</item>
+        <item name="android:gravity">center</item>
+    </style>
 </resources>

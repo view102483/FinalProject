@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="15dp"
-    android:paddingLeft="15dp"
-    android:paddingRight="15dp"
-    android:paddingTop="15dp"
-    android:background="#feffd6">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#feffd6"
+                android:paddingBottom="15dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="15dp">
 
     <LinearLayout
+        android:id="@+id/layoutsport"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/layoutsport"
         android:layout_marginTop="30dp"
+        android:orientation="horizontal"
         android:weightSum="1">
 
         <TextView
+            android:id="@+id/textsport"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textsport"
             android:layout_gravity="center_vertical"
             android:text="運動量："
             android:textSize="30dp"
@@ -29,95 +29,101 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/layoutsportImage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/layoutsportImage"
         android:layout_below="@id/layoutsport"
+        android:orientation="horizontal"
         android:weightSum="2">
 
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
             android:id="@+id/sh_light"
-            android:src="@drawable/mildnochoice"
-            android:onClick="sportClick"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
             android:layout_weight="1"
+            android:onClick="sportClick"
+            android:src="@drawable/mildnochoice"
             />
+
         <ImageView
-            android:layout_width="100dp"
+            android:id="@+id/sh_middle"
+            android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginLeft="10dp"
-            android:id="@+id/sh_middle"
+            android:layout_weight="1"
             android:onClick="sportClick"
             android:src="@drawable/walknochoice"
-            android:layout_weight="1"
             />
     </LinearLayout>
+
     <LinearLayout
+        android:id="@+id/layoutsportImage2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/layoutsportImage2"
         android:layout_below="@id/layoutsportImage"
+        android:orientation="horizontal"
         android:weightSum="2">
+
         <ImageView
-            android:layout_width="100dp"
+            android:id="@+id/sh_heavy"
+            android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginLeft="10dp"
-            android:id="@+id/sh_heavy"
+            android:layout_weight="1"
             android:onClick="sportClick"
             android:src="@drawable/moderatenochoice"/>
+
         <ImageView
-            android:layout_width="100dp"
+            android:id="@+id/sh_veryheavy"
+            android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginLeft="10dp"
-            android:id="@+id/sh_veryheavy"
+            android:layout_weight="1"
             android:onClick="sportClick"
             android:src="@drawable/severenochoice"/>
     </LinearLayout>
 
 
     <LinearLayout
+        android:id="@+id/textsportdes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textsportdes"
         android:layout_below="@id/layoutsportImage2"
         android:layout_centerInParent="true">
 
         <TextView
+            android:id="@+id/textsporttw"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textsporttw"
             android:text="輕度：長時間坐著(學生、上班族)"/>
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/layoutcaltext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/layoutcaltext"
-        android:layout_marginTop="10dp"
         android:layout_below="@id/textsportdes"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
         >
 
         <TextView
+            android:id="@+id/textcal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textcal"
             android:layout_gravity="center_vertical"
             android:text="熱量："
             android:textSize="30dp"
             />
 
         <EditText
+            android:id="@+id/editcal"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:ems="50"
-            android:id="@+id/editcal"
             android:background="@drawable/edittextstyle"
-            android:inputType="number"
+            android:ems="50"
             android:gravity="center"
+            android:inputType="number"
             android:onClick=""
             />
     </LinearLayout>
@@ -125,36 +131,35 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_below="@id/layoutcaltext"
         android:layout_marginTop="30dp"
-        android:layout_below="@id/layoutcaltext">
+        android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/editPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/editPassword"
             android:gravity="center"
             android:text="糖尿病："
             android:textSize="30dp"
             />
-       <CheckBox
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="是"
-           />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="是"
+            />
     </LinearLayout>
 
     <ImageView
+        android:id="@+id/btnregister"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:id="@+id/btnregister"
-        android:src="@drawable/registered"
-        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
         android:onClick="btnRegisterClick"
+        android:src="@drawable/registered"
         />
-
-
 
 
 </RelativeLayout>

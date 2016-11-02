@@ -5,7 +5,6 @@ import android.content.pm.PackageManager;
 import android.graphics.PointF;
 import android.hardware.Camera;
 import android.os.AsyncTask;
-import android.os.Environment;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Surface;
@@ -24,9 +23,6 @@ import com.google.zxing.client.android.camera.CameraManager;
 import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.QRCodeReader;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 
@@ -59,7 +55,7 @@ public class QRCodeReaderView extends SurfaceView
 
     public QRCodeReaderView(Context context, AttributeSet attrs) {
         super(context, attrs);
-
+        if (isInEditMode()) { return; }
         if (checkCameraHardware()) {
             mCameraManager = new CameraManager(getContext());
             mCameraManager.setPreviewCallback(this);

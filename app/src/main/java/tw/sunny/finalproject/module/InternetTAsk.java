@@ -2,7 +2,6 @@ package tw.sunny.finalproject.module;
 
 import android.os.AsyncTask;
 
-import java.io.InputStream;
 import java.util.Map;
 
 import tw.sunny.finalproject.model.InternetResponse;
@@ -35,6 +34,7 @@ public class InternetTask extends AsyncTask<Void, Integer, InternetResponse> {
         this.callback = callback;
         this.url = url;
         this.method = InternetModule.GET;
+        module = new InternetModule();
     }
 
     @Override

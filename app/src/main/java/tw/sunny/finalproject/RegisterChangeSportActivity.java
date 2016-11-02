@@ -35,7 +35,6 @@ public class RegisterChangeSportActivity extends AppCompatActivity {
     String weight;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,7 +76,7 @@ public class RegisterChangeSportActivity extends AppCompatActivity {
             tw.setText("中度：長時間站立、走動(服務生、專櫃人員)");
             sport = 1.7;
 
-        } else if(v == sportHeavy) {
+        } else if (v == sportHeavy) {
             sportLight.setImageResource(R.drawable.mildnochoice);
             sportMid.setImageResource(R.drawable.walknochoice);
             sportHeavy.setImageResource(R.drawable.moderate);
@@ -92,16 +91,19 @@ public class RegisterChangeSportActivity extends AppCompatActivity {
             tw.setText("重度：每週固定時間運動，每次長達1小時以上");
             sport = 1.9;
         }
+        try {
+            kcal = calcCalEating(
+                    Double.parseDouble(height) / 100,
+                    Double.parseDouble(weight),
+                    sport,
+                    gender,
+                    calcAge(birthdat)
+            );
 
-        kcal = calcCalEating(
-                Double.parseDouble(height) / 100,
-                Double.parseDouble(weight),
-                sport,
-                gender,
-                calcAge(birthdat)
-        );
-
-        kcalText.setText("" + Math.round(kcal));
+            kcalText.setText("" + Math.round(kcal));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
     }
@@ -127,7 +129,7 @@ public class RegisterChangeSportActivity extends AppCompatActivity {
         Date now = new Date();
         long diffInSeconds = now.getTime() - brnDate.getTime();
         diffInSeconds /= 1000L;
-        long yy = diffInSeconds / (365 * 24 *  60 * 60);
+        long yy = diffInSeconds / (365 * 24 * 60 * 60);
         Long y = Long.valueOf(yy);
         return y.intValue();
     }
@@ -136,17 +138,17 @@ public class RegisterChangeSportActivity extends AppCompatActivity {
         double k;
         try {
             k = Double.parseDouble(kcalText.getText().toString());
-            if(kcal - k > 1200) {
+            if (kcal - k > 1200) {
                 Toast.makeText(this, "熱量差距太大！(>1200)", Toast.LENGTH_SHORT).show();
                 return;
-            } else if(kcal < 1000) {
+            } else if (kcal < 1000) {
                 Toast.makeText(this, "熱量過低！(<1000)", Toast.LENGTH_SHORT).show();
                 return;
             }
 
             //TODO: next page
 
-        } catch(Exception e) {
+        } catch (Exception e) {
             Toast.makeText(this, "輸入框錯誤！", Toast.LENGTH_SHORT).show();
         }
     }

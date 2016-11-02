@@ -1,188 +1,254 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="15dp"
-    android:paddingLeft="15dp"
-    android:paddingRight="15dp"
-    android:paddingTop="15dp"
-    android:background="#feffd6">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#feffd6"
+              android:orientation="vertical"
+              android:paddingBottom="15dp"
+              android:paddingLeft="15dp"
+              android:paddingRight="15dp"
+              android:paddingTop="15dp">
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
         android:divider="@drawable/shape"
-    android:showDividers="end|none" >
-    <TableRow style="@style/dmTableRow">
-        <TextView
-            android:layout_width="match_parent"
+        android:padding="10dp"
+        android:showDividers="end|none">
 
-            android:text="日期："
-            style="@style/dmTitle"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_weight="3"
-            android:layout_height="wrap_content"
-            android:background="@drawable/edittextstyle"/>
-        <ImageView
-            android:layout_width="45dp"
-            android:layout_height="fill_parent"
-            android:id="@+id/imagecalender"
-            android:src="@drawable/calendar"
-            android:onClick="datePick"/>
-    </TableRow>
-    <TableRow style="@style/dmTableRow">
-        <TextView
-            android:layout_width="match_parent"
-            android:text="體重："
-            style="@style/dmTitle"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_weight="3"
-            android:layout_height="wrap_content"
-            android:hint="KG"
-            android:background="@drawable/edittextstyle"/>
-    </TableRow>
+        <TableRow style="@style/dmTableRow">
+
+            <TextView
+                style="@style/dmTitle"
+
+                android:layout_width="match_parent"
+                android:text="日期："/>
+
+            <EditText
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:background="@drawable/edittextstyle"/>
+
+            <ImageView
+                android:id="@+id/imagecalender"
+                android:layout_width="45dp"
+                android:layout_height="fill_parent"
+                android:onClick="onDatePicker"
+                android:src="@drawable/calendar"
+                android:stateListAnimator="@drawable/btn_selector"/>
+        </TableRow>
+
+        <TableRow style="@style/dmTableRow">
+
+            <TextView
+                style="@style/dmTitle"
+                android:layout_width="match_parent"
+                android:text="體重："/>
+
+            <EditText
+                android:id="@+id/weight"
+                style="@style/edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:background="@drawable/edittextstyle"
+                android:hint="KG"/>
+        </TableRow>
     </TableLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp">
+
                 <TableRow style="@style/dmTableRow">
+
                     <TextView
+                        style="@style/dmTitle"
                         android:layout_width="match_parent"
                         android:layout_weight="1"
-                        android:text="糖化血色素"
-                        style="@style/dmTitle"/>
+                        android:text="糖化血色素"/>
+
                     <EditText
+                        android:id="@+id/hba1c"
+                        style="@style/edittext"
                         android:layout_width="match_parent"
-                        android:layout_weight="6"
                         android:layout_height="wrap_content"
+                        android:layout_weight="6"
                         android:background="@drawable/edittextstyle"/>
                 </TableRow>
+
                 <TableRow style="@style/dmTableRow">
+
                     <TextView
+                        style="@style/dmTitle"
                         android:layout_width="match_parent"
                         android:layout_weight="1"
-                        android:text="總膽固醇"
-                        style="@style/dmTitle"/>
+                        android:text="總膽固醇"/>
+
                     <EditText
+                        android:id="@+id/tcholesterol"
+                        style="@style/edittext"
                         android:layout_width="match_parent"
-                        android:layout_weight="6"
                         android:layout_height="wrap_content"
+                        android:layout_weight="6"
                         android:background="@drawable/edittextstyle"/>
                 </TableRow>
+
                 <TableRow style="@style/dmTableRow">
+
                     <TextView
+                        style="@style/dmTitle"
                         android:layout_width="match_parent"
                         android:layout_weight="1"
-                        android:text="三酸甘油酯"
-                        style="@style/dmTitle"/>
+                        android:text="三酸甘油酯"/>
+
                     <EditText
+                        android:id="@+id/tg"
+                        style="@style/edittext"
                         android:layout_width="match_parent"
-                        android:layout_weight="6"
                         android:layout_height="wrap_content"
+                        android:layout_weight="6"
                         android:background="@drawable/edittextstyle"/>
                 </TableRow>
+
                 <TableRow style="@style/dmTableRow">
+
                     <TextView
+                        style="@style/dmTitle"
                         android:layout_width="match_parent"
                         android:layout_weight="1"
-                        android:text="低密度指\n蛋白膽固醇"
-                        style="@style/dmTitle"/>
+                        android:text="低密度指\n蛋白膽固醇"/>
+
                     <EditText
+                        android:id="@+id/ldlc"
+                        style="@style/edittext"
                         android:layout_width="match_parent"
-                        android:layout_weight="6"
                         android:layout_height="wrap_content"
+                        android:layout_weight="6"
                         android:background="@drawable/edittextstyle"/>
                 </TableRow>
+
                 <TableRow style="@style/dmTableRow">
+
                     <TextView
+                        style="@style/dmTitle"
                         android:layout_width="match_parent"
                         android:layout_weight="1"
-                        android:text="高密度酯\n蛋白膽固醇"
-                        style="@style/dmTitle"/>
+                        android:text="高密度酯\n蛋白膽固醇"/>
+
                     <EditText
+                        android:id="@+id/hdlc"
+                        style="@style/edittext"
                         android:layout_width="match_parent"
-                        android:layout_weight="6"
                         android:layout_height="wrap_content"
+                        android:layout_weight="6"
                         android:background="@drawable/edittextstyle"/>
                 </TableRow>
+
                 <TableRow style="@style/dmTableRow">
+
                     <TextView
+                        style="@style/dmTitle"
                         android:layout_width="match_parent"
                         android:layout_weight="1"
-                        android:text="肌酸酐"
-                        style="@style/dmTitle"/>
+                        android:text="肌酸酐"/>
+
                     <EditText
+                        android:id="@+id/cr"
+                        style="@style/edittext"
                         android:layout_width="match_parent"
-                        android:layout_weight="6"
                         android:layout_height="wrap_content"
+                        android:layout_weight="6"
                         android:background="@drawable/edittextstyle"/>
                 </TableRow>
+
                 <TableRow style="@style/dmTableRow">
+
                     <TextView
+                        style="@style/dmTitle"
                         android:layout_width="match_parent"
                         android:layout_weight="1"
-                        android:text="尿蛋白"
-                        style="@style/dmTitle"/>
+                        android:text="尿蛋白"/>
+
                     <EditText
+                        android:id="@+id/pro"
+                        style="@style/edittext"
                         android:layout_width="match_parent"
-                        android:layout_weight="6"
                         android:layout_height="wrap_content"
+                        android:layout_weight="6"
                         android:background="@drawable/edittextstyle"/>
                 </TableRow>
+
                 <TableRow style="@style/dmTableRow">
+
                     <TextView
+                        style="@style/dmTitle"
                         android:layout_width="match_parent"
                         android:layout_weight="1"
-                        android:text="尿微量白蛋白\n尿肌酸酐"
-                        style="@style/dmTitle"/>
+                        android:text="尿微量白蛋白\n尿肌酸酐"/>
+
                     <EditText
+                        android:id="@+id/acr"
+                        style="@style/edittext"
                         android:layout_width="match_parent"
-                        android:layout_weight="6"
                         android:layout_height="wrap_content"
+                        android:layout_weight="6"
                         android:background="@drawable/edittextstyle"/>
                 </TableRow>
+
                 <TableRow style="@style/dmTableRow">
+
                     <TextView
+                        style="@style/dmTitle"
                         android:layout_width="match_parent"
                         android:layout_weight="1"
-                        android:text="血壓收縮壓"
-                        style="@style/dmTitle"/>
+                        android:text="血壓收縮壓"/>
+
                     <EditText
+                        android:id="@+id/sbp"
+                        style="@style/edittext"
                         android:layout_width="match_parent"
-                        android:layout_weight="6"
                         android:layout_height="wrap_content"
+                        android:layout_weight="6"
                         android:background="@drawable/edittextstyle"/>
                 </TableRow>
+
                 <TableRow style="@style/dmTableRow">
+
                     <TextView
+                        style="@style/dmTitle"
                         android:layout_width="match_parent"
                         android:layout_weight="1"
-                        android:text="血壓舒張壓"
-                        style="@style/dmTitle"/>
+                        android:text="血壓舒張壓"/>
+
                     <EditText
+                        android:id="@+id/dbp"
+                        style="@style/edittext"
                         android:layout_width="match_parent"
-                        android:layout_weight="6"
                         android:layout_height="wrap_content"
+                        android:layout_weight="6"
                         android:background="@drawable/edittextstyle"/>
                 </TableRow>
             </TableLayout>
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:src="@drawable/submit"/>
+                android:onClick="onSubmit"
+                android:src="@drawable/submit"
+                android:stateListAnimator="@drawable/btn_selector"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

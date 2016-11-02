@@ -1,13 +1,10 @@
 package tw.sunny.finalproject;
 
-import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 /**
  * Created by lixinting on 2016/8/16.
@@ -19,11 +16,15 @@ public class RecordMainActivity extends AppCompatActivity {
 
     }
 
-    public void btnDmManage(View view){
-        Intent intent = new Intent();
-        intent.setClass(this, RecordDmManageActivity.class);
-        startActivity(intent);
 
-
+    public void btnPersonalData(View v) {
+        startActivity(new Intent(this, RecordPersonalActivity.class));
     }
+
+    public void btnAnalysis(View v) {
+        startActivity(new Intent(this, RecordFoodActivity.class));
+    }
+
+
+
 }

@@ -9,7 +9,7 @@ import android.widget.ListView;
 /**
  * Created by nagiy on 2016/4/12.
  */
-public class LocationCommonActivity extends AppCompatActivity {
+public class  LocationCommonActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

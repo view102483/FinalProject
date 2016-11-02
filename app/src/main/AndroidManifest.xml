@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="tw.sunny.finalproject">
+          package="tw.sunny.finalproject">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application
         android:allowBackup="true"
@@ -15,125 +16,112 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-
         <activity
             android:name=".StartActivity"
             android:label="畢專一路發">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="@string/text_login" />
+            android:label="@string/text_login"/>
         <activity
             android:name=".ForgetPasswordActivity"
-            android:label="忘記密碼" />
+            android:label="忘記密碼"/>
         <activity
             android:name=".RegisterActivity"
-            android:label="註冊" />
+            android:label="註冊"/>
         <activity
             android:name=".RegisterChangeImageActivity"
-            android:label="註冊02" />
+            android:label="註冊02"/>
         <activity
             android:name=".RegisterChangeSportActivity"
-            android:label="註冊03" />
+            android:label="註冊03"/>
         <activity
             android:name=".MainActivity"
-            android:label="主畫面" />
+            android:label="主畫面"/>
         <activity
             android:name=".ShootActivity"
-            android:label="拍照上傳" />
-        <activity
-            android:name=".ShootCodeActivity"
-            android:label="Barcode or QRcode資訊" />
+            android:label="拍照上傳"/>
         <activity
             android:name=".ShootPostActivity"
-            android:label="拍照上傳" />
-        <activity
-            android:name=".ShootPhotoActivity"
-            android:label="搜尋餐點" />
+            android:label="拍照上傳"/>
         <activity
             android:name=".ShootPhotoFoodInfActivity"
-            android:label="餐點資訊" />
+            android:label="餐點資訊"/>
         <activity
-            android:name=".ShootInsertDataActivity"
-            android:label="協助建檔" />
+            android:name=".ShootFoodInfoDetailActivity"
+            android:label="食材挑選"/>
+        <!--<activity-->
+        <!--android:name=".ShootInsertDataActivity"-->
+        <!--android:label="協助建檔" />-->
         <activity
             android:name=".SettingMainActivity"
-            android:label="設定" />
+            android:label="設定"/>
+        <activity
+            android:name=".SearchingMainActivity"
+            android:label="搜尋"/>
         <activity
             android:name=".SearchingActivity"
-            android:label="搜尋" />
+            android:label="好吃搜尋"/>
         <activity
-            android:name=".SearchingPhotoActivity"
-            android:label="照片" />
-        <activity
-            android:name=".LocationMainActivity"
-            android:label="定點規劃" />
-        <activity
-            android:name=".LocationCommonActivity"
-            android:label="餐廳評論" />
-        <activity
-            android:name=".LocationQueryActivity"
-            android:label="選擇地點規劃" />
-        <activity
-            android:name=".LocationRestaurantActivity"
-            android:label="附近推薦餐廳列表" />
-        <activity
-            android:name=".LocationSuggestActivity"
-            android:label="推薦餐廳列表" />
-
+            android:name=".SearchingMapActivity"
+            android:label="地圖規劃"/>
+        <activity android:name=".SearchingMapResultActivity"
+            android:label="推薦餐廳"/>
         <activity
             android:name=".SettingEditMemActivity"
             android:label="設定個人頁面"/>
-
-        <activity
-            android:name=".RecordMainActivity"
-            android:label="飲食記錄"/>
-
-        <activity
-            android:name=".RecordDmManageActivity"
-            android:label="疾病管理"/>
-
-        <activity
-            android:name=".RecordDMBActivity"
-            android:label="血糖紀錄"/>
-
-        <activity
-            android:name=".RecordDMCheckRegularActivity"
-            android:label="定期檢查"/>
-
         <activity
             android:name=".SettingRequestActivity"
             android:label="回報問題"/>
-
-
-
-
-
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
-
-        <meta-data
-            android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id"/>
-
         <activity
-        android:name=".MapsMainActivity"
-        android:label="@string/title_activity_maps_main"></activity>
-
-        <provider
-            android:authorities="com.facebook.app.FacebookContentProvider1733527306889936"
-            android:name="com.facebook.FacebookContentProvider"
-            android:exported="true"/>
+            android:name=".RecordMainActivity"
+            android:label="飲食記錄"/>
+        <activity
+            android:name=".RecordDmManageActivity"
+            android:label="疾病管理"/>
+        <activity
+            android:name=".RecordDMBActivity"
+            android:label="血糖紀錄"/>
+        <activity
+            android:name=".RecordDMCheckRegularActivity"
+            android:label="定期檢查"/>
+        <activity
+            android:name=".RecordPersonalActivity"
+            android:label="個人紀錄"/>
+        <activity
+            android:name=".RecordDetailActivity"
+            android:label="詳細資料"/>
+        <activity
+            android:name=".RecordFoodActivity"
+            android:label="飲食分析"/>
+        <activity
+            android:name=".RecordRemindActivity"
+            android:label="營養提醒"/>
+        <activity
+            android:name=".MapsMainActivity"
+            android:label="地圖"/>
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges=
                 "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name"/>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key"/>
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id"/>
+
+        <provider
+            android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider1733527306889936"
+            android:exported="true"/>
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.example.android.fileprovider"

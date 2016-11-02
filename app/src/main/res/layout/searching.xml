@@ -19,66 +19,56 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/editText5"
+            android:id="@+id/keyword"
             android:layout_weight="1"
-            android:background="@drawable/edittextstyle"/>
+            android:background="@drawable/edittextstyle"
+            android:maxLines="1"/>
 
-        <Button
-            android:layout_width="71dp"
-            android:layout_height="wrap_content"
-            android:text="搜尋"
-            android:id="@+id/button26"
-            android:onClick="btnSearchingToPhoto" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/query"
+            android:stateListAnimator="@drawable/btn_selector"
+            android:onClick="btnSearchingToPhoto"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_margin="5dp"
         >
 
-        <Spinner
+        <ImageView
+            android:id="@+id/location"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/SpinnerArea"
             android:layout_weight="1"
-            >
-        </Spinner>
+            android:layout_height="50dp"
+            android:src="@drawable/search_loc_none"
+            android:onClick="btnLocationClick"
+            android:stateListAnimator="@drawable/btn_selector"
+            />
 
-        <Spinner
+        <ImageView
+            android:id="@+id/time"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/SpinnerTime"
-            android:layout_weight="1">
-        </Spinner>
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:src="@drawable/search_time_none"
+            android:onClick="btnTimeClick"
+            android:stateListAnimator="@drawable/btn_selector"
+            />
 
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/Spinner"
-            android:layout_weight="1">
-        </Spinner>
     </LinearLayout>
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="歷史紀錄"
-        android:id="@+id/textView9" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="鬆餅"
-        android:id="@+id/textView10" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="牛肉炒飯"
-        android:id="@+id/textView11" />
+    <GridView
+        android:id="@+id/gallery"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="auto_fit"
+        android:columnWidth="100dp"
+        android:verticalSpacing="10dp"
+        android:horizontalSpacing="10dp"
+        android:stretchMode="columnWidth"
+        android:gravity="center"/>
 </LinearLayout>

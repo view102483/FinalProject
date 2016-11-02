@@ -3,38 +3,69 @@ package tw.sunny.finalproject;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
 
 /**
  * Created by lixinting on 2016/4/12.
  */
-public class ShootPhotoFoodInfActivity extends AppCompatActivity {
+public class ShootPhotoFoodInfActivity extends BaseActivity  {
+    private ImageView camera;
+    private String photoPath;
+    private EditText name;
+    private final int REQ_HELP = 1;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.shoot_wait);
-    }
-    public void btnShootPhotoPost(View view){
-        Intent intent = new Intent();
-        intent.setClass(this, ShootPostActivity.class);
-//        intent.putExtra("bmp", this.getIntent().getParcelableExtra("bmp"));
-        intent.putExtra("bmp", this.getIntent().getStringExtra("bmp"));
-        startActivity(intent);
-    }
-    public void btnSecondSol(View view){
-        Toast.makeText(this, "未有資料，需等待營養分析師的分析", Toast.LENGTH_SHORT).show();
-        finish();
-        Intent intent = new Intent();
-        intent.setClass(this, ShootInsertDataActivity.class);
-        startActivity(intent);
+        camera = (ImageView) findViewById(R.id.photo);
+        name = (EditText) findViewById(R.id.name);
+        photoPath = getIntent().getStringExtra("bmp");
+        Glide.with(this)
+                .load(photoPath)
+                .placeholder(R.drawable.default_image)
+                .into(camera);
     }
 
-    public void btnHome(View view){
-        Intent intent = new Intent();
-        intent.setClass(this, MainActivity.class);
+
+
+    public void onNotHelpClick(View v) {
+        if(name.getText().length() == 0) {
+            Toast.makeText(this, "請填入名稱", Toast.LENGTH_SHORT).show();
+            name.requestFocus();
+            return;
+        }
+        Intent intent = new Intent(this, ShootPostActivity.class);
+        intent.putExtra("bmp", photoPath);
+        intent.putExtra("name", name.getText().toString());
         startActivity(intent);
         finish();
     }
+
+    public void onHelpClick(View v) {
+        if(name.getText().length() == 0) {
+            Toast.makeText(this, "請填入名稱", Toast.LENGTH_SHORT).show();
+            name.requestFocus();
+            return;
+        }
+        Intent intent = new Intent(this, ShootFoodInfoDetailActivity.class);
+        intent.putExtra("bmp", photoPath);
+        intent.putExtra("name", name.getText().toString());
+        startActivityForResult(intent, REQ_HELP);
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == REQ_HELP && resultCode == RESULT_OK) {
+            Intent intent = new Intent(this, ShootPostActivity.class);
+            intent.putExtra("bmp", photoPath);
+            startActivity(intent);
+            finish();
+        }
+    }
+
 }

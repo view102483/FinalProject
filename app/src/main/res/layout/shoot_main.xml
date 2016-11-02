@@ -14,18 +14,20 @@
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/camera"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
+        android:src="@drawable/nocode"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:onClick="btnHasntQrCode"
         android:stateListAnimator="@drawable/btn_selector"
         />
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/nocode"
+        android:src="@drawable/next"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:padding="5dp"
+        android:onClick="btnHasQrCode"
         android:stateListAnimator="@drawable/btn_selector"/>
 
     <ImageView
@@ -35,5 +37,182 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:padding="5dp"
+        android:onClick="onBtnReturnClick"
         android:stateListAnimator="@drawable/btn_selector"/>
+
+    <TableLayout
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/infos"
+        android:padding="5dp"
+        android:stretchColumns="*"
+        android:id="@+id/infos"
+        android:visibility="gone"
+        android:onClick="dismissLayout"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+        <TableRow
+            style="@style/infoTableRow"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:text="每一份量"/>
+            <TextView
+                android:text="公克"
+                android:layout_span="2"
+                android:id="@+id/amountPerPackage"/>
+        </TableRow>
+        <TableRow
+            style="@style/infoTableRow">
+            <TextView
+                android:text="本包裝含"/>
+            <TextView
+                android:text="公克"
+                android:layout_span="2"
+                android:id="@+id/amont"/>
+        </TableRow>
+        <TableRow>
+            <View android:background="#000000"
+                  android:layout_width = "match_parent"
+                  android:layout_height="2dp"
+                  android:layout_margin="-15dp"
+                  android:layout_span="3"/>
+        </TableRow>
+        <TableRow
+            style="@style/infoTableRow">
+
+            <TextView
+                android:text="每份"
+                android:layout_column="1"
+                android:gravity="center"/>
+
+            <TextView
+                android:text="每100公克"
+                android:layout_column="2"
+                android:gravity="center"/>
+
+        </TableRow>
+        <TableRow>
+            <View android:background="#000000"
+                  android:layout_width = "match_parent"
+                  android:layout_height="2dp"
+                  android:layout_span="3"/>
+        </TableRow>
+        <TableRow
+            style="@style/infoTableRow">
+
+            <TextView
+                android:text="熱量"/>
+            <TextView
+                android:text="大卡"
+                android:gravity="center"
+                android:id="@+id/calPerPackage"/>
+            <TextView
+                android:text="大卡"
+                android:gravity="center"
+                android:id="@+id/calPerHundred"/>
+        </TableRow>
+        <TableRow
+            style="@style/infoTableRow">
+
+            <TextView
+                android:text="蛋白質"/>
+            <TextView
+                android:text="公克"
+                android:gravity="center"
+                android:id="@+id/proteinPerPackage"/>
+
+            <TextView
+                android:text="公克"
+                android:gravity="center"
+                android:id="@+id/proteinPerHundred"/>
+        </TableRow>
+        <TableRow
+            style="@style/infoTableRow">
+
+            <TextView
+                android:text="脂肪"/>
+            <TextView
+                android:text="公克"
+                android:gravity="center"
+                android:id="@+id/fatPerPackage"/>
+
+            <TextView
+                android:text="公克"
+                android:gravity="center"
+                android:id="@+id/fatPerHundred"/>
+        </TableRow>
+        <TableRow
+            style="@style/infoTableRow">
+
+            <TextView
+                android:text="　飽和脂肪"/>
+            <TextView
+                android:text="公克"
+                android:gravity="center"
+                android:id="@+id/saturatedfatPerPackage"/>
+            <TextView
+                android:text="公克"
+                android:gravity="center"
+                android:id="@+id/saturatedfatPerHundred"/>
+        </TableRow>
+        <TableRow
+            style="@style/infoTableRow">
+
+            <TextView
+                android:text="　反式脂肪"/>
+            <TextView
+                android:text="公克"
+                android:gravity="center"
+                android:id="@+id/transfatPerPackage"/>
+            <TextView
+                android:text="公克"
+                android:gravity="center"
+                android:id="@+id/transfatPerHundred"/>
+        </TableRow>
+        <TableRow
+            style="@style/infoTableRow">
+
+            <TextView
+                android:text="碳水化合物"/>
+            <TextView
+                android:text="公克"
+                android:gravity="center"
+                android:id="@+id/carbohydratePerPackage"/>
+            <TextView
+                android:text="公克"
+                android:gravity="center"
+                android:id="@+id/carbohydratePerHundred"/>
+        </TableRow>
+        <TableRow
+            style="@style/infoTableRow">
+
+            <TextView
+                android:text="　糖"/>
+
+            <TextView
+                android:text="公克"
+                android:gravity="center"
+                android:id="@+id/sugarPerPackage"/>
+
+            <TextView
+                android:text="公克"
+                android:gravity="center"
+                android:id="@+id/sugarPerHundred"/>
+        </TableRow>
+        <TableRow
+            style="@style/infoTableRow"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:text="鈉"/>
+            <TextView
+                android:text="毫克"
+                android:gravity="center"
+                android:id="@+id/sodiumPerPackage"/>
+            <TextView
+                android:text="毫克"
+                android:gravity="center"
+                android:id="@+id/sodiumPerHundred"/>
+        </TableRow>
+    </TableLayout>
 </RelativeLayout>

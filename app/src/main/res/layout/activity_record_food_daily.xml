@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/bg">
+    <ImageView
+        android:id="@+id/detail"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/analysis"
+        android:stateListAnimator="@drawable/btn_selector"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:onClick="btnAnalysisClick"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/calendar"
+        android:stateListAnimator="@drawable/btn_selector"
+        android:layout_margin="10dp"
+        android:layout_toLeftOf="@id/detail"
+        android:onClick="btnDatePickerClick"/>
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:text="0000年00月00日"
+        />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@id/detail"
+        android:background="#9EE2FF" />
+    
+    <ImageView
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:src="@drawable/remind"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:layout_below="@id/listView"
+        android:onClick="btnRemindClick"
+        android:stateListAnimator="@drawable/btn_selector"/>
+</RelativeLayout>

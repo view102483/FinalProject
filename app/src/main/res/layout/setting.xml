@@ -1,63 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="15dp"
     android:background="#feffd6">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="80dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:src="@drawable/remind"
-        android:id="@+id/button15"
-        android:layout_gravity="center_horizontal"
-         />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="80dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:src="@drawable/edit"
-        android:id="@+id/button19"
-        android:layout_gravity="center_horizontal"
-        android:onClick="btnSettingToSettingEditMem"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:src="@drawable/edit"
+            android:id="@+id/button19"
+            android:layout_gravity="center_horizontal"
+            android:onClick="btnSettingToSettingEditMem"
+            android:stateListAnimator="@drawable/btn_selector"/>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="80dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:src="@drawable/explanation"
-        android:id="@+id/button20"
-        android:layout_gravity="center_horizontal" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:src="@drawable/explanation"
+            android:id="@+id/button20"
+            android:layout_gravity="center_horizontal"
+            android:stateListAnimator="@drawable/btn_selector"/>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="80dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:src="@drawable/reportproblem"
-        android:id="@+id/button21"
-        android:layout_gravity="center_horizontal"
-        android:onClick="btnSettingToSettingRequest"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:src="@drawable/reportproblem"
+            android:id="@+id/button21"
+            android:layout_gravity="center_horizontal"
+            android:onClick="btnSettingToSettingRequest"
+            android:stateListAnimator="@drawable/btn_selector"/>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="80dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:id="@+id/button22"
-        android:src="@drawable/signout"
-        android:layout_gravity="center_horizontal" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:id="@+id/button22"
+            android:src="@drawable/signout"
+            android:layout_gravity="center_horizontal"
+            android:stateListAnimator="@drawable/btn_selector"/>
+    </LinearLayout>
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
 
         <ImageView
             android:layout_width="50dp"
@@ -65,8 +60,7 @@
             android:src="@drawable/home"
             android:id="@+id/home"
             android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
             android:onClick="btnHome">
         </ImageView>
-
-    </RelativeLayout>
-</LinearLayout>
+</RelativeLayout>

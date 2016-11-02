@@ -1,21 +1,19 @@
 package tw.sunny.finalproject;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
-import com.facebook.AccessToken;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,13 +28,12 @@ import tw.sunny.finalproject.module.InternetTask;
 /**
  * Created by lixinting on 2016/3/29.
  */
-public class LoginActivity extends AppCompatActivity implements InternetModule.InternetCallback {
+public class LoginActivity extends BaseActivity implements InternetModule.InternetCallback {
 
     LoginButton btnFbLogin;
     CallbackManager callbackManager;
     SharedPreferences sp;
     EditText account, password;
-    ProgressDialog dialog;
     boolean isBusy = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +85,7 @@ public class LoginActivity extends AppCompatActivity implements InternetModule.I
         Map<String, String> data = new HashMap<>();
         data.put("user", account.getText().toString());
         data.put("pass", password.getText().toString());
-        dialog = ProgressDialog.show(this, "讀取中", "正在登入", true);
+        showLoadingDialog("讀取中", "正在登入");
         isBusy = true;
         new InternetTask(this, "http://120.126.15.112/food/member.php?act=login", InternetModule.POST, data).execute();
 //        Intent intent = new Intent();
@@ -109,14 +106,14 @@ public class LoginActivity extends AppCompatActivity implements InternetModule.I
         } catch (JSONException e) {
             onFail("非JSON格式");
         } finally {
-            dialog.dismiss();
+            dismissLoadingDialog();
             isBusy = false;
         }
     }
 
     @Override
     public void onFail(String msg) {
-        dialog.dismiss();
+        dismissLoadingDialog();
         isBusy = false;
         Toast.makeText(this, "Fail:" + msg, Toast.LENGTH_SHORT).show();
     }

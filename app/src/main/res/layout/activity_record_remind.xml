@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+                android:background="@color/bg">
+    <ImageView
+        android:id="@+id/standard"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/standard_sector"/>
+    <TextView
+        android:id="@+id/hey"
+        android:layout_below="@id/standard"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/hey"/>
+
+    <TextView
+        android:id="@+id/note"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/hey"
+        android:background="@drawable/note"/>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/femalenutritionist"
+        android:layout_toLeftOf="@id/note"
+        android:layout_below="@id/hey"/>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/malenutritionist"
+        android:layout_toRightOf="@id/note"
+        android:layout_below="@id/hey"/>
+
+</RelativeLayout>

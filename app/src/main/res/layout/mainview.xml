@@ -1,115 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="1"
-    android:background="#feffd6"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#feffd6"
+                android:weightSum="1"
     >
 
     <ImageView
+        android:id="@+id/logo"
         android:layout_width="338dp"
         android:layout_height="200dp"
-        android:id="@+id/logo"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
         android:layout_weight="0.10"
         android:src="@drawable/logo_small"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp" />
+        />
+
     <LinearLayout
         android:id="@+id/layout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
+        android:layout_below="@id/logo"
+        android:layout_marginBottom="-10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="-10dp"
-        android:layout_below="@id/logo">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="100dp"
-                android:src="@drawable/photo"
-                android:id="@+id/button7"
-                android:layout_weight="1"
-                android:layout_gravity="center_horizontal"
-                android:onClick="btnShoot"/>
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/button7"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:src="@drawable/record"
-            android:layout_weight="1"
-            android:id="@+id/button8"
             android:layout_gravity="center_horizontal"
-            android:onClick="btnRecord"/>
-        </LinearLayout>
+            android:layout_weight="1"
+            android:onClick="btnShoot"
+            android:src="@drawable/photo"
+            android:stateListAnimator="@drawable/btn_selector"/>
+
+        <ImageView
+            android:id="@+id/button8"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:onClick="btnRecord"
+            android:src="@drawable/record"
+            android:stateListAnimator="@drawable/btn_selector"/>
+    </LinearLayout>
+
     <LinearLayout
+        android:id="@+id/layout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_below="@id/layout1"
+        android:layout_marginBottom="-10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="-10dp"
-        android:layout_marginBottom="-10dp"
-        android:id="@+id/layout2"
-        android:layout_below="@id/layout1">
+        android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:src="@drawable/healthy"
-            android:layout_weight="1"
             android:id="@+id/button9"
-            android:layout_gravity="center_horizontal" />
-
-        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:src="@drawable/search"
-            android:layout_weight="1"
-            android:id="@+id/button10"
             android:layout_gravity="center_horizontal"
-            android:onClick="btnSearching" />
+            android:layout_weight="1"
+            android:src="@drawable/healthy"
+            android:stateListAnimator="@drawable/btn_selector"
+            android:onClick="btnMedicalManage"/>
+
+        <ImageView
+            android:id="@+id/button10"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:onClick="btnSearching"
+            android:src="@drawable/search"
+            android:stateListAnimator="@drawable/btn_selector"/>
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_below="@id/layout2"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="-10dp"
-        android:layout_below="@id/layout2">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:src="@drawable/information"
-            android:layout_weight="1"
-            android:id="@+id/button11"
-            android:onClick="btnLocation"
-            android:layout_gravity="center_horizontal" />
+        android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/button11"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:src="@drawable/conversation"
+            android:layout_gravity="center_horizontal"
             android:layout_weight="1"
+            android:onClick="btnLocation"
+            android:src="@drawable/information"
+            android:stateListAnimator="@drawable/btn_selector"/>
+
+        <ImageView
             android:id="@+id/button12"
-            android:layout_gravity="center_horizontal" />
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:src="@drawable/conversation"
+            android:stateListAnimator="@drawable/btn_selector"/>
     </LinearLayout>
 
     <ProgressBar
         android:id="@+id/pgbar"
+        style="@style/CustomProgressBarHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/CustomProgressBarHorizontal"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Today's Energy"
+        android:layout_above="@id/pgbar"
         android:layout_margin="10dp"
-        android:layout_above="@id/pgbar"/>
+        android:text="Today's Energy"/>
 </RelativeLayout>
