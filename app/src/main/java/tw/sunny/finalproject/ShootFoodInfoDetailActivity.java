@@ -3,9 +3,11 @@ package tw.sunny.finalproject;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -38,7 +40,8 @@ public class ShootFoodInfoDetailActivity extends BaseActivity implements Interne
     List<Ingredient> ingredients;
     List<Ingredient> queryIngredients;
     ListAdapter adapter;
-    Map<Ingredient, Boolean> selected;
+    Map<String, Boolean> selected;
+    Map<String, String> amount;
     String name;
 
     @Override
@@ -51,8 +54,8 @@ public class ShootFoodInfoDetailActivity extends BaseActivity implements Interne
         ingredients = new ArrayList<>();
         queryIngredients = new ArrayList<>();
         selected = new HashMap<>();
-
-        adapter = new ListAdapter(this, queryIngredients);
+        amount = new HashMap<>();
+        adapter = new ListAdapter(this);
         listView.setAdapter(adapter);
         showLoadingDialog();
         new InternetTask(this, "http://120.126.15.112/food/ingredient.php?act=load").execute();
@@ -69,7 +72,6 @@ public class ShootFoodInfoDetailActivity extends BaseActivity implements Interne
             Toast.makeText(this, "請輸入關鍵字", Toast.LENGTH_SHORT).show();
             return;
         }
-        showLoadingDialog();
         queryIngredients.clear();
         for (Ingredient ing : ingredients) {
             if (ing.getIngre_name().contains(keyword.getText().toString())) {
@@ -78,7 +80,6 @@ public class ShootFoodInfoDetailActivity extends BaseActivity implements Interne
         }
 
         adapter.notifyDataSetChanged();
-        dismissLoadingDialog();
     }
 
     public void btnFilterClick(View v) {
@@ -115,21 +116,32 @@ public class ShootFoodInfoDetailActivity extends BaseActivity implements Interne
     }
 
     @Override
-    public void onSuccess(String data) {
-        try {
-            JSONArray jsonArray = new JSONArray(data);
-            ingredients.clear();
-            for (int i = 0; i < jsonArray.length(); i++) {
-                Ingredient ingredient = new Ingredient(jsonArray.getJSONObject(i));
-                ingredients.add(ingredient);
-                selected.put(ingredient, false);
+    public void onSuccess(final String data) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    JSONArray jsonArray = new JSONArray(data);
+                    ingredients.clear();
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        Ingredient ingredient = new Ingredient(jsonArray.getJSONObject(i));
+                        ingredients.add(ingredient);
+                        selected.put(ingredient.getGre_id(), false);
+                        amount.put(ingredient.getGre_id(), "");
+                    }
+                    queryIngredients.addAll(ingredients);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            adapter.notifyDataSetChanged();
+                            dismissLoadingDialog();
+                        }
+                    });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
-            queryIngredients.addAll(ingredients);
-            adapter.notifyDataSetChanged();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        dismissLoadingDialog();
+        }).start();
     }
 
     @Override
@@ -139,63 +151,21 @@ public class ShootFoodInfoDetailActivity extends BaseActivity implements Interne
     }
 
     private class ListHolder {
-//        public ListHolder(CheckBox checkBox, TextView textView, EditText editText) {
-//            this.checkBox = checkBox;
-//            this.textView = textView;
-//            this.editText = editText;
-//        }
-
-        public Ingredient getIngredient() {
-            return ingredient;
-        }
-
-        public void setIngredient(Ingredient ingredient) {
-            this.ingredient = ingredient;
-        }
-
-        private Ingredient ingredient;
-        public ListHolder(CheckBox checkBox, TextView textView) {
+        public ListHolder(CheckBox checkBox, TextView textView, EditText editText) {
             this.checkBox = checkBox;
             this.textView = textView;
+            this.editText = editText;
         }
-
-        public CheckBox getCheckBox() {
-            return checkBox;
-        }
-
-        public void setCheckBox(CheckBox checkBox) {
-            this.checkBox = checkBox;
-        }
-
-        public TextView getTextView() {
-            return textView;
-        }
-
-        public void setTextView(TextView textView) {
-            this.textView = textView;
-        }
-
-//        public EditText getEditText() {
-//            return editText;
-//        }
-//
-//        public void setEditText(EditText editText) {
-//            this.editText = editText;
-//        }
-
-        CheckBox checkBox;
-        TextView textView;
-//        EditText editText;
-
+        public CheckBox checkBox;
+        public TextView textView;
+        public EditText editText;
     }
 
     private class ListAdapter extends BaseAdapter {
         Context context;
-        List<Ingredient> queryIngredients;
 
-        public ListAdapter(Context context, List<Ingredient> queryIngredients) {
+        public ListAdapter(Context context) {
             this.context = context;
-            this.queryIngredients = queryIngredients;
         }
 
         @Override
@@ -220,37 +190,47 @@ public class ShootFoodInfoDetailActivity extends BaseActivity implements Interne
 
             if (v == null) {
                 v = LayoutInflater.from(context).inflate(R.layout.ingredient_item, null);
-                final CheckBox checkBox = (CheckBox) v.findViewById(R.id.checkbox);
+                CheckBox checkBox = (CheckBox) v.findViewById(R.id.checkbox);
                 TextView title = (TextView) v.findViewById(R.id.title);
-//                EditText gram = (EditText) v.findViewById(R.id.gram);
-//                holder = new ListHolder(checkBox, title, gram);
-                holder = new ListHolder(checkBox, title);
-                holder.setIngredient(ingredients.get(position));
-                checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                        selected.put(holder.getIngredient(), isChecked);
-                    }
-                });
+                EditText amount = (EditText) v.findViewById(R.id.amount);
+                holder = new ListHolder(checkBox, title, amount);
                 v.setTag(holder);
             } else {
                 holder = (ListHolder) v.getTag();
             }
-            Ingredient ingredient = holder.getIngredient();
-            holder.getTextView().setText(ingredient.getIngre_name());
-            holder.getCheckBox().setChecked(selected.get(ingredient));
+
+            holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    selected.put(queryIngredients.get(position).getGre_id(), isChecked);
+                }
+            });
+
+            holder.editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                @Override
+                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                    if(actionId == EditorInfo.IME_ACTION_DONE) {
+                        amount.put(queryIngredients.get(position).getGre_id(), v.getText().toString());
+                    }
+                    return false;
+                }
+            });
+            Ingredient ing = queryIngredients.get(position);
+            holder.textView.setText(ing.getIngre_name());
+            holder.checkBox.setChecked(selected.get(ing.getGre_id()));
+            holder.editText.setText(amount.get(ing.getGre_id()));
             return v;
-        }
-
-        public void setSelectedItem(Ingredient ingredient) {
-
         }
     }
 
     public void btnOkClick(View v) {
         Map<String, String> map = new HashMap<>();
         String data = "";
-
+        for(Ingredient ing : ingredients) {
+            if(selected.get(ing.getGre_id())) {
+                data += String.format("%s=%s,", ing.getIngre_name(), amount.get(ing.getGre_id()));
+            }
+        }
         data = data.substring(0, data.length() - 1);
         map.put("scratchpad", data);
         map.put("name", name);
@@ -258,6 +238,10 @@ public class ShootFoodInfoDetailActivity extends BaseActivity implements Interne
         new InternetTask(new InternetModule.InternetCallback() {
             @Override
             public void onSuccess(String data) {
+                if(!data.equals("scratchpad_ok")) {
+                    onFail(data);
+                    return;
+                }
                 dismissLoadingDialog();
                 setResult(RESULT_OK);
                 finish();

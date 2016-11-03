@@ -29,12 +29,10 @@ public class RecordDmManageActivity extends AppCompatActivity {
 
 
     }
-    public void btnDMTable(View view){
+    public void btnDMGraphic(View view){
         Intent intent = new Intent();
-        intent.setClass(this, RecordDMCheckRegularActivity.class);
+        intent.setClass(this, RecordDmGraphicActivity.class);
         startActivity(intent);
-
-
     }
 
 

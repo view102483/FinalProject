@@ -31,9 +31,7 @@ public class MainActivity extends BaseActivity {
         startActivity(intent);
     }
     public void btnLocation(View view){
-        Intent intent = new Intent();
-        intent.setClass(MainActivity.this, LocationMainActivity.class);
-        startActivity(intent);
+
     }
     public void btnRecord(View view){
         Intent intent = new Intent();

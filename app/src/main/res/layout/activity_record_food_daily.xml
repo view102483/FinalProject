@@ -56,4 +56,18 @@
         android:layout_below="@id/listView"
         android:onClick="btnRemindClick"
         android:stateListAnimator="@drawable/btn_selector"/>
+    <TextView
+        android:id="@+id/text2"
+        android:layout_below="@id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:text="今日熱量總表"
+        android:layout_margin="10dp"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/text2"
+        android:layout_margin="10dp"
+        android:src="@drawable/daily_cal"/>
 </RelativeLayout>

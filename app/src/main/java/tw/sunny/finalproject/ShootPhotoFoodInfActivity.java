@@ -63,6 +63,7 @@ public class ShootPhotoFoodInfActivity extends BaseActivity  {
         if(requestCode == REQ_HELP && resultCode == RESULT_OK) {
             Intent intent = new Intent(this, ShootPostActivity.class);
             intent.putExtra("bmp", photoPath);
+            intent.putExtra("name", name.getText().toString());
             startActivity(intent);
             finish();
         }

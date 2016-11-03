@@ -10,8 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -66,7 +69,9 @@ public class RecordFoodActivity extends BaseActivity implements InternetModule.I
     }
 
     public void btnAnalysisClick(View v) {
-
+        Intent intent = new Intent(this, RecordFoodDetailActivity.class);
+        intent.putExtra("date", date.getText().toString());
+        startActivity(intent);
     }
 
     public void btnDatePickerClick(View v) {
@@ -100,7 +105,17 @@ public class RecordFoodActivity extends BaseActivity implements InternetModule.I
     public void onFail(String msg) {
         dismissLoadingDialog();
     }
+    private class Holder {
+        public Holder(ImageView photo, TextView title, TextView store) {
+            this.photo = photo;
+            this.title = title;
+            this.store = store;
+        }
 
+        public ImageView photo;
+        public TextView title;
+        public TextView store;
+    }
 
     private class ListAdapter extends BaseAdapter {
         Context context;
@@ -129,9 +144,27 @@ public class RecordFoodActivity extends BaseActivity implements InternetModule.I
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             View v = convertView;
+
+            Holder holder = null;
             if(v == null) {
                 v = LayoutInflater.from(context).inflate(R.layout.record_analysis_list_item, null);
+                TextView title = (TextView) v.findViewById(R.id.name);
+                TextView store = (TextView) v.findViewById(R.id.store);
+                ImageView photo = (ImageView) v.findViewById(R.id.photo);
+                holder = new Holder(photo, title, store);
+                v.setTag(holder);
+            } else {
+                holder = (Holder) v.getTag();
             }
+
+            Record rec = records.get(position);
+            holder.title.setText(rec.getMenu_name());
+            holder.store.setText(rec.getStore_location());
+            Glide.with(RecordFoodActivity.this)
+                    .load(rec.getThumbnail())
+                    .placeholder(R.drawable.loading)
+                    .error(R.drawable.default_image)
+                    .into(holder.photo);
             return v;
         }
     }

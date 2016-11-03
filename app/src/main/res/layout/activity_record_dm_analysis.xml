@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/bg">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        >
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@android:color/white"
+            >
+
+            <TableRow
+                android:id="@+id/rowDate">
+
+                <TextView
+                    android:background="@drawable/cell"
+                    android:padding="10dp"
+                    android:text="日期"/>
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/rowWeight">
+
+                <TextView
+                    android:background="@drawable/cell"
+                    android:padding="10dp"
+                    android:text="體重"/>
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/rowHba1c">
+
+                <TextView
+                    android:background="@drawable/cell"
+                    android:padding="10dp"
+                    android:text="糖化血色素"/>
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/rowTcholesterol">
+
+                <TextView
+                    android:background="@drawable/cell"
+                    android:padding="10dp"
+                    android:text="膽固醇"/>
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/rowTg">
+
+                <TextView
+                    android:background="@drawable/cell"
+                    android:padding="10dp"
+                    android:text="三酸甘油酯"/>
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/rowLdlc">
+
+                <TextView
+                    android:background="@drawable/cell"
+                    android:padding="10dp"
+                    android:text="低密度脂蛋白膽固醇"/>
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/rowHdlc">
+
+                <TextView
+                    android:background="@drawable/cell"
+                    android:padding="10dp"
+                    android:text="高密度脂蛋白膽固醇"/>
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/rowCr">
+
+                <TextView
+                    android:background="@drawable/cell"
+                    android:padding="10dp"
+                    android:text="肌雖肝"/>
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/rowPro">
+
+                <TextView
+                    android:background="@drawable/cell"
+                    android:padding="10dp"
+                    android:text="尿蛋白"/>
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/rowAcr">
+
+                <TextView
+                    android:background="@drawable/cell"
+                    android:padding="10dp"
+                    android:text="尿微量白蛋白尿肌酸酐"/>
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/rowSbp">
+
+                <TextView
+                    android:background="@drawable/cell"
+                    android:padding="10dp"
+                    android:text="收縮壓"/>
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/rowDbp">
+
+                <TextView
+                    android:background="@drawable/cell"
+                    android:padding="10dp"
+                    android:text="舒張壓"/>
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
+</RelativeLayout>

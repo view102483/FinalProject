@@ -54,9 +54,6 @@
         <activity
             android:name=".ShootFoodInfoDetailActivity"
             android:label="食材挑選"/>
-        <!--<activity-->
-        <!--android:name=".ShootInsertDataActivity"-->
-        <!--android:label="協助建檔" />-->
         <activity
             android:name=".SettingMainActivity"
             android:label="設定"/>
@@ -69,7 +66,8 @@
         <activity
             android:name=".SearchingMapActivity"
             android:label="地圖規劃"/>
-        <activity android:name=".SearchingMapResultActivity"
+        <activity
+            android:name=".SearchingMapResultActivity"
             android:label="推薦餐廳"/>
         <activity
             android:name=".SettingEditMemActivity"
@@ -86,6 +84,13 @@
         <activity
             android:name=".RecordDMBActivity"
             android:label="血糖紀錄"/>
+        <activity android:name=".RecordDmGraphicActivity"
+            android:label="圖表分析"/>
+        <activity android:name=".module.RecordDmAnalysisActivity"
+                  android:label="圖表分析"/>
+        <activity android:name=".RecordFoodDetailActivity"
+            android:label="詳細分析"/>
+
         <activity
             android:name=".RecordDMCheckRegularActivity"
             android:label="定期檢查"/>

@@ -1,8 +1,6 @@
 package tw.sunny.finalproject;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -53,8 +51,7 @@ public class SearchingMapResultActivity extends BaseActivity implements Internet
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                startActivity(new Intent().setAction(Intent.ACTION_VIEW));
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q=" + stores.get(position).getStore_latitude() + "," + stores.get(position).getStore_longtitude() + "(" + stores.get(position).getStore_name() +")")));
+                    //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q=" + stores.get(position).getStore_latitude() + "," + stores.get(position).getStore_longtitude() + "(" + stores.get(position).getStore_name() +")")));
             }
         });
         LatLng to = getIntent().getParcelableExtra("to");

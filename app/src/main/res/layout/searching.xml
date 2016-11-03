@@ -22,7 +22,8 @@
             android:id="@+id/keyword"
             android:layout_weight="1"
             android:background="@drawable/edittextstyle"
-            android:maxLines="1"/>
+            android:maxLines="1"
+            android:singleLine="true"/>
 
         <ImageView
             android:layout_width="50dp"
