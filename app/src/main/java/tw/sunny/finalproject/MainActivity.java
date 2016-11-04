@@ -1,6 +1,7 @@
 package tw.sunny.finalproject;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -43,5 +44,9 @@ public class MainActivity extends BaseActivity {
         Intent intent = new Intent();
         intent.setClass(MainActivity.this, RecordDmManageActivity.class);
         startActivity(intent);
+    }
+
+    public void btnConversation(View v) {
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/groups/312453062445936/")));
     }
 }

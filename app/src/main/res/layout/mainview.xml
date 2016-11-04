@@ -109,7 +109,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
             android:src="@drawable/conversation"
-            android:stateListAnimator="@drawable/btn_selector"/>
+            android:stateListAnimator="@drawable/btn_selector"
+            android:onClick="btnConversation"/>
     </LinearLayout>
 
     <ProgressBar
