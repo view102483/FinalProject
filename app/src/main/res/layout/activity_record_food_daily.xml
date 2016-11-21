@@ -64,10 +64,10 @@
         android:textAppearance="?android:textAppearanceLarge"
         android:text="今日熱量總表"
         android:layout_margin="10dp"/>
-    <ImageView
-        android:layout_width="match_parent"
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/chart"
         android:layout_height="match_parent"
-        android:layout_below="@+id/text2"
-        android:layout_margin="10dp"
-        android:src="@drawable/daily_cal"/>
+        android:layout_width="match_parent"
+        android:layout_below="@id/text2"
+        />
 </RelativeLayout>

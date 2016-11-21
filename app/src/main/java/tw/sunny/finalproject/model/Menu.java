@@ -85,7 +85,7 @@ public class Menu implements Parcelable{
         this.bar_code = bar_code;
     }
 
-
+    public Menu(){}
 
     public Menu(JSONObject json) {
         try {

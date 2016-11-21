@@ -24,6 +24,8 @@ public class Record implements Parcelable {
     private String record_datetime;
     private String thumbnail;
     private String nu_id;
+    private Menu menu;
+
 
     protected Record(Parcel in) {
         cord_id = in.readString();
@@ -35,14 +37,7 @@ public class Record implements Parcelable {
         record_datetime = in.readString();
         thumbnail = in.readString();
         nu_id = in.readString();
-    }
-
-    public String getThumbnail() {
-        return thumbnail;
-    }
-
-    public void setThumbnail(String thumbnail) {
-        this.thumbnail = thumbnail;
+        menu = in.readParcelable(Menu.class.getClassLoader());
     }
 
     @Override
@@ -56,6 +51,7 @@ public class Record implements Parcelable {
         dest.writeString(record_datetime);
         dest.writeString(thumbnail);
         dest.writeString(nu_id);
+        dest.writeParcelable(menu, flags);
     }
 
     @Override
@@ -74,6 +70,26 @@ public class Record implements Parcelable {
             return new Record[size];
         }
     };
+
+    public Menu getMenu() {
+        return menu;
+    }
+
+    public void setMenu(Menu menu) {
+        this.menu = menu;
+    }
+
+
+
+
+    public String getThumbnail() {
+        return thumbnail;
+    }
+
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
+    }
+
 
     public String getCord_id() {
         return cord_id;
@@ -150,6 +166,10 @@ public class Record implements Parcelable {
                         field.set(this, value);
                     }
                 }
+            }
+
+            if(nu_id != null) {
+                menu = new Menu(json);
             }
         } catch (Exception e) {
             e.printStackTrace();
