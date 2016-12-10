@@ -1,4 +1,4 @@
-package tw.sunny.finalproject.module;
+package tw.sunny.finalproject;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,9 +11,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import tw.sunny.finalproject.BaseActivity;
-import tw.sunny.finalproject.R;
 import tw.sunny.finalproject.model.Inspect;
+import tw.sunny.finalproject.module.InternetModule;
+import tw.sunny.finalproject.module.InternetTask;
 
 /**
  * Description here
@@ -92,7 +92,7 @@ public class RecordDmAnalysisActivity extends BaseActivity {
             public void onFail(String msg) {
                 Toast.makeText(RecordDmAnalysisActivity.this, "連線失敗", Toast.LENGTH_SHORT).show();
             }
-        }, "http://120.126.15.112/food/dm.php?m=1").execute();
+        }, "http://120.126.15.112/food/dm.php?m=" + getSharedPreferences("member", MODE_PRIVATE).getString("member_id", "0")).execute();
     }
 
     public TextView genTextView(String message) {

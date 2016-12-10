@@ -129,6 +129,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/dmlayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/layoutcaltext"
@@ -145,12 +146,78 @@
             />
 
         <CheckBox
+            android:id="@+id/dm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="是"
             />
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/hbplayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dmlayout"
+        android:orientation="horizontal">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="高血壓："
+            android:textSize="30dp"
+            />
+
+        <CheckBox
+            android:id="@+id/hbp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="是"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/szlayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dmlayout"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="腎臟病："
+            android:textSize="30dp"
+            />
+
+        <CheckBox
+            android:id="@+id/sh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="是"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/dslayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dmlayout"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="代謝症候群："
+            android:textSize="30dp"
+            />
+
+        <CheckBox
+            android:id="@+id/ds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="是"
+            />
+    </LinearLayout>
     <ImageView
         android:id="@+id/btnregister"
         android:layout_width="100dp"

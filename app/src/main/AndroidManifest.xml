@@ -8,14 +8,17 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity
+            android:name=".ExitActivity"
+            android:theme="@android:style/Theme.NoDisplay"
+            android:autoRemoveFromRecents="true"/>
         <activity
             android:name=".StartActivity"
             android:label="畢專一路發">
@@ -86,7 +89,7 @@
             android:label="血糖紀錄"/>
         <activity android:name=".RecordDmGraphicActivity"
             android:label="圖表分析"/>
-        <activity android:name=".module.RecordDmAnalysisActivity"
+        <activity android:name=".RecordDmAnalysisActivity"
                   android:label="圖表分析"/>
         <activity android:name=".RecordFoodDetailActivity"
             android:label="詳細分析"/>
@@ -109,11 +112,12 @@
         <activity
             android:name=".MapsMainActivity"
             android:label="地圖"/>
-        <activity
-            android:name="com.facebook.FacebookActivity"
-            android:configChanges=
-                "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-            android:label="@string/app_name"/>
+        <activity android:name=".SettingPersonalPage1"
+            android:label="個人資料修改" />
+        <activity android:name=".SettingPersonalPage2"
+                  android:label="個人資料修改" />
+        <activity android:name=".SettingPersonalPage3"
+                  android:label="個人資料修改" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

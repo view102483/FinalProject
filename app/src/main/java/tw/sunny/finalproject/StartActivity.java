@@ -15,8 +15,8 @@ public class StartActivity extends AppCompatActivity {
     }
 
     public void btnSignin(View view) {
-//        startActivity(new Intent(this, LoginActivity.class));
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, LoginActivity.class));
+//        startActivity(new Intent(this, MainActivity.class));
     }
     public void btnRegister(View view){
         startActivity(new Intent(this, RegisterActivity.class));

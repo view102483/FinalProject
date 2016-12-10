@@ -20,11 +20,13 @@ import tw.sunny.finalproject.module.InternetModule;
 import tw.sunny.finalproject.module.InternetTask;
 
 /**
- * Created by lixinting on 2016/8/16.
+ * Description here
+ *
+ * @author nagi
+ * @version 1.0
  */
-public class RegisterChangeSportActivity extends AppCompatActivity {
 
-
+public class SettingPersonalPage3 extends AppCompatActivity {
     ImageView sportLight;
     ImageView sportMid;
     ImageView sportHeavy;
@@ -40,8 +42,8 @@ public class RegisterChangeSportActivity extends AppCompatActivity {
     String birthdat;
     String height;
     String weight;
-
     CheckBox dm, hbp, sz, ds;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +57,8 @@ public class RegisterChangeSportActivity extends AppCompatActivity {
         gender = bundle.getString("gender");
         height = bundle.getString("height");
         weight = bundle.getString("weight");
+
+        ((ImageView)findViewById(R.id.btnregister)).setImageResource(R.drawable.change);
 
         sportLight = (ImageView) findViewById(R.id.sh_light);
         sportMid = (ImageView) findViewById(R.id.sh_middle);
@@ -156,9 +160,10 @@ public class RegisterChangeSportActivity extends AppCompatActivity {
                 return;
             }
 
+            //TODO: next page
             Map<String, String> map = new HashMap<>();
-            map.put("user", email);
-            map.put("pass", pass);
+            map.put("uid", getSharedPreferences("mebmer", MODE_PRIVATE).getString("member_id", "0"));
+
             if (!name.isEmpty()) map.put("name", name);
             if (!birthdat.isEmpty()) map.put("birthdat", birthdat);
             if (!gender.isEmpty()) map.put("gender", gender);
@@ -177,7 +182,7 @@ public class RegisterChangeSportActivity extends AppCompatActivity {
                 public void onSuccess(String data) {
                     if (data.startsWith("OK")) {
                         setResult(RESULT_OK, new Intent());
-                        Toast.makeText(RegisterChangeSportActivity.this, "註冊完成", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SettingPersonalPage3.this, "完成修改", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 }
@@ -186,12 +191,9 @@ public class RegisterChangeSportActivity extends AppCompatActivity {
                 public void onFail(String msg) {
 
                 }
-            }, "http://120.126.15.112/food/member.php?act=register", InternetModule.POST, map).execute();
-
+            }, "http://120.126.15.112/food/member.php?act=edit", InternetModule.POST, map).execute();
         } catch (Exception e) {
             Toast.makeText(this, "輸入框錯誤！", Toast.LENGTH_SHORT).show();
         }
     }
-
-
 }

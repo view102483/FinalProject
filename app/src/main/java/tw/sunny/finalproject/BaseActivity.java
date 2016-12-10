@@ -23,6 +23,7 @@ import java.io.FileOutputStream;
 public class BaseActivity extends AppCompatActivity {
 
     ProgressDialog dialog;
+    
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -8,10 +8,9 @@
     <ImageView
         android:id="@+id/photo"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/camera"
-        />
+        android:layout_height="300dp"/>
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="wrap_content"
@@ -23,14 +22,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:id="@+id/dishname"
+            android:background="@drawable/edittextstyle"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:hint="請填入店家名稱"
+            android:maxLines="1"
+            android:singleLine="true"
+            />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
             android:id="@+id/name"
             android:background="@drawable/edittextstyle"
             android:layout_gravity="center"
             android:gravity="center"
-            android:hint="請填入名稱"
+            android:hint="請填入餐點名稱"
             android:maxLines="1"
             android:singleLine="true"
             />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="50dp"

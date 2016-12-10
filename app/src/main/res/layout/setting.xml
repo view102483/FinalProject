@@ -50,7 +50,8 @@
             android:id="@+id/button22"
             android:src="@drawable/signout"
             android:layout_gravity="center_horizontal"
-            android:stateListAnimator="@drawable/btn_selector"/>
+            android:stateListAnimator="@drawable/btn_selector"
+            android:onClick="btnLogout"/>
     </LinearLayout>
 
 

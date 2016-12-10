@@ -22,12 +22,9 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 import tw.sunny.finalproject.model.Menu;
 import tw.sunny.finalproject.module.InternetModule;
-import tw.sunny.finalproject.module.InternetTask;
 import tw.sunny.finalproject.module.QRCodeReaderView;
 
 public class ShootActivity extends BaseActivity implements QRCodeReaderView.OnQRCodeReadListener, InternetModule.InternetCallback {
@@ -141,15 +138,34 @@ public class ShootActivity extends BaseActivity implements QRCodeReaderView.OnQR
         if(nuId.equals(text))
             return;
 
-        for (int i=0; i<text.length(); i++) {
-            if(!Character.isDigit(text.charAt(i)))
-                return;
+//        for (int i=0; i<text.length(); i++) {
+//            if(!Character.isDigit(text.charAt(i)))
+//                return;
+//        }
+//        nuId = text;
+//        Map<String, String> map = new HashMap<>();
+//        map.put("id", text);
+//        showLoadingDialog();
+        //new InternetTask(this, "http://120.126.15.112/food/menu.php?act=get", InternetModule.POST, map).execute();
+        try {
+            JSONObject json = new JSONObject(text);
+            Menu menu = new Menu(json);
+            infoLayout.setVisibility(View.VISIBLE);
+            calPerPackage.setText(menu.getMenu_calories() + " 大卡");
+            carbohydratePerPackage.setText(menu.getMenu_carbohydrate() + " 公克");
+            sugarPerPackage.setText(menu.getMenu_sugar() + " 公克");
+            sodiumPerPackage.setText(menu.getMenu_soduim() + " 毫克");
+            fatPerPackage.setText(menu.getMenu_fat() + " 公克");
+            saturatedfatPerPackage.setText(menu.getMenu_saturatedfat() + " 公克");
+            transfatPerPackage.setText(menu.getMenu_transfat() + " 公克");
+            proteinPerPackage.setText(menu.getMenu_protein() + " 公克");
+            name = menu.getMenu_name();
+
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        nuId = text;
-        Map<String, String> map = new HashMap<>();
-        map.put("id", text);
-        showLoadingDialog();
-        new InternetTask(this, "http://120.126.15.112/food/menu.php?act=get", InternetModule.POST, map).execute();
+
+//        dismissLoadingDialog();
     }
 
 

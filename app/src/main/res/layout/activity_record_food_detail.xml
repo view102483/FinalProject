@@ -4,117 +4,55 @@
                 android:layout_height="match_parent"
                 android:background="@color/bg">
 
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/calendarZone"/>
+
     <LinearLayout
         android:id="@+id/calendarZone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:layout_alignParentTop="true"
-        android:orientation="horizontal">
+        android:layout_alignParentStart="true">
 
         <TextView
             android:id="@+id/dateBegin"
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:text="0000-00-00"
+            android:gravity="center"/>
 
         <ImageView
+            android:layout_gravity="center_vertical"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="30dp"
             android:layout_weight="1"
-            android:src="@drawable/calendar"/>
+            android:src="@drawable/calendar"
+            android:onClick="btnDateFinish"/>
 
         <TextView
             android:id="@+id/dateFinish"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:text="0000-00-00"
+            android:gravity="center"/>
 
         <ImageView
+            android:layout_gravity="center_vertical"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="30dp"
             android:layout_weight="1"
-            android:src="@drawable/calendar"/>
+            android:src="@drawable/calendar"
+            android:onClick="btnDateBegin"/>
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/detail"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_below="@id/calendarZone"
-        android:layout_margin="10dp"
-        android:src="@drawable/detail_sample"/>
-
-    <TextView
-        android:id="@+id/text1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/detail"
-        android:layout_margin="10dp"
-        android:text="選擇"
-        android:textAppearance="?android:textAppearanceLarge"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#84FF79"
-        android:orientation="vertical"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/text1"
-        android:layout_alignStart="@+id/text1">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_height="wrap_content">
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Na"
-                android:textAppearance="?android:textAppearanceLarge"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_height="wrap_content">
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Sugar"
-                android:textAppearance="?android:textAppearanceLarge"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_height="wrap_content">
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Salt"
-                android:textAppearance="?android:textAppearanceLarge"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_height="wrap_content">
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Li"
-                android:textAppearance="?android:textAppearanceLarge"/>
-        </LinearLayout>
-    </LinearLayout>
 </RelativeLayout>

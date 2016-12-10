@@ -55,7 +55,7 @@ public class RecordDMBActivity extends BaseActivity {
 
         showLoadingDialog("Uploading", "資料上傳中");
         Map<String, String> map = new HashMap<>();
-        map.put("mber_id", "1");
+        map.put("mber_id", getSharedPreferences("member", MODE_PRIVATE).getString("member_id", "0"));
         map.put("date", ((TextView)findViewById(R.id.date)).getText().toString());
         map.put("member_weight", ((TextView)findViewById(R.id.weight)).getText().toString());
         map.put("hba1c", ((TextView)findViewById(R.id.hba1c)).getText().toString());

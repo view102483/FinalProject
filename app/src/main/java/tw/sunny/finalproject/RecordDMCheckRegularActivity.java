@@ -43,7 +43,7 @@ public class RecordDMCheckRegularActivity extends BaseActivity {
     public void onSubmit(View v) {
         showLoadingDialog();
         Map<String, String> map = new HashMap<>();
-        map.put("mber_id", "1");
+        map.put("m", getSharedPreferences("member", MODE_PRIVATE).getString("member_id", "0"));
         map.put("BS_date", ((TextView)findViewById(R.id.date)).getText().toString());
         map.put("BS_befb", ((TextView)findViewById(R.id.break_sugar_pre)).getText().toString());
         map.put("BS_afterb", ((TextView)findViewById(R.id.break_sugar_post)).getText().toString());
@@ -57,13 +57,13 @@ public class RecordDMCheckRegularActivity extends BaseActivity {
         map.put("BS_afterd", ((TextView)findViewById(R.id.dinner_sugar_post)).getText().toString());
         map.put("insulin_d", ((TextView)findViewById(R.id.dinner_insulin)).getText().toString());
         map.put("BS_d", ((TextView)findViewById(R.id.dinner_press)).getText().toString());
-        map.put("BS_befsleep", ((TextView)findViewById(R.id.date)).getText().toString());
-        map.put("insulin_befsleep", ((TextView)findViewById(R.id.date)).getText().toString());
-        map.put("bp_befsleep", ((TextView)findViewById(R.id.date)).getText().toString());
+        map.put("BS_befsleep", ((TextView)findViewById(R.id.sleep_sugar)).getText().toString());
+        map.put("insulin_befsleep", ((TextView)findViewById(R.id.sleep_insulin)).getText().toString());
+        map.put("bp_befsleep", ((TextView)findViewById(R.id.sleep_press)).getText().toString());
         new InternetTask(new InternetModule.InternetCallback() {
             @Override
             public void onSuccess(String data) {
-                if(!data.equals("ok")) {
+                if(!data.equals("OK")) {
                     onFail(data);
                     return;
                 }
@@ -78,6 +78,6 @@ public class RecordDMCheckRegularActivity extends BaseActivity {
                 dismissLoadingDialog();
                 Toast.makeText(RecordDMCheckRegularActivity.this, "something error:" + msg, Toast.LENGTH_SHORT).show();
             }
-        }, "http://120.126.15.112/food/bs.php", InternetModule.POST, map).execute();
+        }, "http://120.126.15.112/food/bsi.php", InternetModule.POST, map).execute();
     }
 }

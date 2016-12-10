@@ -53,7 +53,7 @@ public class RecordPersonalActivity extends BaseActivity implements InternetModu
 
 
         Map<String, String> data = new HashMap<>();
-        data.put("uid", "1");
+        data.put("uid", getSharedPreferences("member", MODE_PRIVATE).getString("member_id", "0"));
         showLoadingDialog("", "正在讀取中...");
         new InternetTask(this, "http://120.126.15.112/food/record.php?act=query", InternetModule.POST, data).execute();
     }

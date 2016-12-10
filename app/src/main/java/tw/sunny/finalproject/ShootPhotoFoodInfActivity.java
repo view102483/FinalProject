@@ -16,7 +16,7 @@ import com.bumptech.glide.Glide;
 public class ShootPhotoFoodInfActivity extends BaseActivity  {
     private ImageView camera;
     private String photoPath;
-    private EditText name;
+    private EditText name, store;
     private final int REQ_HELP = 1;
 
     @Override
@@ -25,6 +25,7 @@ public class ShootPhotoFoodInfActivity extends BaseActivity  {
         setContentView(R.layout.shoot_wait);
         camera = (ImageView) findViewById(R.id.photo);
         name = (EditText) findViewById(R.id.name);
+        store = (EditText) findViewById(R.id.dishname);
         photoPath = getIntent().getStringExtra("bmp");
         Glide.with(this)
                 .load(photoPath)
@@ -40,9 +41,15 @@ public class ShootPhotoFoodInfActivity extends BaseActivity  {
             name.requestFocus();
             return;
         }
+        if(store.getText().length() == 0) {
+            Toast.makeText(this, "請填入名稱", Toast.LENGTH_SHORT).show();
+            store.requestFocus();
+            return;
+        }
         Intent intent = new Intent(this, ShootPostActivity.class);
         intent.putExtra("bmp", photoPath);
         intent.putExtra("name", name.getText().toString());
+        intent.putExtra("store", store.getText().toString());
         startActivity(intent);
         finish();
     }
@@ -53,9 +60,16 @@ public class ShootPhotoFoodInfActivity extends BaseActivity  {
             name.requestFocus();
             return;
         }
+
+        if(store.getText().length() == 0) {
+            Toast.makeText(this, "請填入名稱", Toast.LENGTH_SHORT).show();
+            store.requestFocus();
+            return;
+        }
         Intent intent = new Intent(this, ShootFoodInfoDetailActivity.class);
         intent.putExtra("bmp", photoPath);
         intent.putExtra("name", name.getText().toString());
+        intent.putExtra("store", store.getText().toString());
         startActivityForResult(intent, REQ_HELP);
     }
     @Override

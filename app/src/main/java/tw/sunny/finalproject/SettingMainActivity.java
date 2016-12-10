@@ -35,4 +35,10 @@ public class SettingMainActivity extends AppCompatActivity {
 
     }
 
+    public void btnLogout(View v) {
+        getSharedPreferences("member", MODE_PRIVATE).edit().clear().commit();
+        ExitActivity.exitApplication(this);
+    }
+
+
 }

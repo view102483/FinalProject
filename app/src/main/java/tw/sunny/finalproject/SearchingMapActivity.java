@@ -1,5 +1,7 @@
 package tw.sunny.finalproject;
 
+import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.location.Address;
 import android.location.Criteria;
@@ -9,12 +11,20 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -25,7 +35,14 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.json.JSONArray;
+
+import java.util.ArrayList;
 import java.util.List;
+
+import tw.sunny.finalproject.model.MenuRank;
+import tw.sunny.finalproject.module.InternetModule;
+import tw.sunny.finalproject.module.InternetTask;
 
 /**
  * Description here
@@ -42,7 +59,9 @@ public class SearchingMapActivity extends BaseActivity implements OnMapReadyCall
     Marker mkFrom, mkTo;
     String tmpFrom = "", tmpTo = "";
     boolean moveFlag;
-
+    List<MenuRank> menuRanks;
+    Marker pinStore;
+    AlertDialog dialog;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +70,7 @@ public class SearchingMapActivity extends BaseActivity implements OnMapReadyCall
         ((MapFragment) getFragmentManager().findFragmentById(R.id.map_fragment)).getMapAsync(this);
         txtFrom = (EditText) findViewById(R.id.from);
         txtTo = (EditText) findViewById(R.id.to);
-
+        menuRanks = new ArrayList<>();
 
         txtFrom.setOnEditorActionListener(onEditorActionListener);
         txtTo.setOnEditorActionListener(onEditorActionListener);
@@ -72,7 +91,7 @@ public class SearchingMapActivity extends BaseActivity implements OnMapReadyCall
                         }
                     }
                 } else {
-                    if(!tmpTo.isEmpty()) {
+                    if (!tmpTo.isEmpty()) {
                         mkTo.remove();
                         mkTo = null;
                         tmpTo = "";
@@ -88,7 +107,7 @@ public class SearchingMapActivity extends BaseActivity implements OnMapReadyCall
                         }
                     }
                 } else {
-                    if(!tmpFrom.isEmpty()) {
+                    if (!tmpFrom.isEmpty()) {
                         mkFrom.remove();
                         mkFrom = null;
                         tmpFrom = "";
@@ -156,24 +175,144 @@ public class SearchingMapActivity extends BaseActivity implements OnMapReadyCall
     }
 
     public void btnSearch(View v) {
-        if(mkTo == null) {
+        if (mkTo == null) {
             Toast.makeText(this, "必須輸入目的地", Toast.LENGTH_SHORT).show();
             txtTo.requestFocus();
             return;
         }
 
-
+    /*
         Intent intent = new Intent(this, SearchingMapResultActivity.class);
         intent.putExtra("to", mkTo.getPosition());
         if(mkFrom != null) {
             intent.putExtra("from", mkFrom.getPosition());
         }
         startActivityForResult(intent, 1);
+    */
+        String tos = mkTo.getPosition().latitude + "," + mkTo.getPosition().longitude;
+        String froms = "";
+        if (mkFrom != null)
+            froms = mkFrom.getPosition().latitude + "," + mkFrom.getPosition().longitude;
+        new InternetTask(new InternetModule.InternetCallback() {
+            @Override
+            public void onSuccess(String data) {
+                try {
+                    JSONArray array = new JSONArray(data);
+                    menuRanks.clear();
+                    for(int i=0; i<array.length(); i++) {
+                        MenuRank rank = new MenuRank(array.getJSONObject(i));
+                        menuRanks.add(rank);
+                    }
+
+                    ListView listView = new ListView(SearchingMapActivity.this);
+                    listView.setAdapter(new MenuListAdapter(SearchingMapActivity.this, menuRanks));
+                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            moveFlag = true;
+                            ListHolder holder = (ListHolder) view.getTag();
+                            if (pinStore == null)
+                                pinStore = pinMapMarker(new LatLng(holder.menuRank.getStore_latitude(), holder.menuRank.getStore_longtitude()), holder.menuRank.getStore_name(), BitmapDescriptorFactory.HUE_GREEN);
+                            else
+                                pinStore = moveMapMarker(pinStore, new LatLng(holder.menuRank.getStore_latitude(), holder.menuRank.getStore_longtitude()));
+
+                            if(dialog != null) {
+                                dialog.dismiss();
+                                dialog = null;
+                            }
+                        }
+                    });
+
+                    dialog = new AlertDialog.Builder(SearchingMapActivity.this)
+                        .setTitle("選餐")
+                        .setView(listView)
+                        .create();
+                    dialog.show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+            @Override
+            public void onFail(String msg) {
+
+            }
+        }, "http://120.126.15.112/food/locsearch.php?to=" + tos + "&lng=" + froms + "&calories=" + getSharedPreferences("member", MODE_PRIVATE).getInt("member_calories_left", 9999)).execute();
+    }
+
+    private class MenuListAdapter extends BaseAdapter {
+        Context context;
+        List<MenuRank> menuRanks;
+
+        public MenuListAdapter(Context context, List<MenuRank> menuRanks) {
+            this.context = context;
+            this.menuRanks = menuRanks;
+        }
+
+        @Override
+        public int getCount() {
+            return menuRanks.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return menuRanks.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View v = convertView;
+            ListHolder holder;
+            if (v == null) {
+                v = LayoutInflater.from(context).inflate(R.layout.listitem_location_menu_rank_list, null);
+                ImageView imageView = (ImageView) v.findViewById(R.id.imageView);
+                TextView title = (TextView) v.findViewById(R.id.title);
+                TextView subtitle = (TextView) v.findViewById(R.id.subtitle);
+                RatingBar ratingBar = (RatingBar) v.findViewById(R.id.ratingBar);
+                holder = new ListHolder(imageView, title, subtitle, ratingBar);
+                v.setTag(holder);
+            } else {
+                holder = (ListHolder) v.getTag();
+            }
+
+            MenuRank rank = menuRanks.get(position);
+            Glide.with(context).load(R.drawable.default_image)
+                    .placeholder(R.drawable.loading)
+                    .error(R.drawable.default_image)
+                    .into(holder.image);
+            holder.title.setText(rank.getMenu_name());
+            holder.subtitle.setText(rank.getMenu_calories() + " cal. 店名：" + rank.getStore_name());
+            holder.ratingBar.setRating(rank.getStar());
+            holder.menuRank = rank;
+            return v;
+        }
+
+    }
+
+    private class ListHolder {
+        public ImageView image;
+        public TextView title;
+        public TextView subtitle;
+        public RatingBar ratingBar;
+        public MenuRank menuRank;
+
+        public ListHolder(ImageView image, TextView title, TextView subtitle, RatingBar ratingBar) {
+            this.image = image;
+            this.title = title;
+            this.subtitle = subtitle;
+            this.ratingBar = ratingBar;
+        }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(requestCode == 1 && requestCode == RESULT_OK) {
+        if (requestCode == 1 && requestCode == RESULT_OK) {
             finish();
         }
     }

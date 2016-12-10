@@ -42,13 +42,14 @@ public class ShootFoodInfoDetailActivity extends BaseActivity implements Interne
     ListAdapter adapter;
     Map<String, Boolean> selected;
     Map<String, String> amount;
-    String name;
+    String name, store;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.shoot_food_details);
         name = getIntent().getStringExtra("name");
+        store = getIntent().getStringExtra("store");
         keyword = (EditText) findViewById(R.id.keyword);
         listView = (ListView) findViewById(R.id.listView);
         ingredients = new ArrayList<>();
@@ -234,6 +235,7 @@ public class ShootFoodInfoDetailActivity extends BaseActivity implements Interne
         data = data.substring(0, data.length() - 1);
         map.put("scratchpad", data);
         map.put("name", name);
+        map.put("store", store);
         showLoadingDialog();
         new InternetTask(new InternetModule.InternetCallback() {
             @Override

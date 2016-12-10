@@ -21,7 +21,8 @@
             android:layout_marginBottom="-40dp"
             android:src="@drawable/changepass"
             android:id="@+id/imageView_changepass"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal"
+            android:onClick="btnResetPass"/>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -30,7 +31,8 @@
             android:layout_marginRight="40dp"
             android:layout_marginBottom="-40dp"
             android:src="@drawable/personalize"
-            android:id="@+id/imageView_personalize"/>
+            android:id="@+id/imageView_personalize"
+            android:onClick="btnEditPersonalData"/>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -39,7 +41,8 @@
             android:layout_marginRight="40dp"
             android:layout_marginBottom="-40dp"
             android:src="@drawable/clear"
-            android:id="@+id/imageView_clear"/>
+            android:id="@+id/imageView_clear"
+            android:onClick="btnClearRecords"/>
     </LinearLayout>
 
 

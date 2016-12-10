@@ -50,13 +50,13 @@ import tw.sunny.finalproject.module.InternetTask;
  */
 public class ShootPostActivity extends BaseActivity implements InternetModule.InternetCallback {
     private static final int REQUEST_TAKE_PHOTO = 1;
-    EditText desc, txtLocation;
+    EditText desc, txtLocation, count;
     private CallbackManager callbackManager;
     LocationManager locationManager;
     Bitmap image;
     Uri imageUri;
     String path;
-    String name;
+    String name, store;
     private SharedPreferences sp;
     private ImageView photo;
     String nu_id;
@@ -75,7 +75,7 @@ public class ShootPostActivity extends BaseActivity implements InternetModule.In
         desc = (EditText) findViewById(R.id.editText13);
         txtLocation = (EditText) findViewById(R.id.editText14);
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-
+        count = (EditText) findViewById(R.id.count);
         shareDialog.registerCallback(callbackManager, new FacebookCallback<Sharer.Result>() {
             @Override
             public void onSuccess(Sharer.Result result) {
@@ -108,6 +108,9 @@ public class ShootPostActivity extends BaseActivity implements InternetModule.In
 
         if (getIntent().hasExtra("name")) {
             name = getIntent().getStringExtra("name");
+        }
+        if (getIntent().hasExtra("store")) {
+            name = getIntent().getStringExtra("store");
         }
 
         if (getIntent().hasExtra("nuid")) {
@@ -262,10 +265,12 @@ public class ShootPostActivity extends BaseActivity implements InternetModule.In
     public void onSuccess(String data) {
         showLoadingDialog("Uploading", "上傳資料中...");
         Map<String, String> map = new HashMap<>();
-        map.put("member_id", "1");
+        map.put("member_id", getSharedPreferences("member", MODE_PRIVATE).getString("member_id", "0"));
         map.put("photo_description", desc.getText().toString());
         map.put("store_location", txtLocation.getText().toString());
         map.put("menu_name", name);
+        map.put("store_name", store);
+        map.put("count", count.getText().toString());
         if (nu_id != null && !nu_id.isEmpty())
             map.put("nu_id", nu_id);
         if (path != null && !path.isEmpty())

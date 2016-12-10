@@ -12,10 +12,10 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="164dp"
         android:layout_marginBottom="10dp"
         android:layout_weight="0.6"
-        android:background="#bfffbf">
+        android:background="#bfffbf"
+        android:layout_height="164dp">
 
         <ImageView
             android:layout_width="150dp"
@@ -26,18 +26,33 @@
             android:layout_centerVertical="true"
             android:layout_alignParentStart="true"/>
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:inputType="textMultiLine"
-            android:ems="10"
-            android:gravity="start"
-            android:id="@+id/editText13"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_toEndOf="@+id/imageView5"
-            android:hint="敘述"
-            />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:gravity="start"
+                android:id="@+id/editText13"
+                android:hint="敘述"
+                android:layout_weight="1"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:gravity="start"
+                android:id="@+id/count"
+                android:hint="餐點份量"
+
+                android:layout_weight="4"
+                android:numeric="signed"/>
+        </LinearLayout>
 
     </LinearLayout>
 

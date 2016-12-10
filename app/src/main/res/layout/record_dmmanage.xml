@@ -29,9 +29,10 @@
         android:src="@drawable/records"
         android:id="@+id/imageViewrecords"
         android:layout_gravity="center_horizontal"
-        android:onClick="btnDMB"
+        android:onClick="btnDMCheckRegular"
 
         />
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="80dp"
@@ -41,7 +42,7 @@
         android:src="@drawable/regular"
         android:id="@+id/imageViewregular"
         android:layout_gravity="center_horizontal"
-        android:onClick="btnDMCheckRegular"
+        android:onClick="btnDMB"
         />
     <ImageView
         android:layout_width="wrap_content"

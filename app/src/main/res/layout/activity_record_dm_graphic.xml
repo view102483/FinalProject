@@ -8,6 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btn_zone">
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -15,7 +16,10 @@
             android:src="@drawable/breakfastblue"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
-            android:stateListAnimator="@drawable/btn_selector"/>
+            android:stateListAnimator="@drawable/btn_selector"
+            android:id="@+id/imgBreakfast"
+            android:onClick="btnTimeChange"/>
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -23,7 +27,10 @@
             android:src="@drawable/lunchblue"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
-            android:stateListAnimator="@drawable/btn_selector"/>
+            android:stateListAnimator="@drawable/btn_selector"
+            android:id="@+id/imgLaunch"
+            android:onClick="btnTimeChange"/>
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,7 +38,10 @@
             android:src="@drawable/dinnerblue"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
-            android:stateListAnimator="@drawable/btn_selector"/>
+            android:stateListAnimator="@drawable/btn_selector"
+            android:id="@+id/imgDinner"
+            android:onClick="btnTimeChange"/>
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -39,28 +49,31 @@
             android:src="@drawable/night"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
-            android:stateListAnimator="@drawable/btn_selector"/>
+            android:stateListAnimator="@drawable/btn_selector"
+            android:id="@+id/imgBeforeSleep"
+            android:onClick="btnTimeChange"/>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_below="@id/btn_zone"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="11dp"
-        android:layout_marginBottom="16dp">
+        android:layout_below="@+id/btn_zone"
+        android:layout_alignParentStart="true">
+
         <RelativeLayout
             android:id="@+id/graphic"
             android:layout_below="@id/btn_zone"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/dmbs"
             android:layout_weight="2"
             android:layout_margin="15dp">
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/chart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
         </RelativeLayout>
-
+<!--
         <LinearLayout
             android:orientation="horizontal"
             android:layout_below="@id/graphic"
@@ -85,7 +98,8 @@
                         android:id="@+id/cbSugar"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:clickable="false"/>
+                        android:clickable="true"
+                        android:checked="true"/>
 
                     <TextView
                         android:text="血糖"
@@ -102,7 +116,9 @@
                     <CheckBox
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:clickable="false"/>
+                        android:clickable="true"
+                        android:checked="true"
+                        android:id="@+id/cbInsulin"/>
                     <TextView
                         android:text="胰島素"
                         android:gravity="center_vertical"
@@ -117,7 +133,9 @@
                     <CheckBox
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:clickable="false"/>
+                        android:clickable="true"
+                        android:checked="true"
+                        android:id="@+id/cbBs"/>
                     <TextView
                         android:text="血壓"
                         android:gravity="center_vertical"
@@ -138,6 +156,7 @@
                     android:layout_height="146dp">
 
                     <LinearLayout
+                        android:id="@+id/beforelayout"
                         android:layout_weight="1"
                         android:orientation="horizontal"
                         android:layout_width="100dp"
@@ -153,10 +172,12 @@
                             android:layout_weight="2"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="睡前"/>
+                            android:text="飯前"
+                            android:id="@+id/tbefore"/>
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/afterlayout"
                         android:layout_weight="1"
                         android:orientation="horizontal"
                         android:layout_width="100dp"
@@ -172,7 +193,8 @@
                             android:layout_weight="2"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="睡前"/>
+                            android:text="飯後"
+                            android:id="@+id/tafter"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -186,6 +208,7 @@
                     android:onClick="btnCheckClick"/>
             </LinearLayout>
         </LinearLayout>
+        -->
     </LinearLayout>
 
 </RelativeLayout>
