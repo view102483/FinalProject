@@ -9,7 +9,6 @@ import android.widget.TextView;
 import org.json.JSONObject;
 
 import tw.sunny.finalproject.module.InternetModule;
-import tw.sunny.finalproject.module.InternetTask;
 
 /**
  * Description here
@@ -36,8 +35,14 @@ public class RecordRemindActivity extends BaseActivity implements InternetModule
         note = (TextView) findViewById(R.id.note);
         hey = (TextView) findViewById(R.id.hey);
 
-        new InternetTask(this, "http://120.126.15.112/food/catering.php?m=" + getSharedPreferences("member", MODE_PRIVATE).getString("member_id", "0")).execute();
+        //new InternetTask(this, "http://120.126.15.112/food/catering.php?m=" + getSharedPreferences("member", MODE_PRIVATE).getString("member_id", "0")).execute();
+        bfks = "豬肉水餃";
+        luns = "蘋果";
+        dins = "優格";
+        suggest = "";
 
+        note.setText(suggest);
+        hey.setText(bfks);
     }
 
     public void btnChangeTime(View v) {
