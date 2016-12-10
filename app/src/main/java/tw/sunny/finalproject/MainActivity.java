@@ -76,8 +76,8 @@ public class MainActivity extends BaseActivity {
         intent.setClass(MainActivity.this, SearchingMainActivity.class);
         startActivity(intent);
     }
-    public void btnLocation(View view){
-
+    public void btnCareInfo(View view){
+        startActivity(new Intent(this, CareInfoActivity.class));
     }
     public void btnRecord(View view){
         Intent intent = new Intent();

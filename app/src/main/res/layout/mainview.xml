@@ -98,7 +98,7 @@
             android:layout_height="100dp"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
-            android:onClick="btnLocation"
+            android:onClick="btnCareInfo"
             android:src="@drawable/information"
             android:stateListAnimator="@drawable/btn_selector"/>
 
