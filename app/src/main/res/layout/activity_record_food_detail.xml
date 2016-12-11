@@ -36,7 +36,7 @@
             android:layout_height="30dp"
             android:layout_weight="1"
             android:src="@drawable/calendar"
-            android:onClick="btnDateFinish"/>
+            android:onClick="btnDateBegin"/>
 
         <TextView
             android:id="@+id/dateFinish"
@@ -52,7 +52,7 @@
             android:layout_height="30dp"
             android:layout_weight="1"
             android:src="@drawable/calendar"
-            android:onClick="btnDateBegin"/>
+            android:onClick="btnDateFinish"/>
     </LinearLayout>
 
 </RelativeLayout>

@@ -36,9 +36,9 @@ public class RecordRemindActivity extends BaseActivity implements InternetModule
         hey = (TextView) findViewById(R.id.hey);
 
         //new InternetTask(this, "http://120.126.15.112/food/catering.php?m=" + getSharedPreferences("member", MODE_PRIVATE).getString("member_id", "0")).execute();
-        bfks = "豬肉水餃";
-        luns = "蘋果";
-        dins = "優格";
+        bfks = "鮮奶饅頭\n蛋\n牛奶";
+        luns = "牛肉麵\n菠菜\n優格";
+        dins = "豬肉水餃\n蘋果\n優格";
         suggest = "";
 
         note.setText(suggest);

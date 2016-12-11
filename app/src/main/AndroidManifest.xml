@@ -16,9 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".CareInfoActivity"
-            android:label="" />
+            android:label="衛教資訊" />
         <activity android:name=".CareInfoDetailActivity"
-            android:label=""/>
+            android:label="衛教資訊"/>
         <activity
             android:name=".ExitActivity"
             android:theme="@android:style/Theme.NoDisplay"

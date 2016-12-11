@@ -21,6 +21,7 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -84,7 +85,7 @@ public class RecordFoodDetailActivity extends BaseActivity implements InternetMo
                 new InternetTask(RecordFoodDetailActivity.this, "http://120.126.15.112/food/record.php?act=getbydate", InternetModule.POST, map).execute();
 
             }
-        }, Integer.parseInt(temp[0]), Integer.parseInt(temp[1]), Integer.parseInt(temp[2]));
+        }, Integer.parseInt(temp[0]), Integer.parseInt(temp[1])-1, Integer.parseInt(temp[2]));
         dialog.show();
     }
 
@@ -102,7 +103,7 @@ public class RecordFoodDetailActivity extends BaseActivity implements InternetMo
                 showLoadingDialog();
                 new InternetTask(RecordFoodDetailActivity.this, "http://120.126.15.112/food/record.php?act=getbydate", InternetModule.POST, map).execute();
             }
-        }, Integer.parseInt(temp[0]), Integer.parseInt(temp[1]), Integer.parseInt(temp[2]));
+        }, Integer.parseInt(temp[0]), Integer.parseInt(temp[1])-1, Integer.parseInt(temp[2]));
         dialog.show();
     }
 
@@ -168,7 +169,12 @@ public class RecordFoodDetailActivity extends BaseActivity implements InternetMo
         }
         int cnt = 0;
         firstDate = null;
-        for (String key : map.keySet()) {
+        Object[] keys = map.keySet().toArray();
+        Arrays.sort(keys);
+
+
+        for (Object k : keys) {
+            String key = k.toString();
             if (map.get(key).length > 0) {
                 try {
                     if (firstDate == null)

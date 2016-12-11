@@ -14,10 +14,12 @@ import java.lang.reflect.Field;
  * @version 1.0
  */
 
-public class CareInfo implements Parcelable{
+public class CareInfo implements Parcelable {
     private int id;
-    private String Cateogry;
-    private String Info;
+    private String title;
+    private String info;
+    private Integer parent_id;
+
 
     public CareInfo(JSONObject json) {
         try {
@@ -26,14 +28,15 @@ public class CareInfo implements Parcelable{
                 if (json.has(field.getName())) {
                     field.setAccessible(true);
                     String value = String.valueOf(json.get(field.getName()));
-                    if(value.equals("null"))
+                    if (value.equals("null"))
                         continue;
-                    if(field.getType().isAssignableFrom(Integer.TYPE)) {
+                    if (field.getType().isAssignableFrom(Integer.TYPE)) {
                         field.set(this, Integer.parseInt(value));
-                    } else if(field.getType().isAssignableFrom(Double.TYPE)) {
+                    } else if (field.getType().isAssignableFrom(Integer.class)) {
+                        field.set(this, Integer.parseInt(value));
+                    } else if (field.getType().isAssignableFrom(Double.TYPE)) {
                         field.set(this, Double.parseDouble(value));
-                    }
-                    else {
+                    } else {
                         field.set(this, value);
                     }
                 }
@@ -43,17 +46,20 @@ public class CareInfo implements Parcelable{
         }
     }
 
+
     protected CareInfo(Parcel in) {
         id = in.readInt();
-        Cateogry = in.readString();
-        Info = in.readString();
+        title = in.readString();
+        info = in.readString();
+        parent_id = in.readInt();
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
-        dest.writeString(Cateogry);
-        dest.writeString(Info);
+        dest.writeString(title);
+        dest.writeString(info);
+        dest.writeInt(parent_id);
     }
 
     @Override
@@ -81,19 +87,27 @@ public class CareInfo implements Parcelable{
         this.id = id;
     }
 
-    public String getCateogry() {
-        return Cateogry;
+    public String getTitle() {
+        return title;
     }
 
-    public void setCateogry(String cateogry) {
-        Cateogry = cateogry;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getInfo() {
-        return Info;
+        return info;
     }
 
     public void setInfo(String info) {
-        Info = info;
+        this.info = info;
+    }
+
+    public Integer getParent_id() {
+        return parent_id;
+    }
+
+    public void setParent_id(int parent_id) {
+        this.parent_id = parent_id;
     }
 }
