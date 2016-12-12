@@ -64,7 +64,8 @@
                 android:text="忘記密碼"
                 android:id="@+id/button2"
                 android:layout_gravity="right"
-                android:onClick="btnForgotPassword" />
+                android:onClick="btnForgotPassword"
+                android:visibility="invisible"/>
 
 
             </LinearLayout>

@@ -1,6 +1,7 @@
 package tw.sunny.finalproject;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -31,7 +32,7 @@ public class SettingPersonalPage2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register02);
-
+        SharedPreferences sp = getSharedPreferences("member", MODE_PRIVATE);
         Bundle bundle = getIntent().getExtras();
         email = bundle.getString("email");
         pass = bundle.getString("pass");
@@ -42,8 +43,14 @@ public class SettingPersonalPage2 extends AppCompatActivity {
         girl = (ImageView) findViewById(R.id.imageView_gril);
         height = (EditText) findViewById(R.id.editHeight);
         weight = (EditText) findViewById(R.id.editWeight);
+        if("男".equals(sp.getString("member_gender", "")))
+            genderClick(boy);
+        else if("女".equals(sp.getString("member_gender", "")))
+            genderClick(girl);
 
-        genderClick(girl);
+        height.setText(sp.getInt("member_height", 0) + "");
+        weight.setText(sp.getInt("member_weight", 0) + "");
+
     }
 
     public void genderClick(View v) {

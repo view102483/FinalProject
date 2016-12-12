@@ -1,6 +1,7 @@
 package tw.sunny.finalproject;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -49,6 +50,7 @@ public class SettingPersonalPage3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register03);
 
+        SharedPreferences sp = getSharedPreferences("member", MODE_PRIVATE);
         Bundle bundle = getIntent().getExtras();
         email = bundle.getString("email");
         pass = bundle.getString("pass");
@@ -70,7 +72,29 @@ public class SettingPersonalPage3 extends AppCompatActivity {
         hbp = (CheckBox) findViewById(R.id.hbp);
         sz = (CheckBox) findViewById(R.id.sh);
         ds = (CheckBox) findViewById(R.id.ds);
-        sportClick(sportLight);
+
+        switch(sp.getInt("member_exercise", 0))
+        {
+            case 1:
+                sportClick(sportLight);
+                break;
+            case 2:
+                sportClick(sportMid);
+                break;
+            case 3:
+                sportClick(sportHeavy);
+                break;
+            case 4:
+                sportClick(sportVeryHeavy);
+                break;
+
+        }
+
+        kcalText.setText(sp.getInt("member_calories", 0)+"");
+        dm.setChecked(sp.getString("member_dm", "").equals("是"));
+        hbp.setChecked(sp.getString("member_hbp", "").equals("是"));
+        sz.setChecked(sp.getString("member_sz", "").equals("是"));
+        ds.setChecked(sp.getString("member_ds", "").equals("是"));
     }
 
     public void sportClick(View v) {

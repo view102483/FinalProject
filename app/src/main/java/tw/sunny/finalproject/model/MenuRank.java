@@ -21,6 +21,16 @@ public class MenuRank {
     private double store_longtitude;
     private String store_starttime;
     private String store_lasttime;
+    private String store_image;
+
+    public String getStore_image() {
+        return store_image;
+    }
+
+    public void setStore_image(String store_image) {
+        this.store_image = store_image;
+    }
+
     public MenuRank(JSONObject json) {
         try {
             Field[] fields = this.getClass().getDeclaredFields();
@@ -30,10 +40,12 @@ public class MenuRank {
                     String value = String.valueOf(json.get(field.getName()));
                     if(value.equals("null"))
                         continue;
-                    if(field.getType().isAssignableFrom(Integer.TYPE)) {
+                    if(field.getType().isAssignableFrom(Integer.TYPE) || field.getType().isAssignableFrom(Integer.class)) {
                         field.set(this, Integer.parseInt(value));
-                    } else if(field.getType().isAssignableFrom(Double.TYPE)) {
+                    } else if(field.getType().isAssignableFrom(Double.TYPE)||field.getType().isAssignableFrom(Double.class)) {
                         field.set(this, Double.parseDouble(value));
+                    } else if(field.getType().isAssignableFrom(Float.TYPE)||field.getType().isAssignableFrom(Float.class)) {
+                        field.set(this, Float.parseFloat(value));
                     }
                     else {
                         field.set(this, value);

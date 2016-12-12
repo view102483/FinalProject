@@ -164,7 +164,7 @@ public class RecordFoodDetailActivity extends BaseActivity implements InternetMo
                 map.get(key)[4] += record.getMenu().getMenu_saturatedfat();
                 map.get(key)[5] += record.getMenu().getMenu_transfat();
                 map.get(key)[6] += record.getMenu().getMenu_protein();
-                map.get(key)[7] += record.getMenu().getMenu_soduim();
+                map.get(key)[7] += record.getMenu().getMenu_sodium();
             }
         }
         int cnt = 0;

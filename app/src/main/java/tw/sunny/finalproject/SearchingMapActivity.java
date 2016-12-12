@@ -213,9 +213,10 @@ public class SearchingMapActivity extends BaseActivity implements OnMapReadyCall
                             ListHolder holder = (ListHolder) view.getTag();
                             if (pinStore == null)
                                 pinStore = pinMapMarker(new LatLng(holder.menuRank.getStore_latitude(), holder.menuRank.getStore_longtitude()), holder.menuRank.getStore_name(), BitmapDescriptorFactory.HUE_GREEN);
-                            else
+                            else {
                                 pinStore = moveMapMarker(pinStore, new LatLng(holder.menuRank.getStore_latitude(), holder.menuRank.getStore_longtitude()));
-
+                                pinStore.setTitle(holder.menuRank.getStore_name());
+                            }
                             if(dialog != null) {
                                 dialog.dismiss();
                                 dialog = null;
@@ -282,7 +283,7 @@ public class SearchingMapActivity extends BaseActivity implements OnMapReadyCall
             }
 
             MenuRank rank = menuRanks.get(position);
-            Glide.with(context).load(R.drawable.default_image)
+            Glide.with(context).load(rank.getStore_image())
                     .placeholder(R.drawable.loading)
                     .error(R.drawable.default_image)
                     .into(holder.image);

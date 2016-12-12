@@ -92,10 +92,21 @@ public class LoginActivity extends BaseActivity implements InternetModule.Intern
         try {
             JSONObject login = new JSONObject(data);
             getSharedPreferences("member", MODE_PRIVATE).edit()
-                    .putString("member_id", login.getString("member_id"))
-                    .putString("member_name", login.getString("member_name"))
-                    .putInt("member_calories", login.getInt("member_calories"))
+                    .putString("member_id", login.isNull("member_id") ? "" : login.getString("member_id") )
+                    .putString("member_name", login.isNull("member_name") ? "" : login.optString("member_name"))
+                    .putString("member_gender", login.isNull("member_gender") ? "" : login.optString("member_gender"))
+                    .putString("member_birthday", login.isNull("member_birthday") ? "" : login.getString("member_birthday"))
+                    .putInt("member_height", login.optInt("member_height"))
+                    .putInt("member_weight", login.optInt("member_weight"))
+                    .putInt("member_exercise", login.optInt("member_exercise"))
+                    .putInt("member_calories", login.optInt("member_calories"))
+                    .putString("member_dm", login.isNull("member_dm") ? "" : login.optString("member_dm"))
+                    .putString("member_hbp", login.isNull("member_hbp") ? "" : login.optString("member_hbp"))
+                    .putString("member_sz", login.isNull("member_sz") ? "" : login.optString("member_sz"))
+                    .putString("member_ds", login.isNull("member_ds") ? "" : login.optString("member_ds"))
+
             .commit();
+
             Intent intent = new Intent();
             intent.setClass(LoginActivity.this, MainActivity.class);
             startActivity(intent);

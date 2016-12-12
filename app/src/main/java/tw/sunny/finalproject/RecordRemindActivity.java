@@ -39,7 +39,7 @@ public class RecordRemindActivity extends BaseActivity implements InternetModule
         bfks = "鮮奶饅頭\n蛋\n牛奶";
         luns = "牛肉麵\n菠菜\n優格";
         dins = "豬肉水餃\n蘋果\n優格";
-        suggest = "";
+        suggest = "鈉攝取含量超標，建議改以白糖、白醋、肉桂、五香、花椒、香菜、檸檬汁、辣椒、蔥及薑蒜來調味，增加食物美味可口。";
 
         note.setText(suggest);
         hey.setText(bfks);

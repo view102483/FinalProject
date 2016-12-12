@@ -82,7 +82,7 @@ public class RecordDetailActivity extends BaseActivity implements InternetModule
             calPerPackage.setText(menu.getMenu_calories() + " 大卡");
             carbohydratePerPackage.setText(menu.getMenu_carbohydrate() + " 公克");
             sugarPerPackage.setText(menu.getMenu_sugar() + " 公克");
-            sodiumPerPackage.setText(menu.getMenu_soduim() + " 毫克");
+            sodiumPerPackage.setText(menu.getMenu_sodium() + " 毫克");
             fatPerPackage.setText(menu.getMenu_fat() + " 公克");
             saturatedfatPerPackage.setText(menu.getMenu_saturatedfat() + " 公克");
             transfatPerPackage.setText(menu.getMenu_transfat() + " 公克");

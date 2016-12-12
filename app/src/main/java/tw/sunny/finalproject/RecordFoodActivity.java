@@ -136,7 +136,7 @@ public class RecordFoodActivity extends BaseActivity implements InternetModule.I
             values[4] += record.getMenu().getMenu_saturatedfat();
             values[5] += record.getMenu().getMenu_transfat();
             values[6] += record.getMenu().getMenu_protein();
-            values[7] += record.getMenu().getMenu_soduim();
+            values[7] += record.getMenu().getMenu_sodium();
         }
         final String[] ls = {"卡路里", "碳水化合物", "糖類", "脂肪", "飽和脂肪", "反式脂肪", "蛋白質", "鈉"};
 

@@ -24,7 +24,7 @@ public class Menu implements Parcelable{
     private int menu_saturatedfat;
     private int menu_transfat;
     private int menu_protein;
-    private int menu_soduim;
+    private int menu_sodium;
     private String store_id;
     private String bar_code;
 
@@ -38,7 +38,7 @@ public class Menu implements Parcelable{
         menu_saturatedfat = in.readInt();
         menu_transfat = in.readInt();
         menu_protein = in.readInt();
-        menu_soduim = in.readInt();
+        menu_sodium = in.readInt();
         store_id = in.readString();
         bar_code = in.readString();
     }
@@ -54,7 +54,7 @@ public class Menu implements Parcelable{
         dest.writeInt(menu_saturatedfat);
         dest.writeInt(menu_transfat);
         dest.writeInt(menu_protein);
-        dest.writeInt(menu_soduim);
+        dest.writeInt(menu_sodium);
         dest.writeString(store_id);
         dest.writeString(bar_code);
     }
@@ -183,12 +183,12 @@ public class Menu implements Parcelable{
         this.menu_protein = menu_protein;
     }
 
-    public int getMenu_soduim() {
-        return menu_soduim;
+    public int getMenu_sodium() {
+        return menu_sodium;
     }
 
-    public void setMenu_soduim(int menu_soduim) {
-        this.menu_soduim = menu_soduim;
+    public void setMenu_sodium(int menu_sodium) {
+        this.menu_sodium = menu_sodium;
     }
 
     public String getStore_id() {

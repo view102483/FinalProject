@@ -2,6 +2,7 @@ package tw.sunny.finalproject;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -29,8 +30,13 @@ public class SettingPersonalPage1 extends AppCompatActivity {
         email = (EditText) findViewById(R.id.editmail);
         pass = (EditText) findViewById(R.id.editPassword);
         name = (EditText) findViewById(R.id.editName);
+        SharedPreferences sp = getSharedPreferences("member", MODE_PRIVATE);
+        name.setText(sp.getString("member_name", ""));
+        email.setText(sp.getString("mber_email", ""));
+        EditText.setText(sp.getString("member_birthday", ""));
         findViewById(R.id.TextHelloNew).setVisibility(View.INVISIBLE);
-
+        findViewById(R.id.passlayout).setVisibility(View.INVISIBLE);
+        findViewById(R.id.maillayout).setVisibility(View.INVISIBLE);
     }
     public void btnRegister(View view){
         Bundle bundle = new Bundle();

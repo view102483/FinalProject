@@ -268,7 +268,9 @@ public class ShootPostActivity extends BaseActivity implements InternetModule.In
         map.put("member_id", getSharedPreferences("member", MODE_PRIVATE).getString("member_id", "0"));
         map.put("photo_description", desc.getText().toString());
         map.put("store_location", txtLocation.getText().toString());
+        if(name != null)
         map.put("menu_name", name);
+        if(store != null)
         map.put("store_name", store);
         map.put("count", count.getText().toString());
         if (nu_id != null && !nu_id.isEmpty())

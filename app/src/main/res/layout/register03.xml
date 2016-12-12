@@ -7,7 +7,13 @@
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
                 android:paddingTop="15dp">
-
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
     <LinearLayout
         android:id="@+id/layoutsport"
         android:layout_width="wrap_content"
@@ -227,6 +233,7 @@
         android:onClick="btnRegisterClick"
         android:src="@drawable/registered"
         />
-
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>
