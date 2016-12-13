@@ -90,7 +90,7 @@
             android:label="疾病管理"/>
         <activity
             android:name=".RecordDMBActivity"
-            android:label="血糖紀錄"/>
+            android:label="定期檢查"/>
         <activity android:name=".RecordDmGraphicActivity"
             android:label="圖表分析"/>
         <activity android:name=".RecordDmAnalysisActivity"
@@ -100,7 +100,7 @@
 
         <activity
             android:name=".RecordDMCheckRegularActivity"
-            android:label="定期檢查"/>
+            android:label="血糖紀錄"/>
         <activity
             android:name=".RecordPersonalActivity"
             android:label="個人紀錄"/>
