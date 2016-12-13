@@ -66,6 +66,8 @@ public class RecordDmGraphicActivity extends BaseActivity implements InternetMod
 
 
     public void btnTimeChange(View v) {
+
+        beforesleep.setImageResource(R.drawable.night);
         breakfast.setImageResource(R.drawable.breakfastblue);
         launch.setImageResource(R.drawable.lunchblue);
         dinner.setImageResource(R.drawable.dinnerblue);
@@ -80,6 +82,7 @@ public class RecordDmGraphicActivity extends BaseActivity implements InternetMod
             dinner.setImageResource(R.drawable.dinnerred);
         } else if (v == beforesleep) {
             timePicked = BEFORESLEEP;
+            beforesleep.setImageResource(R.drawable.nightred);
         }
 
         try {
